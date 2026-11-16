@@ -12,7 +12,7 @@ item_registry = "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java"
 
 # The base checkout the carry imports carry_lib.py / worldgen_rewrite.py from and checks tags against.
 [base]
-sha = "30ba2a6f8267c8f8e62316b5b9d1b1daf39d82c9"
+sha = "0b58ed073f24f72d9c4b7cf6de22577d782a198d"
 
 # R0: byte copies (assets, structures, tags; tag files have the same format in 26.3).
 [copy]
@@ -110,6 +110,16 @@ to = "farmersdelight:can_item_perform_ability"
 why = "the base evaluates FD's ability condition (abilities as tags: shears_dig = #c:tools/shear); NeoForge's has the same test"
 
 # The package icon must be square (≤ 512 px); CD's logo is a 135×37 banner, so the corn item texture is used.
+# Generated (not carried): 1.21.1's special suspicious-stew recipe took any #minecraft:small_flowers item with a
+# FlowerBlock effect (CD adds wild corn to that tag; FD WildCropBlock(SATURATION, 8) = 8 s = 160 ticks). 26.3 restates
+# that recipe as one data recipe per flower (data/minecraft/recipe/suspicious_stew_from_<flower>.json); this is the
+# same file for wild corn (CA13).
+[[stew_recipe]]
+flower = "corn_delight:wild_corn"
+effect = "minecraft:saturation"
+duration = 160
+dest = "data/corn_delight/recipe/suspicious_stew_from_wild_corn.json"
+
 [[copy_as]]
 from = "assets/corn_delight/textures/item/corn.png"
 to = "icon.png"

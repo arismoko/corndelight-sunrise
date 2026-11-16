@@ -451,6 +451,15 @@ def carry(cd: Path, out: Path, rules: dict, base: Path, vanilla: Path):
             if rel == c["from"]:
                 emit(c["to"], data, src, data, "copy_as")
 
+    # Generated suspicious-stew recipes (vanilla 26.3's per-flower form).
+    for st in rules.get("stew_recipe", []):
+        body = {"type": "minecraft:crafting_shapeless", "group": "suspicious_stew",
+                "ingredients": ["minecraft:bowl", "#minecraft:mushrooms", "#minecraft:mushrooms", st["flower"]],
+                "result": {"components": {"minecraft:suspicious_stew_effects": [
+                    {"duration": st["duration"], "id": st["effect"]}]}, "id": "minecraft:suspicious_stew"}}
+        rules_bytes = RULES.read_bytes()
+        emit(st["dest"], lib.dump_json(body), "tools/carry_rules_cd.toml.in", rules_bytes, "stew_recipe")
+
     # R7: item definitions.
     java_rel = rules["source"]["item_registry"]
     java = (cd / java_rel).read_bytes()

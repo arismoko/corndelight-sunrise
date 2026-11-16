@@ -4,6 +4,8 @@
 /// The package id (configs, load conditions).
 pub const MOD_ID: &str = "ported_corn_delight";
 
+pub const WILD_CORN: &str = "corn_delight:wild_corn";
+
 pub const MOD_NAMESPACE: &str = "corn_delight";
 
 /// Load conditions (registered in the mod id's namespace, as the engine requires).

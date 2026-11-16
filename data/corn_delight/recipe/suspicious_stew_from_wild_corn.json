@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "suspicious_stew",
+  "ingredients": [
+    "minecraft:bowl",
+    "#minecraft:mushrooms",
+    "#minecraft:mushrooms",
+    "corn_delight:wild_corn"
+  ],
+  "result": {
+    "components": {
+      "minecraft:suspicious_stew_effects": [
+        {
+          "duration": 160,
+          "id": "minecraft:saturation"
+        }
+      ]
+    },
+    "id": "minecraft:suspicious_stew"
+  }
+}

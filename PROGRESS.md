@@ -200,3 +200,29 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - deltas: CA12 — the corn's growth does not fire the `crop_grow_pre/post` hooks for other mods (NeoForge
   `canCropGrow`/`fireCropGrowPost`): mods cannot dispatch engine hooks; the base's own crops have the same gap.
 - next: CD-07 (wild corn block).
+
+## CD-07 Wild corn block — PASS — 2026-11-16
+- base: farmersdelight-horizon 0b58ed0 | addon commit: (this commit)
+- code: `lib.rs` registers `corn_delight:wild_corn` through the base's `api::wild_crop::register(…,
+  "minecraft:saturation", 8)` (BlockRegistry: `WildCropBlock(SATURATION, 8)`; 1.21.1 `FlowerBlock` takes
+  **seconds**, so 160 ticks — the inventory's "8 ticks" was wrong; vanilla's dandelion is 0.35 s = 7 ticks).
+- carry: new generated recipe `corn_delight:suspicious_stew_from_wild_corn` (bowl + 2 #mushrooms + wild corn →
+  suspicious stew with saturation 160), the 26.3 per-flower form of 1.21.1's special suspicious-stew recipe, which
+  took any `#minecraft:small_flowers` item with a FlowerBlock effect (CA13). FD 26.3 ships no such recipe for its own
+  wild crops (not changed: FD behaviour). Carry re-pinned to base 0b58ed0; 267 files.
+- in game (fd-port, FDM6, grass pad 60003..60014,199,59985..59991; `../run/shots/cd-07/`):
+  - placement: refused on stone, placed on grass; `execute if block … #minecraft:small_flowers` → "Test passed".
+  - bone meal ×15 on one wild corn → 7 wild corn around it (≤ 10 cap).
+  - brown mooshroom fed wild corn → `stew_effects: [{id: "minecraft:saturation"}]` (duration 160 is the codec
+    default and is omitted); crafted in the 2×2 grid: bowl + red + brown mushroom + wild corn → suspicious stew with
+    `suspicious_stew_effects: [{id: "minecraft:saturation"}]` (`stew-craft.png`).
+  - loot (survival): bare hand → 1 corn seeds (×3); shears → 1 wild corn, shears 238 → 237 (the carried
+    `neoforge:can_item_perform_ability` → base `farmersdelight:can_item_perform_ability` rename works).
+  - cutting board + flint knife → 1 corn seeds + 1 FD straw (`corn_delight:cutting/wild_corn`).
+  - rich soil: 3 wild corn on FD rich soil, `random_tick_speed 300` for 50 s → no spread; positive control: two
+    azaleas on the same rich-soil row became oak trees in 30 s (boost works) — wild corn is in
+    `#farmersdelight:unaffected_by_rich_soil` through `#wild_crops` (base overlay entry `corn_delight:wild_corn`,
+    optional). (Fern and short grass were tried first as controls; they are in that tag themselves, so they do not
+    count.) The command parser does not know mod tags ("Unknown block tag"), so membership was checked by behaviour.
+- deltas: CA13 (generated stew recipe, as above).
+- next: CD-08 (wild corn world generation).
