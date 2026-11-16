@@ -2,6 +2,7 @@
 //! `Hooks` only dispatches; logic lives in modules.
 
 mod config;
+mod crop;
 mod ids;
 
 use mod_api::*;
@@ -31,8 +32,9 @@ impl Hooks for CornDelight {
         config::on_file(host, ids::MOD_ID, event.config);
     }
 
-    fn register(&self, _registrar: &mut dyn Registrar, _: &RegistrationContext) {
+    fn register(&self, registrar: &mut dyn Registrar, _: &RegistrationContext) {
         eprintln!("{}: base api {}", ids::MOD_NAMESPACE, base_api());
+        crop::register(registrar);
     }
 }
 

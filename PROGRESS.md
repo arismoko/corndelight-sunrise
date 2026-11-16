@@ -161,3 +161,42 @@ base (`ported_farmersdelight`) commit and version it was validated with.
     flint knife: board 2 → 1, Bob +2 seeds +1 corncob, knife 131 → 130 (`bob-cut.png`, `server.log`).
 - deltas: none new.
 - next: CD-06 (two-tall corn crop).
+
+## CD-06 Two-tall corn crop — PASS — 2026-11-16
+- base: farmersdelight-horizon 0b58ed0 (`api::crop` added) | addon commit: (this commit) | build pin afe471cf
+- code: `src/crop.rs` — the corn Part on `corn_crop` (wheat template) and pure decisions. Behaviour taken from
+  MMLib's HighCropBlock/CornCrop by reading only (AD9: re-implemented, nothing copied; restated here in my words):
+  random tick at raw light ≥ 9: below age 7 a roll 1/(⌊25/speed⌋+1) grows one age (flag 2); then a lower half
+  whose age was ≥ 4 **before** the tick rolls again and places an upper half (age 0) when the space is empty and an
+  upper half could stand there (flags 3); the template's own growth is cancelled. An upper half survives only on a
+  lower corn half of age ≥ 4 at raw light ≥ 8 (sky view implies it at darkening 0); a lower half keeps the
+  template's crop rule. Bone meal: always succeeds (+2..5 from the level random), refused only when the relevant
+  upper half is mature (an upper target, or the upper above a lower one); past 7 the half stops at 7 and a lower
+  half bone-meals the upper above it, or places one at the leftover age (total − 8). Growth speed and draws come from
+  the base's `api::crop` (vanilla `getGrowthSpeed`, as FD's crops).
+- unit: 11 tests / 40+ decision cases (`dark_draws_nothing`, `young_lower_grows_with_one_roll`,
+  `upper_roll_uses_the_age_before_the_tick`, `mature_lower_still_rolls_for_the_upper`, `upper_half_grows_alone`,
+  `roll_bounds`, `upper_survival`, `bonemeal_targets`, `bonemeal_within_the_half`, `bonemeal_overflow`,
+  `state_values`); 15 crate tests pass, clippy -D warnings clean.
+- in game (fd-port, FDM6, field 60004..60011,199,59999/60001 on moist farmland; `../run/shots/cd-06/`):
+  - 14 seeds planted by player use on farmland; time-lapse at `random_tick_speed 300` (`lapse-1..6.png`): lowers
+    grew to 7, upper halves appeared and grew on their own (U0..U7 over 60 s); check of every upper: 14 uppers, 0 not
+    standing on a lower of age ≥ 4.
+  - bone meal: three lowers at age 6 with nothing above → lower 7 + upper at age 0, 1, 0 (overflow 2..5 − 2);
+    lower 7 with an upper at 2 → upper 7 (passed up).
+  - survival break of a mature lower (upper 7 above): both halves gone, drops 2 corn + 7 seeds (each half rolled its
+    own table: CQ1).
+  - light: a sealed stone cell (sky 0, block 0) on farmland with water inside kept its corn at age 2 for 20 s at
+    speed 300, while an open plant went 2 → 7 and grew an upper half. (A first box leaked sky light 12 through the
+    water channel and the farmland's partial shape; that run was discarded.)
+  - farmer probe (CA8): a level-2 farmer with 16 corn seeds and a composter next to the field harvested a mature plant
+    within ~60 s (lower broken, its upper gone with it), picked up the seeds (17 → 22) and replanted an age-0 corn:
+    **PASS**, CA8 not needed.
+  - restart: 22 corn states identical after save & quit and a new start (`before-restart.json`).
+  - FD rich soil farmland (CA7): corn planted on `rich_soil_farmland` grew to lower 7 + upper 7 in 12 s at speed 300.
+- observed (kept, reference data): dry farmland under corn turns to dirt and the corn pops — CD's data does not add
+  corn to `#minecraft:maintains_farmland` (vanilla's list; FD adds its own crops). Recorded as quirk CQ7.
+- not checked: bees (the template's bee growth would set the age directly), trampling.
+- deltas: CA12 — the corn's growth does not fire the `crop_grow_pre/post` hooks for other mods (NeoForge
+  `canCropGrow`/`fireCropGrowPost`): mods cannot dispatch engine hooks; the base's own crops have the same gap.
+- next: CD-07 (wild corn block).
