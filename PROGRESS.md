@@ -134,3 +134,30 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - deltas: CA11 — the nachos' leftover tray uses FD 26.3's shepherd's pie leftover texture (upstream FD 1.21.1's
   generic `tray_pie_leftover` does not exist in FD 26.3).
 - next: CD-05 (first playable slice, closes CDM1).
+
+## CD-05 First playable slice — PASS — CDM1 closed — 2026-11-16
+- base: farmersdelight-horizon 30ba2a6 | addon commit: d88cc46 (no code change in this task) | build pin afe471cf
+- in game (fd-port, FDM6, survival, pad 60003..60022,200,59992..60003; `../run/shots/cd-05/`). The test player's
+  36 stacks were moved into chests at 60019,200,59995 (27) and 60021,200,59995 (9) first.
+  - `corn_delight:corn_seeds` crafted in the 2×2 grid from 1 corn → 1 seeds.
+  - corn on the FD cutting board (FD 26.3's board takes the whole stack: 5 corn) + flint knife →
+    `corn_delight:cutting/corn`: +2 corn seeds, +1 corncob, knife 131 → 130, board 5 → 4.
+  - furnace with coal: corn seeds → popcorn within 205 ticks (recipe 200; XP 521 → 522 for 0.5); corn → grilled
+    corn within 205 ticks.
+  - eating (Easy for the test, Peaceful restored): popcorn food 1 → 4, saturation 0 → 3.0 (3 × 0.5 × 2); grilled
+    corn 4 → 10, 3.0 → 5.4 (+2.4 = 6 × 0.2 × 2).
+  - corncob as fuel under a corn: `lit_total_time: 100`, cook progress reached ~100/200 before the fuel ran out
+    (half an item), then decayed as vanilla.
+  - composter: 62 corncobs: 3 tries on an empty composter all added a layer (1.21.1's level-0 rule, kept in the
+    inline provider); 59 tries at levels 1–6 → 14 layers (23.7 %, expected 25 %, σ ≈ 3.3 tries).
+  - corn fed to a chicken: `InLove` 0 → 587, corn −1 (`minecraft:chicken_food` tag carried from CD).
+  - save & quit (full game restart) with 4 corn on the board and the knife at 130: after the restart the board
+    still holds 4 corn (rendered, `board-after-restart.png`), knife 130; a cut after the restart → 3 left, +2
+    seeds, +1 corncob.
+  - second player: LAN stays environment-blocked as in MD-08/MD-12 (offline developer session refuses `lan open`), so
+    the dedicated server: rig re-exported from `../run/native-mods` (base + CD built together for the server SDK,
+    `run/server-export-new` → `run/server-engine`; client copy from `native-afe471c-a0692d0bd98a`). Server and Bob:
+    "content from 3 mod(s)", `corn_delight: base api 1`. Bob (survival) put 2 corn on a board and cut once with a
+    flint knife: board 2 → 1, Bob +2 seeds +1 corncob, knife 131 → 130 (`bob-cut.png`, `server.log`).
+- deltas: none new.
+- next: CD-06 (two-tall corn crop).
