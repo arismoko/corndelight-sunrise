@@ -1,6 +1,7 @@
 //! Corn Delight — native Horizon port, an add-on of the Farmer's Delight port (`ported_farmersdelight`).
 //! `Hooks` only dispatches; logic lives in modules.
 
+mod config;
 mod ids;
 
 use mod_api::*;
@@ -10,6 +11,26 @@ struct CornDelight;
 
 #[mod_api::horizon_mod]
 impl Hooks for CornDelight {
+    fn register_load_conditions(
+        &self,
+        _: &RegistrationContext,
+        event: &mut RegisterLoadConditionsEvent<'_>,
+    ) {
+        config::register_load_conditions(event);
+    }
+
+    fn register_configs(&self, _: HostSide<'_>, event: &mut RegisterConfigsEvent<'_>) {
+        config::register(ids::MOD_ID, event.configs);
+    }
+
+    fn config_loading(&self, host: HostSide<'_>, event: &mut ConfigLoadingEvent<'_>) {
+        config::on_file(host, ids::MOD_ID, event.config);
+    }
+
+    fn config_reloading(&self, host: HostSide<'_>, event: &mut ConfigReloadingEvent<'_>) {
+        config::on_file(host, ids::MOD_ID, event.config);
+    }
+
     fn register(&self, _registrar: &mut dyn Registrar, _: &RegistrationContext) {
         eprintln!("{}: base api {}", ids::MOD_NAMESPACE, base_api());
     }
