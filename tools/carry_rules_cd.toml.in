@@ -1,0 +1,112 @@
+# (Named *.toml.in: the Horizon packager refuses .toml files outside src/.)
+# Rules for tools/carry_cd.py (ADDONS_PLAN §5.4, CD-03). Change these and re-run; never hand-edit carried files.
+# Every source file must match exactly one rule.
+
+[source]
+repo = "https://github.com/0999312/Corn-Delight"
+branch = "1.21"
+sha = "ab03743e53319e985f134d15a0473ff1329c5e0a"
+# Generated tree first, then hand-written; a path both have is an error.
+roots = ["src/generated/resources", "src/main/resources"]
+item_registry = "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java"
+
+# The base checkout the carry imports carry_lib.py / worldgen_rewrite.py from and checks tags against.
+[base]
+sha = "30ba2a6f8267c8f8e62316b5b9d1b1daf39d82c9"
+
+# R0: byte copies (assets, structures, tags; tag files have the same format in 26.3).
+[copy]
+prefixes = [
+  "assets/corn_delight/lang/",
+  "assets/corn_delight/textures/",
+  "assets/corn_delight/logo.png",
+  "data/corn_delight/structure/",
+  "data/c/tags/",
+  "data/minecraft/tags/",
+]
+
+# R6 (assets): block states and models, with port-pack's asset upgrade (renamed vanilla ids, typed variant fields,
+# template_farmland); a file it does not change stays a byte copy.
+[asset]
+prefixes = ["assets/corn_delight/blockstates/", "assets/corn_delight/models/"]
+
+# R1–R4: recipes (vanilla and FD types) to 26.3 ingredient forms.
+[recipe]
+prefixes = ["data/corn_delight/recipe/"]
+
+# R6: advancements and loot tables to 26.3 shapes.
+[advancement]
+prefixes = ["data/corn_delight/advancement/"]
+[loot]
+prefixes = ["data/corn_delight/loot_table/"]
+
+# R8: upstream FD worldgen types to vanilla compositions (base tools/worldgen_rewrite.py, BX-09).
+[[worldgen]]
+from = "data/corn_delight/worldgen/configured_feature/patch_wild_corn.json"
+to = "data/corn_delight/worldgen/feature/patch_wild_corn.json"
+kind = "wild_crop"
+placed = "data/corn_delight/worldgen/placed_feature/patch_wild_corn.json"
+
+[[worldgen]]
+from = "data/corn_delight/worldgen/placed_feature/patch_wild_corn.json"
+to = "data/corn_delight/worldgen/placed_feature/patch_wild_corn.json"
+kind = "placed"
+feature = "data/corn_delight/worldgen/configured_feature/patch_wild_corn.json"
+
+[[worldgen]]
+from = "data/corn_delight/neoforge/biome_modifier/wild_corn.json"
+to = "data/corn_delight/neoforge/biome_modifier/wild_corn.json"
+kind = "biome_modifier"
+
+# R9: CD's FD-namespace tags become overlay entries for the base carry (BX-02).
+[[overlay_tag]]
+path = "data/farmersdelight/tags/block/wild_crops.json"
+tag = "farmersdelight:wild_crops"
+kind = "block"
+
+[[overlay_tag]]
+path = "data/farmersdelight/tags/item/wild_crops.json"
+tag = "farmersdelight:wild_crops"
+kind = "item"
+
+# R9: dropped, each with the task that restates it.
+[[drop]]
+glob = "data/neoforge/loot_modifiers/*"
+why = "global loot modifier list: chest loot injection is code (CD-13, CA2)"
+[[drop]]
+glob = "data/corn_delight/loot_modifiers/*"
+why = "MMLib add_loot_table modifiers: chest loot injection is code (CD-13, CA2)"
+[[drop]]
+glob = "data/neoforge/data_maps/*"
+why = "NeoForge data maps (compostables, furnace fuels): item components (CD-04/CD-16)"
+
+# Not carried: integrations, loader metadata, datagen cache.
+[exclude]
+patterns = [
+  "data/corn_delight/recipe/integration/*",
+  "data/sereneseasons/*",
+  "META-INF/*",
+  "pack.mcmeta",
+  ".cache/*",
+]
+
+# R5: an ingredient alternative naming a tag no definer has is pruned (an empty child voids the whole ingredient);
+# any other undefined tag fails the carry.
+[prune]
+tags = ["c:foods/milk"]
+
+# Loot conditions of NeoForge that the target has under another name with the same meaning.
+[[loot_condition_rename]]
+from = "neoforge:can_item_perform_ability"
+to = "farmersdelight:can_item_perform_ability"
+why = "the base evaluates FD's ability condition (abilities as tags: shears_dig = #c:tools/shear); NeoForge's has the same test"
+
+[[copy_as]]
+from = "assets/corn_delight/logo.png"
+to = "icon.png"
+
+# R7: client item definitions (26.3 assets/<ns>/items/<id>.json) for every registered item; the cob pipe uses its
+# 2D model in these display contexts and the 3D `cob_pipe_model` elsewhere (MMLib MultiModelBakedModel, cdinv§3.10).
+[item_definitions]
+flat_contexts = ["gui", "fixed", "ground"]
+special = { cob_pipe = "cob_pipe_model" }

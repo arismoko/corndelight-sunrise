@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "pool1",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "corn_delight:nachos_block"
+        }
+      ],
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "corn_delight:nachos_block",
+        "state": {
+          "servings": "4"
+        }
+      }
+    },
+    {
+      "name": "pool2",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bowl"
+        }
+      ],
+      "condition": {
+        "term": {
+          "type": "minecraft:match_block",
+          "blocks": "corn_delight:nachos_block",
+          "state": {
+            "servings": "4"
+          }
+        },
+        "type": "minecraft:inverted"
+      }
+    }
+  ]
+}

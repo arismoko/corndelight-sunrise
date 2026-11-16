@@ -1,0 +1,28 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    "#c:crops/corn",
+    "#c:foods/leafy_green",
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "#c:foods/raw_chicken",
+        "#c:foods/raw_pork",
+        "#c:foods/raw_beef",
+        "minecraft:brown_mushroom"
+      ]
+    },
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "#c:drinks/milk"
+      ]
+    }
+  ],
+  "result": {
+    "id": "corn_delight:corn_soup"
+  },
+  "recipe_book_tab": "meals",
+  "experience": 0.35,
+  "cookingtime": 200
+}

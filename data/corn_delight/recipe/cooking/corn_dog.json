@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    "corn_delight:cornbread_batter",
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "#c:foods/cooked_chicken",
+        "#c:foods/cooked_pork",
+        "#c:foods/cooked_beef",
+        "#c:foods/cooked_mutton"
+      ]
+    }
+  ],
+  "result": {
+    "id": "corn_delight:corn_dog"
+  },
+  "recipe_book_tab": "meals",
+  "experience": 0.5,
+  "cookingtime": 100
+}

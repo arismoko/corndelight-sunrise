@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    "corn_delight:tortilla_chip",
+    "corn_delight:tortilla_chip",
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "#c:foods/cooked_chicken",
+        "#c:foods/cooked_pork",
+        "#c:foods/cooked_beef",
+        "#c:foods/cooked_mutton"
+      ]
+    },
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "#c:drinks/milk"
+      ]
+    },
+    "farmersdelight:tomato_sauce"
+  ],
+  "result": {
+    "id": "corn_delight:nachos_block"
+  },
+  "container": {
+    "id": "minecraft:bowl"
+  },
+  "recipe_book_tab": "meals",
+  "experience": 0.35,
+  "cookingtime": 200
+}

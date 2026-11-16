@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    "#c:crops/corn",
+    {
+      "fabric:type": "fabric:any",
+      "ingredients": [
+        "#c:drinks/milk"
+      ]
+    },
+    "minecraft:sugar"
+  ],
+  "result": {
+    "id": "corn_delight:creamy_corn_drink"
+  },
+  "recipe_book_tab": "drinks",
+  "experience": 0.35,
+  "cookingtime": 200
+}

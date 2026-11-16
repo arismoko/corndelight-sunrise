@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#c:crops/corn",
+    "#c:crops/corn",
+    {
+      "type": "neoforge:compound",
+      "children": [
+        "#c:drinks/milk"
+      ]
+    },
+    "#c:eggs"
+  ],
+  "result": {
+    "id": "corn_delight:cornbread_batter",
+    "count": 3
+  }
+}

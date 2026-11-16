@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "corn_delight:corncob"
+  ],
+  "tool": "#c:tools/knife",
+  "result": [
+    {
+      "item": {
+        "id": "farmersdelight:straw",
+        "count": 1
+      }
+    }
+  ]
+}

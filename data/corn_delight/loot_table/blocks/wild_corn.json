@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "condition": {
+                "terms": [
+                  {
+                    "ability": "shears_dig",
+                    "type": "farmersdelight:can_item_perform_ability"
+                  },
+                  "minecraft:tool/can_silk_touch"
+                ],
+                "type": "minecraft:any_of"
+              },
+              "name": "corn_delight:wild_corn"
+            },
+            {
+              "type": "minecraft:item",
+              "modifier": [
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:uniform_bonus_count",
+                  "parameters": {
+                    "bonusMultiplier": 2
+                  },
+                  "type": "minecraft:apply_bonus"
+                },
+                {
+                  "type": "minecraft:explosion_decay"
+                }
+              ],
+              "name": "corn_delight:corn_seeds"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

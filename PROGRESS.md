@@ -53,3 +53,43 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - deltas: CA10 — the config file is `ported_corn_delight-common.toml` (reference `corn_delight-common.toml`; the
   engine names a mod's files after its id, as the base's A45).
 - next: CD-03 (data uplift carry 1.21.1 → 26.3).
+
+## CD-03 Data uplift carry (1.21.1 → 26.3) — PASS (script; in-game zero-skip check runs in CD-04) — 2026-11-16
+- base: farmersdelight-horizon 30ba2a6 (overlay re-pinned) | addon commit: (this commit)
+- `tools/carry_cd.py` + `tools/carry_rules_cd.toml.in`: imports the base's `carry_lib.py` and `worldgen_rewrite.py`
+  from `--base` at the pinned commit; Corn Delight checked at `ab03743e…`; every source file matches exactly one
+  rule. Target formats were read from the vanilla 26.3 jar and FD 26.3 data (not assumed):
+  - recipes: R1 `{"item"}`/`{"tag"}` → `"id"`/`"#tag"`, lists flattened; R2 `neoforge:compound` kept in vanilla
+    recipes (`taco`, `cornbread_batter`; the engine reads it); R3 in FD recipes → `{"fabric:type": "fabric:any"}`
+    (6 cooking files: classic_corn_dog, corn_dog, corn_soup, creamed_corn, creamy_corn_drink, nachos_block — the
+    plan's "4" was a miscount, cdinv§3.4 lists 6); R4 cutting `tool {"tag"}` → `"#tag"`; R5 `c:foods/milk` pruned
+    from 5 files (corn_soup, creamed_corn, creamy_corn_drink, nachos_block, cornbread_batter; `#c:drinks/milk`
+    stays in each), CA5.
+  - advancements: `recipe_unlocked` `recipe` → `recipes` (23), root background `minecraft:textures/block/bricks.png`
+    → `minecraft:block/bricks` (26.3 asset id, as FD 26.3's root); any other trigger than inventory_changed /
+    recipe_unlocked would fail the carry (none).
+  - loot (7): port-pack semantics (`conditions` → one `condition` / `all_of`, `functions` → `modifier`,
+    `condition`/`function` → `type`, typed number providers, silk-touch match_tool →
+    `minecraft:tool/can_silk_touch`) plus `block_state_property {block, properties}` → 26.3 `match_block {blocks,
+    state}` (26.3 has no block_state_property; vanilla wheat uses match_block). wild_corn's
+    `neoforge:can_item_perform_ability` (shears_dig) → the base's `farmersdelight:can_item_perform_ability` (the
+    engine has no NeoForge one; the base maps shears_dig to `#c:tools/shear`, NeoForge's ShearsItem ability).
+  - worldgen (R8, base BX-09): `configured_feature/patch_wild_corn.json` → `worldgen/feature/` (26.3 folder) as
+    `minecraft:overlay` [floor coarse dirt, primary wild corn ±4, secondary short grass ±6]; placed feature:
+    `biome_tag` dropped, `count 64` after `in_square`; biome modifier → `neoforge:add_features` (`#is_overworld` and
+    not [lush_caves, mushroom_fields] and `horizon:climate` 0.4–0.9).
+  - R7: 26 client item definitions from ItemRegistry.java's registration order; `cob_pipe` = `minecraft:select` on
+    display context (gui/fixed/ground → `item/cob_pipe`, else `item/cob_pipe_model`). Block states/models: no
+    change needed (port-pack asset rules checked; NeoForge `render_type` is read by the engine).
+  - R9 overlay `tools/overlay/corn_delight.json` (`farmersdelight:wild_crops` block + item); dropped with their
+    task: GLM files (CD-13, CA2), data maps (CD-04/CD-16); excluded: IE recipes (8), Serene Seasons tags (4),
+    META-INF, pack.mcmeta, datagen cache. `logo.png` also as `icon.png`.
+- counts (plan §CD-03): 40 recipes (0 IE), 36 advancements, 7 loot tables, 4 structures (byte copies), 49 textures,
+  55 models, 6 blockstates, 12 lang, 26 item definitions, 14 `c` + 12 `minecraft` tag files; 266 files; fence: 0
+  files outside `corn_delight` / `c` / `minecraft` tags; tag universe (vanilla 26.3 jar + base + output): 0
+  undefined after the milk prune. `tools/uplift_report.md` lists every rewritten file with its rules.
+  `--check` byte-identical ("carry check ok: 266 files").
+- tests: `tools/test_carry_cd.py` (12 golden cases, one or more per rule). CI keeps JSON parsing only (the carry
+  needs the private base checkout).
+- deltas: CA5 (milk prune) recorded.
+- next: CD-04 (block and item declarations), then the in-game zero-skip check for CD-03.

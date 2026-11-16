@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "corn_delight:wild_corn"
+  ],
+  "tool": "#c:tools/knife",
+  "result": [
+    {
+      "item": {
+        "id": "corn_delight:corn_seeds",
+        "count": 1
+      }
+    },
+    {
+      "item": {
+        "id": "farmersdelight:straw",
+        "count": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,1909 @@
+{
+ "cd_repo": "https://github.com/0999312/Corn-Delight",
+ "cd_sha": "ab03743e53319e985f134d15a0473ff1329c5e0a",
+ "base_sha": "30ba2a6f8267c8f8e62316b5b9d1b1daf39d82c9",
+ "rules_sha256": "413be05b086b2b550dc040a0afb2c204f150c21325f69a25ae889870c612a055",
+ "overlay_sha256": "2483151afe5e442ec750885c8ef828fb415aeaa489cab6a3cd7b1ca42f4cf0b6",
+ "report_sha256": "f2fe31aefbc183e1eb991e7ca6faff85a9e0e81edc418611fcc2f161caf72b48",
+ "items": [
+  "wild_corn",
+  "corn_crate",
+  "corn_kernel_bag",
+  "nachos_block",
+  "popcorn_box",
+  "corn",
+  "corncob",
+  "corn_seeds",
+  "grilled_corn",
+  "boiled_corn",
+  "popcorn",
+  "caramel_popcorn",
+  "creamed_corn",
+  "corn_soup",
+  "creamy_corn_drink",
+  "cornbread_batter",
+  "cornbread",
+  "corn_dog",
+  "classic_corn_dog",
+  "tortilla_raw",
+  "tortilla",
+  "taco",
+  "cornbread_stuffing",
+  "tortilla_chip",
+  "nachos_bowl",
+  "cob_pipe"
+ ],
+ "log": [
+  "dropped data/corn_delight/loot_modifiers/shipwreck_loot.json: MMLib add_loot_table modifiers: chest loot injection is code (CD-13, CA2)",
+  "dropped data/corn_delight/loot_modifiers/village_house.json: MMLib add_loot_table modifiers: chest loot injection is code (CD-13, CA2)",
+  "overlay data/farmersdelight/tags/block/wild_crops.json -> farmersdelight:wild_crops (block, 1 ids)",
+  "overlay data/farmersdelight/tags/item/wild_crops.json -> farmersdelight:wild_crops (item, 1 ids)",
+  "dropped data/neoforge/data_maps/item/compostables.json: NeoForge data maps (compostables, furnace fuels): item components (CD-04/CD-16)",
+  "dropped data/neoforge/data_maps/item/furnace_fuels.json: NeoForge data maps (compostables, furnace fuels): item components (CD-04/CD-16)",
+  "dropped data/neoforge/loot_modifiers/global_loot_modifiers.json: global loot modifier list: chest loot injection is code (CD-13, CA2)"
+ ],
+ "files": [
+  {
+   "source": "src/main/resources/assets/corn_delight/blockstates/corn_crate.json",
+   "dest": "assets/corn_delight/blockstates/corn_crate.json",
+   "sha256_source": "20de1ba27e599ae391a815b6ec1a9790eddedf14b9c43ed0dce5e4c3d9f15341",
+   "sha256_dest": "20de1ba27e599ae391a815b6ec1a9790eddedf14b9c43ed0dce5e4c3d9f15341",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/blockstates/corn_crop.json",
+   "dest": "assets/corn_delight/blockstates/corn_crop.json",
+   "sha256_source": "e487cf579f038253ad4b0a7a549c5e3493902e50e54dfd2191480c33f89b7c9f",
+   "sha256_dest": "e487cf579f038253ad4b0a7a549c5e3493902e50e54dfd2191480c33f89b7c9f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/blockstates/corn_kernel_bag.json",
+   "dest": "assets/corn_delight/blockstates/corn_kernel_bag.json",
+   "sha256_source": "04df638c8a79d40df5df2cec9faaec5ec16648e4719ce7a391887796bda25375",
+   "sha256_dest": "04df638c8a79d40df5df2cec9faaec5ec16648e4719ce7a391887796bda25375",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/blockstates/nachos_block.json",
+   "dest": "assets/corn_delight/blockstates/nachos_block.json",
+   "sha256_source": "52ce543f2440c97cdb8b7a37f7997fa27f8225651301a99ce30148ef51e84a1d",
+   "sha256_dest": "52ce543f2440c97cdb8b7a37f7997fa27f8225651301a99ce30148ef51e84a1d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/blockstates/popcorn_box.json",
+   "dest": "assets/corn_delight/blockstates/popcorn_box.json",
+   "sha256_source": "17f7f2f33de7140d71273cf0dbd672977158913540c5a811f5b28975fe384d4f",
+   "sha256_dest": "17f7f2f33de7140d71273cf0dbd672977158913540c5a811f5b28975fe384d4f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/blockstates/wild_corn.json",
+   "dest": "assets/corn_delight/blockstates/wild_corn.json",
+   "sha256_source": "20240f201dc1de415125aa9db5c572f05cff041bc4b41cd77a798d39ffb41c03",
+   "sha256_dest": "20240f201dc1de415125aa9db5c572f05cff041bc4b41cd77a798d39ffb41c03",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/boiled_corn.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "b3ec56d1106ece502b5fa451b1d86b1704a2140f51d5210fc684728e0a38da18",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/caramel_popcorn.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "31450afceca725360f5bb600b1b95a80c67b18185ee13b5c90c4ee0bc21730ac",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/classic_corn_dog.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "24c9f277b73d08db95cff7f97a6318ca7b30fa0400c473fea19c64d06aced7ee",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/cob_pipe.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "505d5f6793895f341a1d30a046d535fd9167c092f7eafad91a5500a13da6a1f1",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/corn.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "283d60700f64cdf00140ed08fb02c8deedec2449cfb6e13184466c03d3ba95d9",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/corn_crate.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "f0fb6e6a3fc216dc10e81797c448ba172fd7e91860341fb0016f25b1a95eb38f",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/corn_dog.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "f179b9f72bcd138ba5cc0737f19c881af10b1fc26c7afe7e16aeac6e3bcc9f24",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/corn_kernel_bag.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "d185d40cdcd3543d30c8cc1f77ef43f4d32a8ca19a6463f0126d32859602a646",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/corn_seeds.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "60cb6525c07f0584e231004a63d1f59fb3fb2fd51168e1686142b98da8ab2e15",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/corn_soup.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "0834997a80b0204250c6de311b67323684b45253c888867a68fdaabd87283ccf",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/cornbread.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "7058c3e7757fb7439c34ac1e8568dd5f52e56b04c48deeb9b691e2452864ae50",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/cornbread_batter.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "73317d11521463d2c36938d6bd7ea5f631368048a7ac351765d97e3205115a09",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/cornbread_stuffing.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "aa0bb3d372d5cdb28c40af790a01b8dd84fd396dc51814528a667652ab6a3cbe",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/corncob.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "6916943c9e22e424fb125d5a3a8743f0c35b1546bae7d52a0827e9ee84d4aa78",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/creamed_corn.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "58dda188b77d14b98e634270df54f5386a9cbd8eb741cc4a7f40ec6cdddcca1d",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/creamy_corn_drink.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "a374d620ddefbf40b186fad1391060ab03de31aefe56645493e9e4fdba276177",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/grilled_corn.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "08c4c80d4293c06f669f30f7033e541b085ec79bc76e5e13b8c172982cee2cdf",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/nachos_block.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "fb059ac6d3a97b380db9c9b561d65f45902a78171ea426de6ccff7eec65ab595",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/nachos_bowl.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "f5c2473ee02ddd2ffbe4fe17390e5e3106f0e0db1d26cabe0f1ab10b939ff7e2",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/popcorn.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "7caa4f1dd087463a14a4b736b8216677766fcaf982adaf60e9ad83e3d83f7076",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/popcorn_box.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "ce89b701a0ce1e6fd376d51504332d069bdbb79ec6c585c613d1c79553091357",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/taco.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "400303580fab3c279d8230bd422e8b257eb14711517c2753deb451e21e852355",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/tortilla.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "2f92e4b366e21b25c269d49ca41fdc351c6d679b0e4a8963bafe8d7c56b5a6c2",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/tortilla_chip.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "384be5c73d887be85fce77d99e20aac3b7ec1ca5b2a1bed1b845d3da7ea9dbc3",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/tortilla_raw.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "ed27d984f5197ba2ae12bd0a2e0eb74d5d54d431133826d713e99c42d92ffe4a",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java",
+   "dest": "assets/corn_delight/items/wild_corn.json",
+   "sha256_source": "609e0c73479bae1cf1a5d0de55d23902a7f46a7b755255fc57481a4657978e44",
+   "sha256_dest": "687b8239b0bd031a85b92ea4f9f65d23050f39d9a2c0208561ca6dbd34287db3",
+   "rule": "item_definition"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/ca_es.json",
+   "dest": "assets/corn_delight/lang/ca_es.json",
+   "sha256_source": "c9e1f76b3884ef282bac5ed5b6ffa27542b69e5b05370b96408ec42c8edc3f1b",
+   "sha256_dest": "c9e1f76b3884ef282bac5ed5b6ffa27542b69e5b05370b96408ec42c8edc3f1b",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/de_de.json",
+   "dest": "assets/corn_delight/lang/de_de.json",
+   "sha256_source": "95e1f6e26f2ca06a2fd0cf70517e441e5d37fc160bb928d00deabf64086bd842",
+   "sha256_dest": "95e1f6e26f2ca06a2fd0cf70517e441e5d37fc160bb928d00deabf64086bd842",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/en_us.json",
+   "dest": "assets/corn_delight/lang/en_us.json",
+   "sha256_source": "0c886bd8bdfd62e0cf46a84d3ad4c4b2635b64602a358b5d6def7b4e0f01a080",
+   "sha256_dest": "0c886bd8bdfd62e0cf46a84d3ad4c4b2635b64602a358b5d6def7b4e0f01a080",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/it_ch.json",
+   "dest": "assets/corn_delight/lang/it_ch.json",
+   "sha256_source": "d3875d631b289ba25076d00a7eec917183d11a2bc0d07633dd49062cd76cdeed",
+   "sha256_dest": "d3875d631b289ba25076d00a7eec917183d11a2bc0d07633dd49062cd76cdeed",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/it_it.json",
+   "dest": "assets/corn_delight/lang/it_it.json",
+   "sha256_source": "d3875d631b289ba25076d00a7eec917183d11a2bc0d07633dd49062cd76cdeed",
+   "sha256_dest": "d3875d631b289ba25076d00a7eec917183d11a2bc0d07633dd49062cd76cdeed",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/ja_jp.json",
+   "dest": "assets/corn_delight/lang/ja_jp.json",
+   "sha256_source": "deac01146543e6040ad86cc026f05bc14fbdcd8eb429cbb232382f925446488c",
+   "sha256_dest": "deac01146543e6040ad86cc026f05bc14fbdcd8eb429cbb232382f925446488c",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/ko_kr.json",
+   "dest": "assets/corn_delight/lang/ko_kr.json",
+   "sha256_source": "c5c41a90c3e8c021817dabae26cbe85a9dfa8fe001dab990e5d707f0050222fd",
+   "sha256_dest": "c5c41a90c3e8c021817dabae26cbe85a9dfa8fe001dab990e5d707f0050222fd",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/ru_ru.json",
+   "dest": "assets/corn_delight/lang/ru_ru.json",
+   "sha256_source": "fc63db2b13dd6945aa2791f193665f088fb670a7ec556e34223be0bc98eb0e40",
+   "sha256_dest": "fc63db2b13dd6945aa2791f193665f088fb670a7ec556e34223be0bc98eb0e40",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/uk_ua.json",
+   "dest": "assets/corn_delight/lang/uk_ua.json",
+   "sha256_source": "5eaac1360b1ae82ab94a3d1040ee22ed6415fb355e1a49b883e985f67ccd06be",
+   "sha256_dest": "5eaac1360b1ae82ab94a3d1040ee22ed6415fb355e1a49b883e985f67ccd06be",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/zh_cn.json",
+   "dest": "assets/corn_delight/lang/zh_cn.json",
+   "sha256_source": "dc0487894d1b30f398bc83f1c64ef3e7b6fc3d4fcdf4cebce27f59c7b5ee7ddf",
+   "sha256_dest": "dc0487894d1b30f398bc83f1c64ef3e7b6fc3d4fcdf4cebce27f59c7b5ee7ddf",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/zh_hk.json",
+   "dest": "assets/corn_delight/lang/zh_hk.json",
+   "sha256_source": "ce56c382ab8707d206481dfa0bffda5809b480e586de3a5e83e5c25e5c21c7d7",
+   "sha256_dest": "ce56c382ab8707d206481dfa0bffda5809b480e586de3a5e83e5c25e5c21c7d7",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/lang/zh_tw.json",
+   "dest": "assets/corn_delight/lang/zh_tw.json",
+   "sha256_source": "ae42c66643adfde8cd8f200df7e0ee90c3b1ceaea26b27121edce3db909ab955",
+   "sha256_dest": "ae42c66643adfde8cd8f200df7e0ee90c3b1ceaea26b27121edce3db909ab955",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/logo.png",
+   "dest": "assets/corn_delight/logo.png",
+   "sha256_source": "a56cfb12daf53022245f94c4f10515aaf2c89665797c78bd9f0a96ef5de3308d",
+   "sha256_dest": "a56cfb12daf53022245f94c4f10515aaf2c89665797c78bd9f0a96ef5de3308d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crate.json",
+   "dest": "assets/corn_delight/models/block/corn_crate.json",
+   "sha256_source": "5eb631a013461ca19ecf04935d258fa7fe9bf5057438a6087579c576acfecb19",
+   "sha256_dest": "5eb631a013461ca19ecf04935d258fa7fe9bf5057438a6087579c576acfecb19",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage0.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage0.json",
+   "sha256_source": "2d7dfbd0a07634cf99ab84f63def3db2c81def1131ed5ac7459a37ff915c43de",
+   "sha256_dest": "2d7dfbd0a07634cf99ab84f63def3db2c81def1131ed5ac7459a37ff915c43de",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage1.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage1.json",
+   "sha256_source": "ca0a553fb3553ccb32ae9a1645436224f12eadf9b4b9eb275a705a839fe38ddc",
+   "sha256_dest": "ca0a553fb3553ccb32ae9a1645436224f12eadf9b4b9eb275a705a839fe38ddc",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage2.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage2.json",
+   "sha256_source": "090dbfa63be058c1fc3c8c013eaaf1f555bebc8b3e66de963f4e9a12416f83e8",
+   "sha256_dest": "090dbfa63be058c1fc3c8c013eaaf1f555bebc8b3e66de963f4e9a12416f83e8",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage3.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage3.json",
+   "sha256_source": "b7d1adf64f3b345045b9f89715f2674448b11a4db10df791fe253c816e223f03",
+   "sha256_dest": "b7d1adf64f3b345045b9f89715f2674448b11a4db10df791fe253c816e223f03",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage4.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage4.json",
+   "sha256_source": "0e47958700d7ee813bb57c9714f38737a1bad8aa8611def055f62b68a6450635",
+   "sha256_dest": "0e47958700d7ee813bb57c9714f38737a1bad8aa8611def055f62b68a6450635",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage5.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage5.json",
+   "sha256_source": "caabacb57cb2e5059651fbd501c1da49b54f6bc9cd94cea0d99a76eca79ad75d",
+   "sha256_dest": "caabacb57cb2e5059651fbd501c1da49b54f6bc9cd94cea0d99a76eca79ad75d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage6.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage6.json",
+   "sha256_source": "d7fd81dd14bf14d4dc93815b36523f9aea8c895c62c20d6456622b959e5e90b8",
+   "sha256_dest": "d7fd81dd14bf14d4dc93815b36523f9aea8c895c62c20d6456622b959e5e90b8",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_crop_stage7.json",
+   "dest": "assets/corn_delight/models/block/corn_crop_stage7.json",
+   "sha256_source": "88cd5cb805d286db1c515a45f8ad2c6defe99a03b04e515493aa673183ffb14a",
+   "sha256_dest": "88cd5cb805d286db1c515a45f8ad2c6defe99a03b04e515493aa673183ffb14a",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_kernel_bag.json",
+   "dest": "assets/corn_delight/models/block/corn_kernel_bag.json",
+   "sha256_source": "ee2c0dda86276b446b4db24ff2d80840eda3332289c6ce60e3985aeb5849af25",
+   "sha256_dest": "ee2c0dda86276b446b4db24ff2d80840eda3332289c6ce60e3985aeb5849af25",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage0.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage0.json",
+   "sha256_source": "e0a3974ebe16ac70038f9c09eefcba806c555391237ad553bf98e823b909278f",
+   "sha256_dest": "e0a3974ebe16ac70038f9c09eefcba806c555391237ad553bf98e823b909278f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage1.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage1.json",
+   "sha256_source": "2f581baa7a617c68b5701f22a8990969aabf8bdcb6c3b992f31b0f2a14c82234",
+   "sha256_dest": "2f581baa7a617c68b5701f22a8990969aabf8bdcb6c3b992f31b0f2a14c82234",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage2.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage2.json",
+   "sha256_source": "29c2811e82cb3df870e9b6b557057ccd6099819e26fd84628445fc02b5d750f0",
+   "sha256_dest": "29c2811e82cb3df870e9b6b557057ccd6099819e26fd84628445fc02b5d750f0",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage3.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage3.json",
+   "sha256_source": "cdf2681702dbc58b64d1003c7b102b444071bcf2c30e39132e6ca1e29aff99cf",
+   "sha256_dest": "cdf2681702dbc58b64d1003c7b102b444071bcf2c30e39132e6ca1e29aff99cf",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage4.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage4.json",
+   "sha256_source": "d13aae1231cbbd72512fe6eb7237db669b691274306159554730ea2cb91fdc50",
+   "sha256_dest": "d13aae1231cbbd72512fe6eb7237db669b691274306159554730ea2cb91fdc50",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage5.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage5.json",
+   "sha256_source": "2ee4551f5c882c3748780a10b06045f71e58c9ac318ea51197a6ca8d6db361cf",
+   "sha256_dest": "2ee4551f5c882c3748780a10b06045f71e58c9ac318ea51197a6ca8d6db361cf",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage6.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage6.json",
+   "sha256_source": "f899eaf78a85ed893872c638903f47cdcbba90722efafeaf1232a3bfd7697bfc",
+   "sha256_dest": "f899eaf78a85ed893872c638903f47cdcbba90722efafeaf1232a3bfd7697bfc",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/corn_top_stage7.json",
+   "dest": "assets/corn_delight/models/block/corn_top_stage7.json",
+   "sha256_source": "0b15505768c92b154f9c82847c1344ea14b9108427eb756426292eee2923fb3f",
+   "sha256_dest": "0b15505768c92b154f9c82847c1344ea14b9108427eb756426292eee2923fb3f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage0.json",
+   "dest": "assets/corn_delight/models/block/nachos_block_stage0.json",
+   "sha256_source": "85da8441df4c53e980b46af89afbf5be638b2f913bf5be878d6626906c99785b",
+   "sha256_dest": "85da8441df4c53e980b46af89afbf5be638b2f913bf5be878d6626906c99785b",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage1.json",
+   "dest": "assets/corn_delight/models/block/nachos_block_stage1.json",
+   "sha256_source": "c83e968bc7dc86d7e9fa1e66e81ecec69d85ac84ebfa638b29a90ecc3320af45",
+   "sha256_dest": "c83e968bc7dc86d7e9fa1e66e81ecec69d85ac84ebfa638b29a90ecc3320af45",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage2.json",
+   "dest": "assets/corn_delight/models/block/nachos_block_stage2.json",
+   "sha256_source": "818a15605c7f0bd567aaa1a22f5ba03421ad734419de1b8b2c85e831ec951240",
+   "sha256_dest": "818a15605c7f0bd567aaa1a22f5ba03421ad734419de1b8b2c85e831ec951240",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage3.json",
+   "dest": "assets/corn_delight/models/block/nachos_block_stage3.json",
+   "sha256_source": "b39a5499112bfaf885016c0ade3ae2feec343ad5afa3fa65f396c5e2a6ad22c2",
+   "sha256_dest": "b39a5499112bfaf885016c0ade3ae2feec343ad5afa3fa65f396c5e2a6ad22c2",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/popcorn_box_leftover.json",
+   "dest": "assets/corn_delight/models/block/popcorn_box_leftover.json",
+   "sha256_source": "0ed0fcde5be5d968a7a20f7b0a1f919df0bc988149723997cfbbc004c32fcd67",
+   "sha256_dest": "0ed0fcde5be5d968a7a20f7b0a1f919df0bc988149723997cfbbc004c32fcd67",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/popcorn_box_stage0.json",
+   "dest": "assets/corn_delight/models/block/popcorn_box_stage0.json",
+   "sha256_source": "c288843a095a3f69b36b711d2d135025d3ec8738d62a20b0d0ae2f2966272be8",
+   "sha256_dest": "c288843a095a3f69b36b711d2d135025d3ec8738d62a20b0d0ae2f2966272be8",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/popcorn_box_stage1.json",
+   "dest": "assets/corn_delight/models/block/popcorn_box_stage1.json",
+   "sha256_source": "33fd4cb683601667704c5d6bfb92553eb2eb3845a4696e04c35eacd26d4cb435",
+   "sha256_dest": "33fd4cb683601667704c5d6bfb92553eb2eb3845a4696e04c35eacd26d4cb435",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/popcorn_box_stage2.json",
+   "dest": "assets/corn_delight/models/block/popcorn_box_stage2.json",
+   "sha256_source": "ad57f0e4b9fb2d73809184bd7f6926f5083da41df64e3f47124e5055f49c9724",
+   "sha256_dest": "ad57f0e4b9fb2d73809184bd7f6926f5083da41df64e3f47124e5055f49c9724",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/popcorn_box_stage3.json",
+   "dest": "assets/corn_delight/models/block/popcorn_box_stage3.json",
+   "sha256_source": "096651c075b72e3130a077850a0934c78e413fc77db682b091cf7e1ae6e15915",
+   "sha256_dest": "096651c075b72e3130a077850a0934c78e413fc77db682b091cf7e1ae6e15915",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/block/wild_corn.json",
+   "dest": "assets/corn_delight/models/block/wild_corn.json",
+   "sha256_source": "52545eb439aa43d48b7e617cfe4cce86ce5e668bf1de9ca929c41467562784be",
+   "sha256_dest": "52545eb439aa43d48b7e617cfe4cce86ce5e668bf1de9ca929c41467562784be",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/boiled_corn.json",
+   "dest": "assets/corn_delight/models/item/boiled_corn.json",
+   "sha256_source": "5b35a2f74ee2763635a3c9909eda419a739cb318f0e66b97ee68445182c193f1",
+   "sha256_dest": "5b35a2f74ee2763635a3c9909eda419a739cb318f0e66b97ee68445182c193f1",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/caramel_popcorn.json",
+   "dest": "assets/corn_delight/models/item/caramel_popcorn.json",
+   "sha256_source": "8a46d3a3f5329a1381d7de3eaa400e8a205ee26614e660649416f18b5b1efee7",
+   "sha256_dest": "8a46d3a3f5329a1381d7de3eaa400e8a205ee26614e660649416f18b5b1efee7",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/classic_corn_dog.json",
+   "dest": "assets/corn_delight/models/item/classic_corn_dog.json",
+   "sha256_source": "5b7f3ebe77dca29a77e2bd54d34e360ceef02b2178436be8016358944f09e7b3",
+   "sha256_dest": "5b7f3ebe77dca29a77e2bd54d34e360ceef02b2178436be8016358944f09e7b3",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/cob_pipe.json",
+   "dest": "assets/corn_delight/models/item/cob_pipe.json",
+   "sha256_source": "fe8ffa9235c4f5011a90d5e0b226e1626a16530dcb2d47155d3f4c066d89c732",
+   "sha256_dest": "fe8ffa9235c4f5011a90d5e0b226e1626a16530dcb2d47155d3f4c066d89c732",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/cob_pipe_model.json",
+   "dest": "assets/corn_delight/models/item/cob_pipe_model.json",
+   "sha256_source": "e2f63217a557753bd7ba4d4260a659dcc55a52d1a2eb90204e2c0e7e71fd9787",
+   "sha256_dest": "e2f63217a557753bd7ba4d4260a659dcc55a52d1a2eb90204e2c0e7e71fd9787",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/corn.json",
+   "dest": "assets/corn_delight/models/item/corn.json",
+   "sha256_source": "72628fb7ed7bfe300e967ec375b6c8fe9e1cd7d6aa90fcfef70ef55e67b50392",
+   "sha256_dest": "72628fb7ed7bfe300e967ec375b6c8fe9e1cd7d6aa90fcfef70ef55e67b50392",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/corn_crate.json",
+   "dest": "assets/corn_delight/models/item/corn_crate.json",
+   "sha256_source": "64e44b47b0f2cefeb1dee310d628615df5d309d33a62fe58bd8fead0a9817e2c",
+   "sha256_dest": "64e44b47b0f2cefeb1dee310d628615df5d309d33a62fe58bd8fead0a9817e2c",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/corn_dog.json",
+   "dest": "assets/corn_delight/models/item/corn_dog.json",
+   "sha256_source": "085542041c7d6e3e3f339c058ac1a5939e388690d286d5ac1f5d21c948d77324",
+   "sha256_dest": "085542041c7d6e3e3f339c058ac1a5939e388690d286d5ac1f5d21c948d77324",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/corn_kernel_bag.json",
+   "dest": "assets/corn_delight/models/item/corn_kernel_bag.json",
+   "sha256_source": "f8b8698a266a347c05262d5a3c31873c037fc1b6637d2597b8ce04b7294aa819",
+   "sha256_dest": "f8b8698a266a347c05262d5a3c31873c037fc1b6637d2597b8ce04b7294aa819",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/corn_seeds.json",
+   "dest": "assets/corn_delight/models/item/corn_seeds.json",
+   "sha256_source": "152941344d500af5b54e4872625299599ec787167525923085a5198219d5f369",
+   "sha256_dest": "152941344d500af5b54e4872625299599ec787167525923085a5198219d5f369",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/corn_soup.json",
+   "dest": "assets/corn_delight/models/item/corn_soup.json",
+   "sha256_source": "2178d8e55e86ac686233f32701aa719feceba5f38804fea3151abd4a7c8d3d60",
+   "sha256_dest": "2178d8e55e86ac686233f32701aa719feceba5f38804fea3151abd4a7c8d3d60",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/cornbread.json",
+   "dest": "assets/corn_delight/models/item/cornbread.json",
+   "sha256_source": "91fedfd7a139574af63f455dbab3c2cf071b5c1c23ceb56c202be73fdfc1ba98",
+   "sha256_dest": "91fedfd7a139574af63f455dbab3c2cf071b5c1c23ceb56c202be73fdfc1ba98",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/cornbread_batter.json",
+   "dest": "assets/corn_delight/models/item/cornbread_batter.json",
+   "sha256_source": "37ae02a437184b1041d67a272a96c02193b70949c30c4191710290f136c86b3f",
+   "sha256_dest": "37ae02a437184b1041d67a272a96c02193b70949c30c4191710290f136c86b3f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/cornbread_stuffing.json",
+   "dest": "assets/corn_delight/models/item/cornbread_stuffing.json",
+   "sha256_source": "8381c7559fc739dd882fa646cc26abbb0e89c6920e27b120572339fb527fccca",
+   "sha256_dest": "8381c7559fc739dd882fa646cc26abbb0e89c6920e27b120572339fb527fccca",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/corncob.json",
+   "dest": "assets/corn_delight/models/item/corncob.json",
+   "sha256_source": "2c2e2f7013fa114a13606502fefc1998be194c5a9b970262c01a201af4fdb1a0",
+   "sha256_dest": "2c2e2f7013fa114a13606502fefc1998be194c5a9b970262c01a201af4fdb1a0",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/creamed_corn.json",
+   "dest": "assets/corn_delight/models/item/creamed_corn.json",
+   "sha256_source": "91515f26ffb20280e27a0cacf54d046df327c182fcd5ae6c8254b9d048ee23b1",
+   "sha256_dest": "91515f26ffb20280e27a0cacf54d046df327c182fcd5ae6c8254b9d048ee23b1",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/creamy_corn_drink.json",
+   "dest": "assets/corn_delight/models/item/creamy_corn_drink.json",
+   "sha256_source": "8cb04262d700c94e20013b50c4551025b092f77b00dab94bbe70232aca483a83",
+   "sha256_dest": "8cb04262d700c94e20013b50c4551025b092f77b00dab94bbe70232aca483a83",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/grilled_corn.json",
+   "dest": "assets/corn_delight/models/item/grilled_corn.json",
+   "sha256_source": "1ef53f845a180525cb9b731ebcd7fd90867c1ec79c2a285ed2eb0c14b600394c",
+   "sha256_dest": "1ef53f845a180525cb9b731ebcd7fd90867c1ec79c2a285ed2eb0c14b600394c",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/nachos_block.json",
+   "dest": "assets/corn_delight/models/item/nachos_block.json",
+   "sha256_source": "3c143d53884afdde90ad3a958019b2ef6c2cc2bd2aed5bb593897466251a9518",
+   "sha256_dest": "3c143d53884afdde90ad3a958019b2ef6c2cc2bd2aed5bb593897466251a9518",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/nachos_bowl.json",
+   "dest": "assets/corn_delight/models/item/nachos_bowl.json",
+   "sha256_source": "5ee185e04f40b79075fbacef6808773c63c4ff9fdba1d6e87fc59c6187d108d7",
+   "sha256_dest": "5ee185e04f40b79075fbacef6808773c63c4ff9fdba1d6e87fc59c6187d108d7",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/popcorn.json",
+   "dest": "assets/corn_delight/models/item/popcorn.json",
+   "sha256_source": "a3ca417f52daece4a5da9cd607be2393c808bf76d2347a0d97e42315ae1110b3",
+   "sha256_dest": "a3ca417f52daece4a5da9cd607be2393c808bf76d2347a0d97e42315ae1110b3",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/popcorn_box.json",
+   "dest": "assets/corn_delight/models/item/popcorn_box.json",
+   "sha256_source": "fe5f7ccaddeed69ab451a6aac7561a999de365a2fb268820d61b8855d2d348fe",
+   "sha256_dest": "fe5f7ccaddeed69ab451a6aac7561a999de365a2fb268820d61b8855d2d348fe",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/taco.json",
+   "dest": "assets/corn_delight/models/item/taco.json",
+   "sha256_source": "4c343cb93193a470fba2d660c055e2e0327e45903265b50adea92be30f32c956",
+   "sha256_dest": "4c343cb93193a470fba2d660c055e2e0327e45903265b50adea92be30f32c956",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/tortilla.json",
+   "dest": "assets/corn_delight/models/item/tortilla.json",
+   "sha256_source": "824ecd6caa1173bca635a6e64a77f2a53a2b3b9682999a718114c41ea6327005",
+   "sha256_dest": "824ecd6caa1173bca635a6e64a77f2a53a2b3b9682999a718114c41ea6327005",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/tortilla_chip.json",
+   "dest": "assets/corn_delight/models/item/tortilla_chip.json",
+   "sha256_source": "d7ef74ffe6d444fa6f48f8089b7ae227e94efe879b515308a2639d765cce22d2",
+   "sha256_dest": "d7ef74ffe6d444fa6f48f8089b7ae227e94efe879b515308a2639d765cce22d2",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/tortilla_raw.json",
+   "dest": "assets/corn_delight/models/item/tortilla_raw.json",
+   "sha256_source": "2a236c12f2fb68902cb49704e7b61429033428573e38293b789172b1638b9144",
+   "sha256_dest": "2a236c12f2fb68902cb49704e7b61429033428573e38293b789172b1638b9144",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/models/item/wild_corn.json",
+   "dest": "assets/corn_delight/models/item/wild_corn.json",
+   "sha256_source": "9c817d167d9cc0c2aac6b5d7da446b8709c33ecd2074f41e48021cb6844d493f",
+   "sha256_dest": "9c817d167d9cc0c2aac6b5d7da446b8709c33ecd2074f41e48021cb6844d493f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crate_side.png",
+   "dest": "assets/corn_delight/textures/block/corn_crate_side.png",
+   "sha256_source": "f6de33de395085bd10d4bccf000c51354b0dc0984ee0ff6ca63c0adc37c3f8b5",
+   "sha256_dest": "f6de33de395085bd10d4bccf000c51354b0dc0984ee0ff6ca63c0adc37c3f8b5",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crate_top.png",
+   "dest": "assets/corn_delight/textures/block/corn_crate_top.png",
+   "sha256_source": "173a1a070f2f7d8bf55e42bd7330c467879a74143a01bba14a69c72c11505eba",
+   "sha256_dest": "173a1a070f2f7d8bf55e42bd7330c467879a74143a01bba14a69c72c11505eba",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage0.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage0.png",
+   "sha256_source": "86e5cb1edf89cabdeca17f182119c367932ceab8269ffba81e00548ea770e41c",
+   "sha256_dest": "86e5cb1edf89cabdeca17f182119c367932ceab8269ffba81e00548ea770e41c",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage1.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage1.png",
+   "sha256_source": "36b2e14462a01079b505013c7ed3906068eb707153ab04f914d6ddb11f2cd9e6",
+   "sha256_dest": "36b2e14462a01079b505013c7ed3906068eb707153ab04f914d6ddb11f2cd9e6",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage2.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage2.png",
+   "sha256_source": "4c8540efa222d05ed4206dafc35fb631fab08ec090648f5f588de13c1a91bd87",
+   "sha256_dest": "4c8540efa222d05ed4206dafc35fb631fab08ec090648f5f588de13c1a91bd87",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage3.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage3.png",
+   "sha256_source": "65776dce26f4d83dd721d0518bbce0301caa5f81a66db5b91821c45c4a9f94a3",
+   "sha256_dest": "65776dce26f4d83dd721d0518bbce0301caa5f81a66db5b91821c45c4a9f94a3",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage4.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage4.png",
+   "sha256_source": "e1ec05cfe78942d7b048c3b04f109d7eb3b6633a9777933cfd9b7cb72792b688",
+   "sha256_dest": "e1ec05cfe78942d7b048c3b04f109d7eb3b6633a9777933cfd9b7cb72792b688",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage5.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage5.png",
+   "sha256_source": "fd604038a3deda66459d122705255b96548d1001fe493d3e2b92eac1ed741d6c",
+   "sha256_dest": "fd604038a3deda66459d122705255b96548d1001fe493d3e2b92eac1ed741d6c",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage6.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage6.png",
+   "sha256_source": "78f528b7bfab4bbc7c6fa37b9e2514a4270999821bc1a7e8fdca5d55658ef1a7",
+   "sha256_dest": "78f528b7bfab4bbc7c6fa37b9e2514a4270999821bc1a7e8fdca5d55658ef1a7",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_crop_stage7.png",
+   "dest": "assets/corn_delight/textures/block/corn_crop_stage7.png",
+   "sha256_source": "da2d568dd8fd004d613c96a848ee12f67c36539fdb0f5a9bb6a4daab56f713fe",
+   "sha256_dest": "da2d568dd8fd004d613c96a848ee12f67c36539fdb0f5a9bb6a4daab56f713fe",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_kernal_bag_top.png",
+   "dest": "assets/corn_delight/textures/block/corn_kernal_bag_top.png",
+   "sha256_source": "f8c37139d512b498d3dd8512df175e6e22ad6845f5694fdb0e2b11e65d878438",
+   "sha256_dest": "f8c37139d512b498d3dd8512df175e6e22ad6845f5694fdb0e2b11e65d878438",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage0.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage0.png",
+   "sha256_source": "db889321d538bf5fe9cd698d90dc7324389e79eb5091116066b854b7d1951b2e",
+   "sha256_dest": "db889321d538bf5fe9cd698d90dc7324389e79eb5091116066b854b7d1951b2e",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage1.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage1.png",
+   "sha256_source": "70522a684ad0b6b780c28bebde1f68ed37d4e81d1126b084539d3cbf98063cdd",
+   "sha256_dest": "70522a684ad0b6b780c28bebde1f68ed37d4e81d1126b084539d3cbf98063cdd",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage2.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage2.png",
+   "sha256_source": "ddecfcd1a9908ab683d1fe890d3670bc62adf1bf85e1cbf8901507efe36253bf",
+   "sha256_dest": "ddecfcd1a9908ab683d1fe890d3670bc62adf1bf85e1cbf8901507efe36253bf",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage3.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage3.png",
+   "sha256_source": "be730d5273b4a2e7c6f32f3b91eee84dca7d6a2043462eaf5667cf123f85a92f",
+   "sha256_dest": "be730d5273b4a2e7c6f32f3b91eee84dca7d6a2043462eaf5667cf123f85a92f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage4.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage4.png",
+   "sha256_source": "d57a848b843016d9a48e80750fceabaeb5534a3e0efc393619a8e39e0bb28c89",
+   "sha256_dest": "d57a848b843016d9a48e80750fceabaeb5534a3e0efc393619a8e39e0bb28c89",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage5.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage5.png",
+   "sha256_source": "7a164d4a51af3cd9ee8a3a695b628e8e84e9c6415c00c2202c9b1529f45f9b48",
+   "sha256_dest": "7a164d4a51af3cd9ee8a3a695b628e8e84e9c6415c00c2202c9b1529f45f9b48",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage6.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage6.png",
+   "sha256_source": "5900a86c3dd2ff57f6a3b92c38fe80444915c5f99dec0a13aded736430eb6c24",
+   "sha256_dest": "5900a86c3dd2ff57f6a3b92c38fe80444915c5f99dec0a13aded736430eb6c24",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/corn_top_stage7.png",
+   "dest": "assets/corn_delight/textures/block/corn_top_stage7.png",
+   "sha256_source": "4bb37916617ba8931e2e71a9867c16707f8c75a2c51c3ac4d7df51bd2cde5526",
+   "sha256_dest": "4bb37916617ba8931e2e71a9867c16707f8c75a2c51c3ac4d7df51bd2cde5526",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/nacho_chip.png",
+   "dest": "assets/corn_delight/textures/block/nacho_chip.png",
+   "sha256_source": "dc47cb89081470b2b37d0d1669541e8af2a7866f86c5a27766a19f438e70e406",
+   "sha256_dest": "dc47cb89081470b2b37d0d1669541e8af2a7866f86c5a27766a19f438e70e406",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/nacho_chip_eaten.png",
+   "dest": "assets/corn_delight/textures/block/nacho_chip_eaten.png",
+   "sha256_source": "a73792ae2fe264881270ad59578271ab44b6a4d8c5e85ba07cee49a38faaa995",
+   "sha256_dest": "a73792ae2fe264881270ad59578271ab44b6a4d8c5e85ba07cee49a38faaa995",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/nacho_inner.png",
+   "dest": "assets/corn_delight/textures/block/nacho_inner.png",
+   "sha256_source": "6f6f47db8c66a3c671ce7f76d935ae4e04931ef0653c6d91d23994363800e6c9",
+   "sha256_dest": "6f6f47db8c66a3c671ce7f76d935ae4e04931ef0653c6d91d23994363800e6c9",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/nacho_side.png",
+   "dest": "assets/corn_delight/textures/block/nacho_side.png",
+   "sha256_source": "6245c12df4287892440478900ab13bd0da6361c054b667cd844a5a50031af914",
+   "sha256_dest": "6245c12df4287892440478900ab13bd0da6361c054b667cd844a5a50031af914",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/nacho_top.png",
+   "dest": "assets/corn_delight/textures/block/nacho_top.png",
+   "sha256_source": "d306c907704696a3b843548104757b7dc4b674175176dde829704738991977b0",
+   "sha256_dest": "d306c907704696a3b843548104757b7dc4b674175176dde829704738991977b0",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/popcorn.png",
+   "dest": "assets/corn_delight/textures/block/popcorn.png",
+   "sha256_source": "e953cf03358dca0c5bc594afb1422db217bff374c31b9d1b63f5f37e48d950d0",
+   "sha256_dest": "e953cf03358dca0c5bc594afb1422db217bff374c31b9d1b63f5f37e48d950d0",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/block/wild_corn.png",
+   "dest": "assets/corn_delight/textures/block/wild_corn.png",
+   "sha256_source": "b4240b85bf968cc4f9535862bf67ba9c871222e243d8cff0e65500b8a76e8559",
+   "sha256_dest": "b4240b85bf968cc4f9535862bf67ba9c871222e243d8cff0e65500b8a76e8559",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/boiled_corn.png",
+   "dest": "assets/corn_delight/textures/item/boiled_corn.png",
+   "sha256_source": "d630773321b369b9f3b3d9957e66958c46ae4704ba6e20d1b6c3238f228c6e39",
+   "sha256_dest": "d630773321b369b9f3b3d9957e66958c46ae4704ba6e20d1b6c3238f228c6e39",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/caramel_popcorn.png",
+   "dest": "assets/corn_delight/textures/item/caramel_popcorn.png",
+   "sha256_source": "51cda499b7e55022a8ee63fe4060bb5239bb2602ba881109a69d77316cc2f68c",
+   "sha256_dest": "51cda499b7e55022a8ee63fe4060bb5239bb2602ba881109a69d77316cc2f68c",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/classic_corn_dog.png",
+   "dest": "assets/corn_delight/textures/item/classic_corn_dog.png",
+   "sha256_source": "006d5d6a2245c1f87b6b9a86608b7bb0a4a9ef84ea9c8ee9842a56731495d013",
+   "sha256_dest": "006d5d6a2245c1f87b6b9a86608b7bb0a4a9ef84ea9c8ee9842a56731495d013",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/cob_pipe.png",
+   "dest": "assets/corn_delight/textures/item/cob_pipe.png",
+   "sha256_source": "2b980636595789c0db0913c4a3a9e7f6dd3751eb97900766f829f79cfbbbcf45",
+   "sha256_dest": "2b980636595789c0db0913c4a3a9e7f6dd3751eb97900766f829f79cfbbbcf45",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/cob_pipe_uv.png",
+   "dest": "assets/corn_delight/textures/item/cob_pipe_uv.png",
+   "sha256_source": "53cffe098ab923ea77008da76c09896c3ce31d55fa26c46d398c3b996c1615e3",
+   "sha256_dest": "53cffe098ab923ea77008da76c09896c3ce31d55fa26c46d398c3b996c1615e3",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/corn.png",
+   "dest": "assets/corn_delight/textures/item/corn.png",
+   "sha256_source": "62d2552b6126f9ef81cf5ce3d649cce6febc27b5df6304528b9ff81eb0ef0559",
+   "sha256_dest": "62d2552b6126f9ef81cf5ce3d649cce6febc27b5df6304528b9ff81eb0ef0559",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/corn_dog.png",
+   "dest": "assets/corn_delight/textures/item/corn_dog.png",
+   "sha256_source": "ad4676ddb5a4686f4f6559b16256de9abe24d9bcd5c87dde059a7bf9f8e58207",
+   "sha256_dest": "ad4676ddb5a4686f4f6559b16256de9abe24d9bcd5c87dde059a7bf9f8e58207",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/corn_seeds.png",
+   "dest": "assets/corn_delight/textures/item/corn_seeds.png",
+   "sha256_source": "8dd43ca1ab10447463f017f0d210dc7ff994a4d549927871ed166256437bb987",
+   "sha256_dest": "8dd43ca1ab10447463f017f0d210dc7ff994a4d549927871ed166256437bb987",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/corn_soup.png",
+   "dest": "assets/corn_delight/textures/item/corn_soup.png",
+   "sha256_source": "932fd84346ad81369c901bdab8bdea373db699fb69c4bec49a5dce989fa01e86",
+   "sha256_dest": "932fd84346ad81369c901bdab8bdea373db699fb69c4bec49a5dce989fa01e86",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/cornbread.png",
+   "dest": "assets/corn_delight/textures/item/cornbread.png",
+   "sha256_source": "681fea8f2d55b04205f78fa487431abf87aa19bd3c8f7d0bccaa2e5dec28c330",
+   "sha256_dest": "681fea8f2d55b04205f78fa487431abf87aa19bd3c8f7d0bccaa2e5dec28c330",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/cornbread_batter.png",
+   "dest": "assets/corn_delight/textures/item/cornbread_batter.png",
+   "sha256_source": "309c3c3f3e87fb188848322a2ca4ea7d234a0fe7cf09194926dab145067fbc68",
+   "sha256_dest": "309c3c3f3e87fb188848322a2ca4ea7d234a0fe7cf09194926dab145067fbc68",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/cornbread_stuffing.png",
+   "dest": "assets/corn_delight/textures/item/cornbread_stuffing.png",
+   "sha256_source": "0248edcbaa9c72fb028990ead7a3ea56b03efa9829b8bb8ee5de611e0d7c28eb",
+   "sha256_dest": "0248edcbaa9c72fb028990ead7a3ea56b03efa9829b8bb8ee5de611e0d7c28eb",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/corncob.png",
+   "dest": "assets/corn_delight/textures/item/corncob.png",
+   "sha256_source": "a91ef27ec93bef85952e799e0ab72fe4ada3aa2b092965b65216910a020d3450",
+   "sha256_dest": "a91ef27ec93bef85952e799e0ab72fe4ada3aa2b092965b65216910a020d3450",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/creamed_corn.png",
+   "dest": "assets/corn_delight/textures/item/creamed_corn.png",
+   "sha256_source": "0cff8421285859acf827c2ea1df2e5c0797b4900019c27320e03616b9ad28b02",
+   "sha256_dest": "0cff8421285859acf827c2ea1df2e5c0797b4900019c27320e03616b9ad28b02",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/creamy_corn_drink.png",
+   "dest": "assets/corn_delight/textures/item/creamy_corn_drink.png",
+   "sha256_source": "5318f01d0ae65ce7fa1b5ad4aa8faa22fed7acd071352612015facecdec80be9",
+   "sha256_dest": "5318f01d0ae65ce7fa1b5ad4aa8faa22fed7acd071352612015facecdec80be9",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/grilled_corn.png",
+   "dest": "assets/corn_delight/textures/item/grilled_corn.png",
+   "sha256_source": "a81e8434f57a67b666e80340407118f2df27e48bc528e336a16956d1b9ebecfd",
+   "sha256_dest": "a81e8434f57a67b666e80340407118f2df27e48bc528e336a16956d1b9ebecfd",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/nachos_block.png",
+   "dest": "assets/corn_delight/textures/item/nachos_block.png",
+   "sha256_source": "50d3bf0dcdd00ba00734c268434fcf2fb5eeeacfb91b8a1e7ee3aae7897c818d",
+   "sha256_dest": "50d3bf0dcdd00ba00734c268434fcf2fb5eeeacfb91b8a1e7ee3aae7897c818d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/nachos_bowl.png",
+   "dest": "assets/corn_delight/textures/item/nachos_bowl.png",
+   "sha256_source": "18cabc0a0898276eac0904dc55eed59e25544ff72f538df876944518be78d803",
+   "sha256_dest": "18cabc0a0898276eac0904dc55eed59e25544ff72f538df876944518be78d803",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/popcorn.png",
+   "dest": "assets/corn_delight/textures/item/popcorn.png",
+   "sha256_source": "2f1a70d68e13aec08eac2cccdc3773f3ad8d23ad8930ca548f91c41d79e9d030",
+   "sha256_dest": "2f1a70d68e13aec08eac2cccdc3773f3ad8d23ad8930ca548f91c41d79e9d030",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/taco.png",
+   "dest": "assets/corn_delight/textures/item/taco.png",
+   "sha256_source": "1a1aceee23566780273a81d999609b32fe4d66aa95f0fe994f57b99180ed87e2",
+   "sha256_dest": "1a1aceee23566780273a81d999609b32fe4d66aa95f0fe994f57b99180ed87e2",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/tortilla.png",
+   "dest": "assets/corn_delight/textures/item/tortilla.png",
+   "sha256_source": "68fe1c838fde47d849c42487a40ac10fcc66dfe8e25dfb3920ea4d3b510fda1d",
+   "sha256_dest": "68fe1c838fde47d849c42487a40ac10fcc66dfe8e25dfb3920ea4d3b510fda1d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/tortilla_chip.png",
+   "dest": "assets/corn_delight/textures/item/tortilla_chip.png",
+   "sha256_source": "15382de372309cf97afa48b933ff664a2e4674a5c755edf5f40694171ee56ba5",
+   "sha256_dest": "15382de372309cf97afa48b933ff664a2e4674a5c755edf5f40694171ee56ba5",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/textures/item/tortilla_raw.png",
+   "dest": "assets/corn_delight/textures/item/tortilla_raw.png",
+   "sha256_source": "e1254755848b50d17362d5f15a6ff65f20137547c6173e305a8c2c3ad18bd280",
+   "sha256_dest": "e1254755848b50d17362d5f15a6ff65f20137547c6173e305a8c2c3ad18bd280",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/bread/corn.json",
+   "dest": "data/c/tags/item/bread/corn.json",
+   "sha256_source": "c6126a8021e436bfeb84da8de801bd048300e14806fb4f3a1885a3e1292b9188",
+   "sha256_dest": "c6126a8021e436bfeb84da8de801bd048300e14806fb4f3a1885a3e1292b9188",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/crops.json",
+   "dest": "data/c/tags/item/crops.json",
+   "sha256_source": "13b011e476d51ee234971d9634c30c79a1a2f989b544599dbd4aabe8ab555b50",
+   "sha256_dest": "13b011e476d51ee234971d9634c30c79a1a2f989b544599dbd4aabe8ab555b50",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/crops/corn.json",
+   "dest": "data/c/tags/item/crops/corn.json",
+   "sha256_source": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "sha256_dest": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/crops/grain.json",
+   "dest": "data/c/tags/item/crops/grain.json",
+   "sha256_source": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "sha256_dest": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/foods/breads.json",
+   "dest": "data/c/tags/item/foods/breads.json",
+   "sha256_source": "880b4f2760d28a940bf590890141c5aadb4edc5569552ba2421f0e49b5e6705f",
+   "sha256_dest": "880b4f2760d28a940bf590890141c5aadb4edc5569552ba2421f0e49b5e6705f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/foods/popcorn.json",
+   "dest": "data/c/tags/item/foods/popcorn.json",
+   "sha256_source": "f171127e1be9d6004c6962f0d2d4a3de656d07b6b2ee02d95a6352cec7ba3634",
+   "sha256_dest": "f171127e1be9d6004c6962f0d2d4a3de656d07b6b2ee02d95a6352cec7ba3634",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/foods/soups.json",
+   "dest": "data/c/tags/item/foods/soups.json",
+   "sha256_source": "a763ae8e51258e7547988fb1345f35cb43e22803fc38fa59c7f99f68ebfccde7",
+   "sha256_dest": "a763ae8e51258e7547988fb1345f35cb43e22803fc38fa59c7f99f68ebfccde7",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/foods/tortilla.json",
+   "dest": "data/c/tags/item/foods/tortilla.json",
+   "sha256_source": "65438385c4db9115f38a0d6153c3485b2d89a45b3f88e2f8276299b468c4d492",
+   "sha256_dest": "65438385c4db9115f38a0d6153c3485b2d89a45b3f88e2f8276299b468c4d492",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/foods/vegetable.json",
+   "dest": "data/c/tags/item/foods/vegetable.json",
+   "sha256_source": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "sha256_dest": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/foods/vegetables.json",
+   "dest": "data/c/tags/item/foods/vegetables.json",
+   "sha256_source": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "sha256_dest": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/grain/corn.json",
+   "dest": "data/c/tags/item/grain/corn.json",
+   "sha256_source": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "sha256_dest": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/seeds.json",
+   "dest": "data/c/tags/item/seeds.json",
+   "sha256_source": "3fb11f75dcf1dc1764d16af8fc4332dfada353908e0c80b4456a2f5884eec6b8",
+   "sha256_dest": "3fb11f75dcf1dc1764d16af8fc4332dfada353908e0c80b4456a2f5884eec6b8",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/seeds/corn.json",
+   "dest": "data/c/tags/item/seeds/corn.json",
+   "sha256_source": "ea8361155574d3dd0744febc74fd060115e3074aa71aa120b0c365ace3ed0ea6",
+   "sha256_dest": "ea8361155574d3dd0744febc74fd060115e3074aa71aa120b0c365ace3ed0ea6",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/c/tags/item/vegetables/corn.json",
+   "dest": "data/c/tags/item/vegetables/corn.json",
+   "sha256_source": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "sha256_dest": "49f0638d2ac99c84cfe3f191ef9ee46a1a30c2a24184af19cdbdf76f72c7867f",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/classic_corndog.json",
+   "dest": "data/corn_delight/advancement/classic_corndog.json",
+   "sha256_source": "2813d7e1b4867e89894858ce2c71b4985a12f8e04e79090f5d993b17ea3ffc89",
+   "sha256_dest": "2813d7e1b4867e89894858ce2c71b4985a12f8e04e79090f5d993b17ea3ffc89",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/corn.json",
+   "dest": "data/corn_delight/advancement/corn.json",
+   "sha256_source": "263c1192a41890c0a7f878d38654712c8fbe251d7ec9cd64cf37c309d07c3e51",
+   "sha256_dest": "263c1192a41890c0a7f878d38654712c8fbe251d7ec9cd64cf37c309d07c3e51",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/corn_knowleage.json",
+   "dest": "data/corn_delight/advancement/corn_knowleage.json",
+   "sha256_source": "08a16c4c3f025890bd5311e2bec2995d09363bc87f33f79e57b0a943013c17f9",
+   "sha256_dest": "08a16c4c3f025890bd5311e2bec2995d09363bc87f33f79e57b0a943013c17f9",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/cornbread.json",
+   "dest": "data/corn_delight/advancement/cornbread.json",
+   "sha256_source": "f9a7a2528490ade3bb51f224f4f4c42e105c745e237ebbdd16a58d4930817b32",
+   "sha256_dest": "f9a7a2528490ade3bb51f224f4f4c42e105c745e237ebbdd16a58d4930817b32",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/corndog.json",
+   "dest": "data/corn_delight/advancement/corndog.json",
+   "sha256_source": "ac71f2b437794428c61a78b4ebd80ab7c3d64e3868d6b4c7eac39f1d34fa3feb",
+   "sha256_dest": "ac71f2b437794428c61a78b4ebd80ab7c3d64e3868d6b4c7eac39f1d34fa3feb",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/macarthur.json",
+   "dest": "data/corn_delight/advancement/macarthur.json",
+   "sha256_source": "28e68fb5b21d0ed8a4be73ef39cc67253cc402f29e02595d91eff7a13b7ca62b",
+   "sha256_dest": "28e68fb5b21d0ed8a4be73ef39cc67253cc402f29e02595d91eff7a13b7ca62b",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/nachos.json",
+   "dest": "data/corn_delight/advancement/nachos.json",
+   "sha256_source": "63d7501db087f2cfa276a65583e76a47dbb1b7883eeaff6693a3078ce4c79c7d",
+   "sha256_dest": "63d7501db087f2cfa276a65583e76a47dbb1b7883eeaff6693a3078ce4c79c7d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/popcorn.json",
+   "dest": "data/corn_delight/advancement/popcorn.json",
+   "sha256_source": "0b19e5eedfb63304656dfbdf3c98840c8c2cefc72479c4aa8371b18aa635158c",
+   "sha256_dest": "0b19e5eedfb63304656dfbdf3c98840c8c2cefc72479c4aa8371b18aa635158c",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/popcorn_party.json",
+   "dest": "data/corn_delight/advancement/popcorn_party.json",
+   "sha256_source": "ac0d30b6b3fd4d59b940b94c3a93aa30e20f347d735e0356f8de79085cfe60dd",
+   "sha256_dest": "ac0d30b6b3fd4d59b940b94c3a93aa30e20f347d735e0356f8de79085cfe60dd",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/caramel_popcorn.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/caramel_popcorn.json",
+   "sha256_source": "bef4fb5ba7373596a90a376ab5b58661362e6d7e4f7ad90c84cc3308ebfff3e1",
+   "sha256_dest": "07c46c20b9abd6cfcf48b6a6983c0ad353d3d1d778d99a51c55fae3d50f91254",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/classic_corn_dog.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/classic_corn_dog.json",
+   "sha256_source": "6e757bbce5e32683f9da46bba49ec527c6a819e0731e3965982175719037c64d",
+   "sha256_dest": "0dc7f20e1a1efce1c59be70889287400b826232020f61c9399365c3207d6028d",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/corn_crate.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/corn_crate.json",
+   "sha256_source": "4f23a82d58202ea9a796e473eacc629325726fac38f06d66ff67fea8932fb7ba",
+   "sha256_dest": "b2ab8421274ac96216cae8435de2b1c5b17ed6edebd1ea1ac020c3dd951209a9",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/corn_from_crate.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/corn_from_crate.json",
+   "sha256_source": "93aa7c9c129ee87f55712d054523df86ee12ddc6f853ae80f3a1c6257b82d67a",
+   "sha256_dest": "16e7cf0eef99bb8d21d4cf3155e7e59ad0b0f21e0071c6544b7436ca8cb985f0",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/corn_kernel_bag.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/corn_kernel_bag.json",
+   "sha256_source": "a44e1076d4348e0a0fb8fc2e101e6f2026282033f2c37f024e83ac572500deac",
+   "sha256_dest": "41c3b866e290c7574cb3e0560be0ce232054efad9281c3cb2c4b9e5e7746f0c9",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/corn_seeds.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/corn_seeds.json",
+   "sha256_source": "137dcb943e2e5664d1bdf027cff3b4ee2c28a322452c12573ef95890c6197ac9",
+   "sha256_dest": "877ee97fbdc12f2a8fc2b86db1b084dac1cd129f2adaa1b2796e980d1acfbaa0",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/corn_seeds_from_bag.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/corn_seeds_from_bag.json",
+   "sha256_source": "001ed6aabf75047b69a0520b6721b9c819bccaace91bfd61b88a2460ce1ef381",
+   "sha256_dest": "0ca46a01224f2e8d51ae89700175a83635a6fcdb33943296f238e851fbc95ab5",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/cornbread.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/cornbread.json",
+   "sha256_source": "03fa7569e68f1a50f0ed2a7cf2f0b7e404ade8d81a2f001e7ef3ebd86673e93a",
+   "sha256_dest": "823f544712bb490b80b375530a91233b23f3d7165802a984ab92c920dfc659da",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/cornbread_batter.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/cornbread_batter.json",
+   "sha256_source": "62943a25ed0511ccf026e72b0590cf554cd81d7bdbaa0a9163aa9798e1d63cb5",
+   "sha256_dest": "4b939945416cc284dde057e490e51ff286326bcf751eda1dba5881e1418ac4ef",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/cornbread_from_campfire_cooking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/cornbread_from_campfire_cooking.json",
+   "sha256_source": "cc6c127d4c884c38180a388b4ca3d82fe92e1486f768f09bf8d602242b796fbe",
+   "sha256_dest": "210729c0236229e89eba92a5b3e89b1b059ec0d1709dda18c6afb113f42aae46",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/cornbread_from_smoking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/cornbread_from_smoking.json",
+   "sha256_source": "dadae7ce2a66311e75c29148d9cf7673936c70d29426e278e63d9c12d22d53d3",
+   "sha256_dest": "58a8f5c5167ff19ef453a505728aecc9aae9122a3feb5218f4c4ac4caf3abc7d",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/grilled_corn.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/grilled_corn.json",
+   "sha256_source": "5f2615e07cafa9fb69ab2badfbc1d5026a5f92b598c4f01d5b05fae194906930",
+   "sha256_dest": "697244e52d1375d19d8ba15f3137de79926a35fd3f3743a240230802d61153ca",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/grilled_corn_from_campfire_cooking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/grilled_corn_from_campfire_cooking.json",
+   "sha256_source": "5333c89729bf5b62794cdaeff21d4e1131a293fef91513ed40f99c874d6d606f",
+   "sha256_dest": "da095958d4c0e8e366e14b93f5b52e4d65f3c0a2cf7f9b63507f282f7edc11e0",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/grilled_corn_from_smoking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/grilled_corn_from_smoking.json",
+   "sha256_source": "b0df6db7e6c1e38f1a805d255d6f746987c204316a49ca192460afb2d29d128b",
+   "sha256_dest": "5297768b8faba6654021e3f9c88ab65ab0cc0d90686a3011147d5941822cd059",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/popcorn.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/popcorn.json",
+   "sha256_source": "9e055bc8aa2a90ee8efe334b50b80b17d0ed5cc887e94013fd09095e34a4344f",
+   "sha256_dest": "6f5bc877f5138dd1dbd5be3701e09fbaf3e0f801306c57516b6db5c8f2a82dc6",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/popcorn_box.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/popcorn_box.json",
+   "sha256_source": "c5d529f21ff39b86e6b4373d2d9afd900162ac5cd33cca6a076faa94ebff32ee",
+   "sha256_dest": "51c98e6757013ba52262da77e88a8219a8561040dd21288719acff4aa2d2dbdd",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/popcorn_from_campfire_cooking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/popcorn_from_campfire_cooking.json",
+   "sha256_source": "98fc62eb890277c7e5a45f3bdd944cbfc54bb2c1be031c158963bab3465d67a0",
+   "sha256_dest": "322ca0229391f9f0e049a5e561c136eb625669f58e0c4773af4c552573de71d8",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/popcorn_from_smoking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/popcorn_from_smoking.json",
+   "sha256_source": "cb8ec892b0d007a4d56c9ffa93e2f53ce388213ff29ed0305e1dde3dfa7681f5",
+   "sha256_dest": "5553ea1d683ac2f831252d16858069826f1648baee76a63fec2e5284c2405101",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/taco.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/taco.json",
+   "sha256_source": "0ce3310ecb7446a6dea401c44cf14240f308295698c36e19aadbcf1f5e62bfbd",
+   "sha256_dest": "9cb07d8842a4306202e45a672e84a5ecd2a57304007592f2004086dc82f2ec22",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/tortilla.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/tortilla.json",
+   "sha256_source": "81e09ada96f9e9f70e8c6993a8af02f836f76caec57cb03038503c323f35f683",
+   "sha256_dest": "84260dfaf5f3e16559d1ffee9cc5cf98f2d54580e5dc460118fb05c25d47be54",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/tortilla_from_campfire_cooking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/tortilla_from_campfire_cooking.json",
+   "sha256_source": "36838cf0c868aafa3af360906475063b42a2d68310717809858d2ee0855218ac",
+   "sha256_dest": "a01de2b8a994cf5c5cef6d5fccbce6f8689dac4918eaeaca55acab616a9d7b97",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/tortilla_from_smoking.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/tortilla_from_smoking.json",
+   "sha256_source": "8bbd0057c23bc1a7025daab0630dd89e2c5783a4f22e5d4e8c70e34266128f87",
+   "sha256_dest": "f8110fa6dd30a0dea9eeed6ba90f4b5203c9cfd3879260b1439630dc6575d1b1",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/recipes/corn_delight/tortilla_raw.json",
+   "dest": "data/corn_delight/advancement/recipes/corn_delight/tortilla_raw.json",
+   "sha256_source": "689080f0e799ded40109cb90691d9b181bc678907e2fc91322fcb8df0dcc65fd",
+   "sha256_dest": "5ffbc3f08aebe84005089cc0c37040479994bbce8a3b7c7bb67bc52b741d5bc4",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/root.json",
+   "dest": "data/corn_delight/advancement/root.json",
+   "sha256_source": "2ad7f3b1749fff85b8821c0686053bddad30ca066989f14c9b5960101b787a71",
+   "sha256_dest": "1c5bf88e1f4240f42503d865e38a9ef5fc96d2b4209078d9a30786e3f80fbe3c",
+   "rule": "advancement"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/stuffing_chef.json",
+   "dest": "data/corn_delight/advancement/stuffing_chef.json",
+   "sha256_source": "47dcaead0a8dc3a05b06bda01b584e59d8e9cdf7c65c18f44b39f8b26b5c6b38",
+   "sha256_dest": "47dcaead0a8dc3a05b06bda01b584e59d8e9cdf7c65c18f44b39f8b26b5c6b38",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/taco.json",
+   "dest": "data/corn_delight/advancement/taco.json",
+   "sha256_source": "eee807c6950b0a4e4b9316256001d2c1e8e3de867f47121969179cfe8c3e7841",
+   "sha256_dest": "eee807c6950b0a4e4b9316256001d2c1e8e3de867f47121969179cfe8c3e7841",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/advancement/tortilla.json",
+   "dest": "data/corn_delight/advancement/tortilla.json",
+   "sha256_source": "fc484f2748bf89dcce8c7f92f08a11db89d4a86ff5baa208bb225fdd29b663f6",
+   "sha256_dest": "fc484f2748bf89dcce8c7f92f08a11db89d4a86ff5baa208bb225fdd29b663f6",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/loot_table/blocks/corn_crate.json",
+   "dest": "data/corn_delight/loot_table/blocks/corn_crate.json",
+   "sha256_source": "565222b555964848c3b081332592f0ed53aaaa9898986bc81194315ab83e6468",
+   "sha256_dest": "040607b4d85535935b6d21ea4fb33f51166bd3d90a0ff4acb5a978f1f00b0a25",
+   "rule": "loot"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/loot_table/blocks/corn_crop.json",
+   "dest": "data/corn_delight/loot_table/blocks/corn_crop.json",
+   "sha256_source": "98de177f2552c8575ed862de91324a7ef54873b16670d5d14a53014521485036",
+   "sha256_dest": "75e5a2f90cfb3d79bd55904bab2fc31b6f39d5b23764b7cd0af7cc804b828048",
+   "rule": "loot"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/loot_table/blocks/corn_kernel_bag.json",
+   "dest": "data/corn_delight/loot_table/blocks/corn_kernel_bag.json",
+   "sha256_source": "ae93a16a090c3ec0816ad7ebcd721a7d2823aef8abc5654710c80870492ca2ca",
+   "sha256_dest": "5d1c1b6575bee3c281600698687bc03fcfbd0705b56d15ddcf802f5a7017ce18",
+   "rule": "loot"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/loot_table/blocks/nachos_block.json",
+   "dest": "data/corn_delight/loot_table/blocks/nachos_block.json",
+   "sha256_source": "fc3a33b0fc3ce16a2f1070eedca1865e6dc58b704368ec3db8ea3831ae01e7f7",
+   "sha256_dest": "d2a7c90d164c886d1f919f437471cf566c2fb52d02a9b56f5574d6a25be07fef",
+   "rule": "loot"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/loot_table/blocks/wild_corn.json",
+   "dest": "data/corn_delight/loot_table/blocks/wild_corn.json",
+   "sha256_source": "e3c4fa23254550c0754183c75af6078df740603044bdbf5069174097e89c2d53",
+   "sha256_dest": "8cbdfdfa0bf95d8ae2708f0e70029e50c475de9389232a1440935bdd0d060ed0",
+   "rule": "loot"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/loot_table/shipwreck_supply.json",
+   "dest": "data/corn_delight/loot_table/shipwreck_supply.json",
+   "sha256_source": "86e969ca316a14d9a6aa0d47a7e1bc981ebf6366416564fe867b374f794b3c6d",
+   "sha256_dest": "4a4e5b6c96a97e9e4b42252fc8ed6dc1945a59eac79af5737d8d77aad82fc9e1",
+   "rule": "loot"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/loot_table/village_house.json",
+   "dest": "data/corn_delight/loot_table/village_house.json",
+   "sha256_source": "ed0ee71e198301b95bc60098cb80eb26a9e7805686c2a70dc9220cade7522133",
+   "sha256_dest": "84b488b603793e612a782f03cf12a66eda6f962fe6a516376afec11eb9082267",
+   "rule": "loot"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/neoforge/biome_modifier/wild_corn.json",
+   "dest": "data/corn_delight/neoforge/biome_modifier/wild_corn.json",
+   "sha256_source": "48a1ff8a2f7b3e403d4c78f9c0d3ec0a07b084749fb3544912aea927698810af",
+   "sha256_dest": "93b3d93ee447141229f0f4460da48bc460687eda08344aea2bb595fd81498ff6",
+   "rule": "worldgen"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/caramel_popcorn.json",
+   "dest": "data/corn_delight/recipe/caramel_popcorn.json",
+   "sha256_source": "eb7fde15254534c2aeb63e967cd754497cb9d7a1b27bb86f078a97e28bae5991",
+   "sha256_dest": "c2a9882ad8ed701b5fcc7f8fe822feb851701e53aae599060ddcf979d7cca55e",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/classic_corn_dog_from_crafting.json",
+   "dest": "data/corn_delight/recipe/classic_corn_dog_from_crafting.json",
+   "sha256_source": "16b8a909654c8153f85fcf5afb7a73261fef462dee13d747b529709ed79cddb9",
+   "sha256_dest": "ecade2e9afb6e78c95240b9b6088f9f526c644cc7e7b65cbe8428b41afb82e25",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cob_pipe.json",
+   "dest": "data/corn_delight/recipe/cob_pipe.json",
+   "sha256_source": "1ff557b54bdb90b8eae7fa4a4a5cff4ae3a006cdf47c5c1c8e554102993528c2",
+   "sha256_dest": "c5907e7e711f8a4164773c401bb4a62afff0bbf551fa0e8690bfbd8a29198796",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/boiled_corn.json",
+   "dest": "data/corn_delight/recipe/cooking/boiled_corn.json",
+   "sha256_source": "929d0edbcce9aefb4ceaec82b3f9a7a641c8d323c5b77e89fe9965321bb05e7f",
+   "sha256_dest": "1615ed9d2e7fa00fe33778ff1066178346bf159dacd66aaa441d0382c5cd93cf",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/caramel_popcorn.json",
+   "dest": "data/corn_delight/recipe/cooking/caramel_popcorn.json",
+   "sha256_source": "4fd605725f023c18fa2c10489e0c4cb0261cf41957284c68c423ee82c3371d30",
+   "sha256_dest": "24b3f6019fea2d65c985135d2fd5f036614566cc464c5b81376d55b7c874e98f",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/classic_corn_dog.json",
+   "dest": "data/corn_delight/recipe/cooking/classic_corn_dog.json",
+   "sha256_source": "e0c915daa0e8332c726dfd6e65463d1da00fecf4967bf3f1a9595a2199a3a342",
+   "sha256_dest": "c53145a5bec15e4761681519222cb2d140e49b7097375b4807ef30aa3df0a004",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/corn_dog.json",
+   "dest": "data/corn_delight/recipe/cooking/corn_dog.json",
+   "sha256_source": "bc63b0e27560aad7145c4b3c420b534d349878ead3d49600d6a26eddda271c37",
+   "sha256_dest": "ef9b954a8a809b708577cca1cc674a209c9f866b40daf1a7f132cd7aed7f7ea4",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/corn_soup.json",
+   "dest": "data/corn_delight/recipe/cooking/corn_soup.json",
+   "sha256_source": "57ff904c4071992112041e18e6f8a87595f7f342f6972dcc5d9820e32a35b5a2",
+   "sha256_dest": "d31416d9163c2ec2ab7ca2f4fba809653f02c25841d41bdfd7605fbe62a6e782",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/cornbread_stuffing.json",
+   "dest": "data/corn_delight/recipe/cooking/cornbread_stuffing.json",
+   "sha256_source": "113132cdc72ef778fba278a8bf8d58196616092b8934ba23784fc418bac42f08",
+   "sha256_dest": "a51d30427b91629543a98447f0c474b5ec86d05aa617f1569212aec5d536da99",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/creamed_corn.json",
+   "dest": "data/corn_delight/recipe/cooking/creamed_corn.json",
+   "sha256_source": "4dac2479ec9c843fd9cd34b492a50e0d1d4e6e8f4bc4921fcfa290be11934018",
+   "sha256_dest": "3869eb4c56322ad60c6859869a7402a97393b4c889d4d7bbf0cb748f9b3d07ba",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/creamy_corn_drink.json",
+   "dest": "data/corn_delight/recipe/cooking/creamy_corn_drink.json",
+   "sha256_source": "00a50994bce2d24bc90749cf40ebf8414e97f9c7868f022c6656656048e2e112",
+   "sha256_dest": "2bc83bb967f9cf40c9d4a0b3c9bff0dbb740e959652ca811ded831d9a5642653",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/nachos_block.json",
+   "dest": "data/corn_delight/recipe/cooking/nachos_block.json",
+   "sha256_source": "cefb1aa08e30f599065b4979a3701b3becca5975c380514a4ed1a61e6320f593",
+   "sha256_dest": "079d19bce0a0e8cfa811f6e3eeff851a829c56bdbfe8c86b79e00d2e475fa131",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cooking/stuffed_pumpkin_from_cornbread.json",
+   "dest": "data/corn_delight/recipe/cooking/stuffed_pumpkin_from_cornbread.json",
+   "sha256_source": "523a0b567806819ed71716556b19b341b2bcf42482f9cbb24f1287848aaea54d",
+   "sha256_dest": "f27b6fa9bdb2ed39521966e6654a78f4e3c81fd351f5a43bd3d633e17d7e38e3",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/corn_crate.json",
+   "dest": "data/corn_delight/recipe/corn_crate.json",
+   "sha256_source": "88f8882d21e48aa1f03c0b75c247e1133b85e8ed8d3a30071f3b8b81879ae473",
+   "sha256_dest": "9b3d702f0fccb874f0d4659759862c7ea6adcd6cee870235b4ce1ad3656be4f3",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/corn_from_crate.json",
+   "dest": "data/corn_delight/recipe/corn_from_crate.json",
+   "sha256_source": "bb2a9c9b6624886b08c86bbf8424b29a4a176ca070b526f5001e4fd600332b9e",
+   "sha256_dest": "ca7ffe3d820d001b9e12ae4e4d893f97577866b88bc8bc16a0604dab43f47c14",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/corn_kernel_bag.json",
+   "dest": "data/corn_delight/recipe/corn_kernel_bag.json",
+   "sha256_source": "ae386973597df47d8ac8fc23248fdaa01c6bd558e83b445ee8fc48871bb14d81",
+   "sha256_dest": "176c09440619f61c7cbe0cc11fe94604f81a1f19f3a1637c114e92e5fc761000",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/corn_seeds.json",
+   "dest": "data/corn_delight/recipe/corn_seeds.json",
+   "sha256_source": "5d3d9684187d9cc42a8ea8e60a634ba7c6872b6fc58c063b50a70007bf9a4e7e",
+   "sha256_dest": "aaabdb6e6bb20c58c8a876134bbaa2a3930010e2a80758189636db88a2cdb3f1",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/corn_seeds_from_bag.json",
+   "dest": "data/corn_delight/recipe/corn_seeds_from_bag.json",
+   "sha256_source": "3ea1323a534b99340d43bd05db2886aaf790cb6e184ecd9b7788aade407dfb59",
+   "sha256_dest": "a7921d3434a039d9f054cb61dd72097a7ce9c3faa77c3e19a44b55dc58de7f86",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cornbread.json",
+   "dest": "data/corn_delight/recipe/cornbread.json",
+   "sha256_source": "d3a92ce9989db6fb8810433586245d1ad99ca8972dc58916d84d9ff0596f24f5",
+   "sha256_dest": "bbebac2aeb238609b810298e348f9ce529ada0972c5dbc9416b19369e38b0f0e",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cornbread_batter.json",
+   "dest": "data/corn_delight/recipe/cornbread_batter.json",
+   "sha256_source": "1eaf3d4759e4de0ba8cb0294b7d7295265f859ed64ea0485399f2ee744d8ef40",
+   "sha256_dest": "1f9bbb1b5c4d53d1d032a2e8f8b74052ac0ad24958da8a965f2cb91925b629e4",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cornbread_from_campfire_cooking.json",
+   "dest": "data/corn_delight/recipe/cornbread_from_campfire_cooking.json",
+   "sha256_source": "eed74739e4d3df3b5c54d9b59222c532bdcfe77b286c7993b3b026d9a8c92344",
+   "sha256_dest": "64e52bb6a38107ca5989f9bab7db61fdbae63524ccbf5e62d029a265d86cfa9d",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cornbread_from_smoking.json",
+   "dest": "data/corn_delight/recipe/cornbread_from_smoking.json",
+   "sha256_source": "8a391eae4138c644042dea02924c68c6eeada95f9603e5e2f1a6460f45608df4",
+   "sha256_dest": "0369e2057d26e72f1d0166425a6254969612ad7c9b0f7d31410218074d555877",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cutting/corn.json",
+   "dest": "data/corn_delight/recipe/cutting/corn.json",
+   "sha256_source": "94ebb411cd2a0ae3fde55d073831395bbfe377de1a04e4337a6c5425b3fb5321",
+   "sha256_dest": "c74a1645fefeb40bdb031e091e3e19e93211d8e3b25740213d31322ec428c009",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cutting/corncob.json",
+   "dest": "data/corn_delight/recipe/cutting/corncob.json",
+   "sha256_source": "fa367e5fe4851333430bb884e7a5cae1f4a608d4130470488d0d9bbf3f3f40a9",
+   "sha256_dest": "aa6f38efbc758a0edad67006d94c321469bf78db8024aafcc4f4fb614f680388",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cutting/tortilla_chip.json",
+   "dest": "data/corn_delight/recipe/cutting/tortilla_chip.json",
+   "sha256_source": "ef9257d373569ec1fbd181ac73ca412e93694af23b02e9522bf393e748d99844",
+   "sha256_dest": "82a7670e2baa197717d6061e75993fe9240e9611370ddeef5978fcdc639cfb67",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/cutting/wild_corn.json",
+   "dest": "data/corn_delight/recipe/cutting/wild_corn.json",
+   "sha256_source": "1d8834bf75156b80e718575357b5d6b53a582c9549dd6b7f6c18cf6b1be9d642",
+   "sha256_dest": "2a9fb32c2b15afb93ed5a0015954f84acd6a47cf99b376604e9237edd3fc326a",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/grilled_corn.json",
+   "dest": "data/corn_delight/recipe/grilled_corn.json",
+   "sha256_source": "757c814d693710aa786ab783f87c10dd2d29c5aaa68c973650c45b3d903b6977",
+   "sha256_dest": "a57d573a9480077e6545a99fab3f50eb7ad0be40df5bb02d52563c056d79c07c",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/grilled_corn_from_campfire_cooking.json",
+   "dest": "data/corn_delight/recipe/grilled_corn_from_campfire_cooking.json",
+   "sha256_source": "8942ebfe0badae7fbe20d0e1041c481ad26372e88f6565088043623937f6c611",
+   "sha256_dest": "acbf9857cb22a63b09bfab80914355ea3046a01ea4ff3ad54f0d1650f015b1d1",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/grilled_corn_from_smoking.json",
+   "dest": "data/corn_delight/recipe/grilled_corn_from_smoking.json",
+   "sha256_source": "1a867a24ed54aee848e2466594500b313b1400d60428efdafc60b218d1af5202",
+   "sha256_dest": "f493543757c13fd4b85ab6c3451ea389a125dfbc643af877f4759a700406ae23",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/organic_compost_from_corncob.json",
+   "dest": "data/corn_delight/recipe/organic_compost_from_corncob.json",
+   "sha256_source": "010ed6d4bbfc54265def1ba15027d2816529a86eb7efb857cf87c5b601e8fa2f",
+   "sha256_dest": "8d41f044f77a78acedb36d3338f9cf70189a94aeba639ad8c4d6134e48b58c8d",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/paper_from_corncob.json",
+   "dest": "data/corn_delight/recipe/paper_from_corncob.json",
+   "sha256_source": "e631fb16f2a691e72dcad8c01b27e8dd2eac30e830142ef856547844548e0a69",
+   "sha256_dest": "ae277c93fae1e96b270b7dce3b6674ca55a5d624211be5cc19f34b46f7bc8d4a",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/popcorn.json",
+   "dest": "data/corn_delight/recipe/popcorn.json",
+   "sha256_source": "bf3e36216db04dac3a59391bd08a5de19bf2f315c9b71a449b24c88da9136bc1",
+   "sha256_dest": "267c363d10422a6605324dfad0df25e7d46aa0e6949a0ae8d86964c4b0a154d6",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/popcorn_box.json",
+   "dest": "data/corn_delight/recipe/popcorn_box.json",
+   "sha256_source": "f1a47b1eaa75f43b1d77662c977752726f22d2dec7c0f5a364c59b1d1daa3919",
+   "sha256_dest": "3d55410d075cea0b194c79340c0b7f508ee9b2300c58eb7cdb31db87621c5e73",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/popcorn_from_campfire_cooking.json",
+   "dest": "data/corn_delight/recipe/popcorn_from_campfire_cooking.json",
+   "sha256_source": "3fe0ae9b08abf0c2029dda62d8ef5f67ee7cec9a60ed12ab0a649145926e4258",
+   "sha256_dest": "fd12f4de3a662f31d6da952c508ea583d215c181676fc6cb95ab2cc3dce924bc",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/popcorn_from_smoking.json",
+   "dest": "data/corn_delight/recipe/popcorn_from_smoking.json",
+   "sha256_source": "82016085ce20c165ca695965fab1b6ff05a8e3cb3ac4d71fcc905bc8fbf12597",
+   "sha256_dest": "61ee153c515967e866d26e4cd592c13fc500b5ecf7b31bbe0eb661127eef6f34",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/taco.json",
+   "dest": "data/corn_delight/recipe/taco.json",
+   "sha256_source": "190cd90ddb10998b0673085e5ba291f49baaea5efb4185f71453bae12d5a848b",
+   "sha256_dest": "15c609867174c8a9dcab09beca426e5b47c9c0fbf5a43cc322b3cd28b36bb238",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/tortilla.json",
+   "dest": "data/corn_delight/recipe/tortilla.json",
+   "sha256_source": "eb49806067a93893cc0b6938fd5d369a125570650eb9563e76342c2650f1b78f",
+   "sha256_dest": "ab0dd92c5be13f9ff906d48d31399748bab04e69cf8075035c1793e4d8df3497",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/tortilla_from_campfire_cooking.json",
+   "dest": "data/corn_delight/recipe/tortilla_from_campfire_cooking.json",
+   "sha256_source": "606db1d22fc8791942537be78f0d40c160255fa9a7cb36f4c0aac3171380255d",
+   "sha256_dest": "7bdd71118a7a483d8db6504963a59144f4e872ab2a612645d405bbe904582ca6",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/tortilla_from_smoking.json",
+   "dest": "data/corn_delight/recipe/tortilla_from_smoking.json",
+   "sha256_source": "fb434fefe0b218dcf8cca30f46072893e2b0d49a16c4206f6cc2eb4a660e5a4d",
+   "sha256_dest": "e2b981a93cb6af2681d6601a72f135ab44d1918117c5176c684345605e9520be",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/recipe/tortilla_raw.json",
+   "dest": "data/corn_delight/recipe/tortilla_raw.json",
+   "sha256_source": "e4c1b5a7aedb477125fb40b1d67dda4b9c35e0a08ed15485026b2810b6dd9f4a",
+   "sha256_dest": "9ff3d359af44d79da843b730f93e63d93bf40838d407abd2557c26d0a22c3eba",
+   "rule": "recipe"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/structure/village/houses/plains_large_corn_farm.nbt",
+   "dest": "data/corn_delight/structure/village/houses/plains_large_corn_farm.nbt",
+   "sha256_source": "64b4179873f60396486f305858f86bd5da605e459791fc5b83ce6e92755a1d12",
+   "sha256_dest": "64b4179873f60396486f305858f86bd5da605e459791fc5b83ce6e92755a1d12",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/structure/village/houses/plains_small_corn_farm.nbt",
+   "dest": "data/corn_delight/structure/village/houses/plains_small_corn_farm.nbt",
+   "sha256_source": "64b95cfde0c1bb0432fef507fb9329c3e2b54fbf8a59a50ddc99bf5a57d44c1b",
+   "sha256_dest": "64b95cfde0c1bb0432fef507fb9329c3e2b54fbf8a59a50ddc99bf5a57d44c1b",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/structure/village/houses/taiga_large_corn_farm.nbt",
+   "dest": "data/corn_delight/structure/village/houses/taiga_large_corn_farm.nbt",
+   "sha256_source": "1fcac648310da2199ce9039b53a5bb1ec7f96d0462bc2e98370408d04499a19e",
+   "sha256_dest": "1fcac648310da2199ce9039b53a5bb1ec7f96d0462bc2e98370408d04499a19e",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/structure/village/houses/taiga_small_corn_farm.nbt",
+   "dest": "data/corn_delight/structure/village/houses/taiga_small_corn_farm.nbt",
+   "sha256_source": "a3bc7302ecc41b3ba2e201f1b5d68a9c773364a003e44054f0a386691ffb4f05",
+   "sha256_dest": "a3bc7302ecc41b3ba2e201f1b5d68a9c773364a003e44054f0a386691ffb4f05",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/worldgen/configured_feature/patch_wild_corn.json",
+   "dest": "data/corn_delight/worldgen/feature/patch_wild_corn.json",
+   "sha256_source": "ab3ef053ad3e0d69b05dd6ce3297cf05bed2406bad78791aea7f877522b2069c",
+   "sha256_dest": "c8f1c222b4381f18b600a2941b5a25a99cfe9035c17ab1b821820424c0f1f491",
+   "rule": "worldgen"
+  },
+  {
+   "source": "src/main/resources/data/corn_delight/worldgen/placed_feature/patch_wild_corn.json",
+   "dest": "data/corn_delight/worldgen/placed_feature/patch_wild_corn.json",
+   "sha256_source": "750620973d2f3930223f01aa613f9159d45d3e39cd2951bf80f21672f3aa09a9",
+   "sha256_dest": "47be6620443194864e849a4df9219ca55562a3538ad0fed87cf3d4a08af7d76d",
+   "rule": "worldgen"
+  },
+  {
+   "source": "src/main/resources/data/minecraft/tags/block/crops.json",
+   "dest": "data/minecraft/tags/block/crops.json",
+   "sha256_source": "f2c26e48296eff49c9afbf9763fef50e4a1d4e8138575fef6ab1861be1d71b3d",
+   "sha256_dest": "f2c26e48296eff49c9afbf9763fef50e4a1d4e8138575fef6ab1861be1d71b3d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/minecraft/tags/block/small_flowers.json",
+   "dest": "data/minecraft/tags/block/small_flowers.json",
+   "sha256_source": "f57879c3cef70a7cfa5b76c9fe2040a94ce24e01a1895bf1f28089838c15a44d",
+   "sha256_dest": "f57879c3cef70a7cfa5b76c9fe2040a94ce24e01a1895bf1f28089838c15a44d",
+   "rule": "copy"
+  },
+  {
+   "source": "src/generated/resources/data/minecraft/tags/item/chicken_food.json",
+   "dest": "data/minecraft/tags/item/chicken_food.json",
+   "sha256_source": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "sha256_dest": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "rule": "copy"
+  },
+  {
+   "source": "src/generated/resources/data/minecraft/tags/item/cow_food.json",
+   "dest": "data/minecraft/tags/item/cow_food.json",
+   "sha256_source": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "sha256_dest": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/minecraft/tags/item/enchantable/equippable.json",
+   "dest": "data/minecraft/tags/item/enchantable/equippable.json",
+   "sha256_source": "9d8b30f423035d07ca1db95b4c4ad9f8eeed86badbb99e92968b5afb150662b1",
+   "sha256_dest": "9d8b30f423035d07ca1db95b4c4ad9f8eeed86badbb99e92968b5afb150662b1",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/minecraft/tags/item/enchantable/vanishing.json",
+   "dest": "data/minecraft/tags/item/enchantable/vanishing.json",
+   "sha256_source": "9d8b30f423035d07ca1db95b4c4ad9f8eeed86badbb99e92968b5afb150662b1",
+   "sha256_dest": "9d8b30f423035d07ca1db95b4c4ad9f8eeed86badbb99e92968b5afb150662b1",
+   "rule": "copy"
+  },
+  {
+   "source": "src/generated/resources/data/minecraft/tags/item/goat_food.json",
+   "dest": "data/minecraft/tags/item/goat_food.json",
+   "sha256_source": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "sha256_dest": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "rule": "copy"
+  },
+  {
+   "source": "src/generated/resources/data/minecraft/tags/item/horse_food.json",
+   "dest": "data/minecraft/tags/item/horse_food.json",
+   "sha256_source": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "sha256_dest": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "rule": "copy"
+  },
+  {
+   "source": "src/generated/resources/data/minecraft/tags/item/parrot_food.json",
+   "dest": "data/minecraft/tags/item/parrot_food.json",
+   "sha256_source": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "sha256_dest": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "rule": "copy"
+  },
+  {
+   "source": "src/generated/resources/data/minecraft/tags/item/pig_food.json",
+   "dest": "data/minecraft/tags/item/pig_food.json",
+   "sha256_source": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "sha256_dest": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "rule": "copy"
+  },
+  {
+   "source": "src/generated/resources/data/minecraft/tags/item/sheep_food.json",
+   "dest": "data/minecraft/tags/item/sheep_food.json",
+   "sha256_source": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "sha256_dest": "a9568e3f9cf58df19524dd4962347c6f90bc6552596f8ddb3509baaa4122a026",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/data/minecraft/tags/item/villager_plantable_seeds.json",
+   "dest": "data/minecraft/tags/item/villager_plantable_seeds.json",
+   "sha256_source": "ea8361155574d3dd0744febc74fd060115e3074aa71aa120b0c365ace3ed0ea6",
+   "sha256_dest": "ea8361155574d3dd0744febc74fd060115e3074aa71aa120b0c365ace3ed0ea6",
+   "rule": "copy"
+  },
+  {
+   "source": "src/main/resources/assets/corn_delight/logo.png",
+   "dest": "icon.png",
+   "sha256_source": "a56cfb12daf53022245f94c4f10515aaf2c89665797c78bd9f0a96ef5de3308d",
+   "sha256_dest": "a56cfb12daf53022245f94c4f10515aaf2c89665797c78bd9f0a96ef5de3308d",
+   "rule": "copy_as"
+  }
+ ]
+}

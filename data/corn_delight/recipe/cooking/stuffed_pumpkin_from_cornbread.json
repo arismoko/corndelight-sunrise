@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    "corn_delight:cornbread",
+    "#c:foods/vegetables",
+    "farmersdelight:tomato_sauce",
+    "farmersdelight:brown_mushroom_colony",
+    "minecraft:sweet_berries"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "farmersdelight:stuffed_pumpkin_block"
+  },
+  "container": {
+    "id": "minecraft:pumpkin"
+  },
+  "experience": 0.5,
+  "cookingtime": 400
+}
