@@ -1,0 +1,25 @@
+Corn Delight (Horizon port)
+===========================
+
+This port's own files (Rust code, tools, declarations, documentation) are MIT licensed (see LICENSE).
+
+Corn Delight
+------------
+Data, assets and item values are carried or adapted from Corn Delight
+(https://github.com/0999312/Corn-Delight, branch 1.21, commit
+ab03743e53319e985f134d15a0473ff1329c5e0a, version 1.1.8-1.21.1),
+MIT License, Copyright (c) 2022 Zheng Syameimaru. Full text: LICENSE-corn_delight
+(also third_party/corn_delight/LICENSE).
+
+Mysterious Mountain Lib (MMLib, https://github.com/0999312/MMLib, commit
+8deb5c2fde32d1424a268d091fca2fe4c1bd7879), the library Corn Delight builds on, has no
+licence file. Its behaviour (two-block crops, loot table injection, villager food) is
+re-implemented here from observed behaviour; none of its code or assets is copied.
+
+Farmer's Delight
+----------------
+This add-on needs the Farmer's Delight Horizon port (ported_farmersdelight), which
+carries Farmer's Delight Refabricated under MIT (see that mod's NOTICE), and calls
+its public Rust API.
+
+No vanilla Minecraft assets are extracted or redistributed.
