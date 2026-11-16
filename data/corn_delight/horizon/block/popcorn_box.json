@@ -1,0 +1,84 @@
+{
+  "template": "minecraft:stonecutter",
+  "properties": {
+    "hardness": 0.8,
+    "explosion_resistance": 0.8,
+    "requires_tool": false,
+    "sounds": "minecraft:yellow_wool",
+    "map_color": 18,
+    "push_reaction": "PUSH_PULL"
+  },
+  "state_properties": {
+    "servings": {
+      "type": "enum",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    }
+  },
+  "default_state": {
+    "facing": "north",
+    "servings": "4"
+  },
+  "shapes": {
+    "properties": [
+      "servings"
+    ],
+    "values": {
+      "0": [
+        [
+          0.125,
+          0.0,
+          0.125,
+          0.875,
+          0.125,
+          0.875
+        ]
+      ],
+      "1": [
+        [
+          0.125,
+          0.0,
+          0.125,
+          0.875,
+          0.125,
+          0.875
+        ]
+      ],
+      "2": [
+        [
+          0.125,
+          0.0,
+          0.125,
+          0.875,
+          0.25,
+          0.875
+        ]
+      ],
+      "3": [
+        [
+          0.125,
+          0.0,
+          0.125,
+          0.875,
+          0.375,
+          0.875
+        ]
+      ],
+      "4": [
+        [
+          0.125,
+          0.0,
+          0.125,
+          0.875,
+          0.5,
+          0.875
+        ]
+      ]
+    }
+  }
+}

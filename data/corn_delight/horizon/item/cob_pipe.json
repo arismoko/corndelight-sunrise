@@ -1,0 +1,9 @@
+{
+  "template": "minecraft:stick",
+  "components": {
+    "minecraft:equippable": {
+      "slot": "head",
+      "equip_sound": "minecraft:block.grass.place"
+    }
+  }
+}

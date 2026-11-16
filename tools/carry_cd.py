@@ -258,10 +258,16 @@ def upgrade_loot(v, up: Uplift, renames: dict):
 # ---------------------------------------------------------------- assets
 
 
-def upgrade_asset(v, up: Uplift):
-    """Port-pack `renamed_assets` (no renamed vanilla id appears in CD) + typed variant fields."""
+def upgrade_asset(v, up: Uplift, renames: dict | None = None):
+    """Port-pack `renamed_assets` (no renamed vanilla id appears in CD) + typed variant fields + FD asset renames."""
+    renames = renames or {}
+    if isinstance(v, str):
+        if v in renames:
+            up.note(f"R6 FD asset {v} → {renames[v]}")
+            return renames[v]
+        return v
     if isinstance(v, list):
-        return [upgrade_asset(x, up) for x in v]
+        return [upgrade_asset(x, up, renames) for x in v]
     if not isinstance(v, dict):
         return v
     o = {}
@@ -273,7 +279,7 @@ def upgrade_asset(v, up: Uplift):
             o[k] = x == "true"
             up.note("R6 typed block state variant fields")
         else:
-            o[k] = upgrade_asset(x, up)
+            o[k] = upgrade_asset(x, up, renames)
     if isinstance(o.get("parent"), str) and o["parent"].removeprefix("minecraft:") == "block/template_farmland":
         raise lib.CarryError("template_farmland model needs port-pack's farmland rewrite")
     return o
@@ -302,6 +308,49 @@ def item_definition(item: str, rules: dict) -> dict:
             "fallback": {"type": "minecraft:model", "model": f"{NS}:item/{special[item]}"},
         }
     }
+
+
+def asset_refs(rel: str, obj) -> set[tuple[str, str]]:
+    """(kind, "ns:path") references of a block state, item definition or model: models and textures."""
+    refs: set[tuple[str, str]] = set()
+
+    def walk(v, key=None, in_textures=False):
+        if isinstance(v, dict):
+            for k, x in v.items():
+                walk(x, k, in_textures or k == "textures")
+        elif isinstance(v, list):
+            for x in v:
+                walk(x, key, in_textures)
+        elif isinstance(v, str) and not v.startswith("#"):
+            if in_textures:
+                refs.add(("textures", v))
+            elif key in ("model", "parent") and "/" in v:
+                refs.add(("models", v))
+    walk(obj)
+    return refs
+
+
+def unresolved_assets(out: Path, dests, base: Path, vanilla: Path) -> dict[str, list[str]]:
+    """Model and texture references of the carried assets that neither vanilla 26.3, the base nor this output has.
+    Vanilla's builtin parents (`builtin/…`, `item/generated`'s chain) are files in the jar too."""
+    import zipfile
+
+    with zipfile.ZipFile(vanilla) as z:
+        have = set(z.namelist())
+    def exists(kind: str, ref: str) -> bool:
+        ns, path = ref.split(":", 1) if ":" in ref else ("minecraft", ref)
+        if path.startswith("builtin/"):
+            return True
+        ext = ".png" if kind == "textures" else ".json"
+        rel = f"assets/{ns}/{kind}/{path}{ext}"
+        return rel in have or (base / rel).exists() or (out / rel).exists()
+    bad = {}
+    for d in dests:
+        if d.startswith(f"assets/{NS}/") and d.endswith(".json") and "/lang/" not in d:
+            missing = sorted(r for k, r in asset_refs(d, json.loads((out / d).read_text("utf-8"))) if not exists(k, r))
+            if missing:
+                bad[d] = missing
+    return bad
 
 
 # ---------------------------------------------------------------- the carry
@@ -365,7 +414,7 @@ def carry(cd: Path, out: Path, rules: dict, base: Path, vanilla: Path):
         elif kind in ("asset", "recipe", "advancement", "loot"):
             obj = json.loads(data.decode("utf-8"))
             new = {
-                "asset": lambda o: upgrade_asset(o, up),
+                "asset": lambda o: upgrade_asset(o, up, rules.get("asset_rename", {})),
                 "recipe": lambda o: upgrade_recipe(o, up),
                 "advancement": lambda o: upgrade_advancement(o, up),
                 "loot": lambda o: upgrade_loot(o, up, renames),
@@ -426,6 +475,9 @@ def carry(cd: Path, out: Path, rules: dict, base: Path, vanilla: Path):
     bad = lib.fence_violations(dests, OWNED)
     if bad:
         raise lib.CarryError(f"outside the namespace fence: {bad}")
+    broken = unresolved_assets(out, dests, base, vanilla)
+    if broken:
+        raise lib.CarryError(f"unresolved model/texture references: {broken}")
     defined = lib.tags_in_zip(vanilla) | lib.tags_in_tree(base) | lib.tags_in_rels(dests)
     refs = {}
     for d in dests:

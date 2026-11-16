@@ -4,6 +4,11 @@ Source `https://github.com/0999312/Corn-Delight` @ `ab03743e53319e985f134d15a047
 
 ## Rewritten files
 
+- `assets/corn_delight/blockstates/nachos_block.json`: R6 FD asset farmersdelight:block/shepherds_pie_block_leftover → farmersdelight:block/shepherds_pie_block_leftovers
+- `assets/corn_delight/models/block/nachos_block_stage0.json`: R6 FD asset farmersdelight:block/tray_top → farmersdelight:block/tray
+- `assets/corn_delight/models/block/nachos_block_stage1.json`: R6 FD asset farmersdelight:block/tray_pie_leftover → farmersdelight:block/shepherds_pie_leftovers
+- `assets/corn_delight/models/block/nachos_block_stage2.json`: R6 FD asset farmersdelight:block/tray_pie_leftover → farmersdelight:block/shepherds_pie_leftovers
+- `assets/corn_delight/models/block/nachos_block_stage3.json`: R6 FD asset farmersdelight:block/tray_pie_leftover → farmersdelight:block/shepherds_pie_leftovers
 - `data/corn_delight/advancement/recipes/corn_delight/caramel_popcorn.json`: R6 recipe_unlocked recipe → recipes
 - `data/corn_delight/advancement/recipes/corn_delight/classic_corn_dog.json`: R6 recipe_unlocked recipe → recipes
 - `data/corn_delight/advancement/recipes/corn_delight/corn_crate.json`: R6 recipe_unlocked recipe → recipes

@@ -1,0 +1,36 @@
+{
+  "template": "minecraft:stick",
+  "max_stack_size": 16,
+  "crafting_remainder": "minecraft:glass_bottle",
+  "components": {
+    "minecraft:food": {
+      "nutrition": 2,
+      "saturation": 2.4
+    },
+    "minecraft:consumable": {
+      "animation": "drink",
+      "sound": "minecraft:entity.generic.drink",
+      "has_consume_particles": false,
+      "on_consume_effects": [
+        {
+          "type": "minecraft:apply_effects",
+          "effects": [
+            {
+              "id": "farmersdelight:comfort",
+              "duration": 1200,
+              "amplifier": 0
+            },
+            {
+              "id": "minecraft:regeneration",
+              "duration": 1200,
+              "amplifier": 0
+            }
+          ]
+        }
+      ]
+    },
+    "minecraft:use_remainder": {
+      "id": "minecraft:glass_bottle"
+    }
+  }
+}

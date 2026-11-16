@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Run the carry with the local checkout layout (sources/ and the base beside this repo). Extra args: --check …
+cd "$(dirname "$0")/.." && exec python3 -I tools/carry_cd.py --cd ../sources/Corn-Delight --base ../farmersdelight-horizon --vanilla ../minecraft-26.3-client.jar "$@"

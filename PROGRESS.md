@@ -93,3 +93,44 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   needs the private base checkout).
 - deltas: CA5 (milk prune) recorded.
 - next: CD-04 (block and item declarations), then the in-game zero-skip check for CD-03.
+
+## CD-04 Block and item declarations — PASS — 2026-11-16 (also closes CD-03's in-game check)
+- base: farmersdelight-horizon 30ba2a6 | addon commit: (this commit)
+- `tools/decl/cd.toml.in` (every row cited to ItemRegistry/BlockRegistry/the block classes/the data maps) →
+  `tools/gen_cd_decls.py` → `data/corn_delight/horizon/{block (6), item (21), creative_tab (1)}` (block items of
+  the 5 placeable blocks come from their block declarations). Forms: foods `minecraft:food` (saturation =
+  nutrition × modifier × 2 in Java float) + `consumable` (default 1.6 s; `creamy_corn_drink` drink animation and
+  sound, no particles) + one `apply_effects` (Comfort 3600/1200, Regeneration 1200, Strength 600, Nourishment 6000;
+  MobEffectInstance defaults); bowl/stick/bottle foods stack 16 with crafting remainder and `use_remainder`;
+  `corn` villager food 1; `corncob` fuel 100 (`cooking_fuel`); 12 compost chances as `compostable` layers —
+  vanilla providers for 0.5/0.65/0.85/1.0, inline providers in vanilla's own shape (empty composter always,
+  else a weighted 1/0 draw) for CD's 0.25/0.35/0.55/0.75; `corn_seeds` places `corn_crop` and is edible (the
+  base's onion pattern); `cob_pipe` `equippable` head, equip sound `block.grass.place`. Blocks: `corn_crop`
+  wheat template + declared `upper`, shapes by age × half (lower 4/8/12/16 px…, upper 4/6/8/12/14 px…), block item
+  `corn_seeds`; `wild_corn` as the base's wild crops (short_dry_grass template, FD's 2..14×13 shape, compost
+  0.55); crate (oak planks 2/3), kernel bag (white wool); `nachos_block` (stonecutter template for `facing`,
+  servings 0–4 placed full, cake's 0.5/wool sound/POPPED, plate at 0 else plate + nachos); `popcorn_box` (yellow
+  wool 0.8, servings 0–4). Creative tab `itemGroup.corn_delight`, icon corn, 26 items in registry order.
+- plan corrections: the popcorn box's outline is FD 26.3 `FeastBlock.SHAPES` by servings (CD declares a
+  4..12×10 `BOX_SHAPE` but never uses it); CD's block items stack to 64 (not 1 like FD's feasts).
+- carry additions found in game: CD's nachos assets name upstream FD 1.21.1 assets FD Refabricated 26.3 renamed
+  (`shepherds_pie_block_leftover` model → `…_leftovers`, texture `tray_top` → `tray`, `tray_pie_leftover` →
+  `shepherds_pie_leftovers`): magenta nachos block in the first run. New rule `[asset_rename]` and a carry check that
+  every model/texture reference resolves in vanilla 26.3, the base or the output (verified to fail without a
+  rename). Package icon: CD's logo is a 135×37 banner (`icon.png must be square`, build refused) → the corn item
+  texture. `tools/carry.sh` wraps the carry with the local paths.
+- tests: `tools/test_cd_decls.py` (6: item order and food/effect/container values against a table extracted from
+  ItemRegistry.java, compost/fuel against the data maps, Java-float saturation, providers, output shapes);
+  `tools/test_carry_cd.py` 13. decl `--check` 28 files, carry `--check` 266 files.
+- in game (fd-port base + MD + CD, FDM6, `../run/shots/cd-04/`): latest.log has **no** `corn_delight` line (0
+  skipped recipes, advancements, loot tables — CD-03's acceptance) and the base logs no rejected cooking recipe;
+  `/give` of all 26 ids → 26 "Gave"; every block state placed: corn lower ages 0–7 and upper ages 0–7, wild corn,
+  crate, kernel bag, nachos 0–4, popcorn box 0–4 render with the carried models (`feasts.png`, `blocks.png`);
+  creative tab page 2 "Corn Delight", 26 items in order, cob pipe 2D in the GUI (`creative2.png`). Not yet
+  (later tasks): upper halves only survive on farmland now (corn survival is CD-06); feast use (CD-11).
+- incident: a teleport onto the pad edge (no floor at 60015,199,59996) dropped the test player to y 113 in creative,
+  unhurt; floor filled, player moved back. A rebuild ran while the old game was still open, so the next start
+  crashed ("FDM6 is already open in another instance"); the stale game was stopped. Neither touched FDTest.
+- deltas: CA11 — the nachos' leftover tray uses FD 26.3's shepherd's pie leftover texture (upstream FD 1.21.1's
+  generic `tray_pie_leftover` does not exist in FD 26.3).
+- next: CD-05 (first playable slice, closes CDM1).

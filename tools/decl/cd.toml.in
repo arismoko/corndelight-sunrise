@@ -1,0 +1,193 @@
+# (Named *.toml.in: the Horizon packager refuses .toml files outside src/.)
+# Corn Delight's blocks and items as tools/gen_cd_decls.py reads them (CD-04). Paths: CDj = Corn Delight
+# src/main/java/cn/mcmod/corn_delight, CDg = src/generated/resources (ab03743e), FD = the FD Refabricated 26.3 source.
+# Every value is cited; the generator turns these rows into data/corn_delight/horizon/{block,item,creative_tab}.
+
+[tab]
+source = "CDj/CornDelightCreativeGroup.java (title itemGroup.corn_delight, icon CORN, ITEMS in registry order)"
+title = "itemGroup.corn_delight"
+icon = "corn"
+
+# ------------------------------------------------------------------ blocks (BlockRegistry order)
+
+[blocks.corn_crop]
+source = "CDj/block/BlockRegistry.java:CORN_CROP (CornCrop, ofLegacyCopy(WHEAT)); CDj/block/CornCrop.java:UPPER_SHAPE_BY_AGE; MMLib HighCropBlock lower shapes 4/8/12/16 px, UPPER boolean"
+# Template minecraft:wheat (CropBlock age 0-7, wheat's properties, farmland survival); `upper` declared. Growth of
+# the two halves, upper survival and bone meal are code (CD-06). Block item = corn_seeds (ItemFoodSeeds).
+template = "minecraft:wheat"
+state_properties = { upper = { type = "boolean" } }
+default_state = { age = "0", upper = "false" }
+lower_px = [4, 8, 12, 16, 16, 16, 16, 16]
+upper_px = [4, 6, 8, 12, 14, 14, 14, 14]
+block_item = "seeds"
+
+[blocks.wild_corn]
+source = "CDj/block/BlockRegistry.java:WILD_CORN (FD WildCropBlock(SATURATION, 8), ofLegacyCopy(TALL_GRASS)); FD WildCropBlock.SHAPE; CDg data_maps compostables wild_corn 0.55"
+# As the base's FD wild crops (template short_dry_grass for the worldgen survival rule, E-25; grass sounds, plant
+# map colour); ground, bone meal spread and the stew effect are the base's api::wild_crop (CD-07).
+template = "minecraft:short_dry_grass"
+properties = { sounds = "minecraft:short_grass", map_color = 7 }
+shape = [[2, 0, 2, 14, 13, 14]]
+no_collision = true
+compost = 0.55
+
+[blocks.corn_crate]
+source = "CDj/block/BlockRegistry.java:CORN_CRATE (ofLegacyCopy(OAK_PLANKS).strength(2.0F, 3.0F).sound(WOOD))"
+template = "minecraft:oak_planks"
+properties = { hardness = 2.0, explosion_resistance = 3.0 }
+
+[blocks.corn_kernel_bag]
+source = "CDj/block/BlockRegistry.java:CORN_KERNAL_BAG (ofLegacyCopy(WHITE_WOOL))"
+template = "minecraft:white_wool"
+
+[blocks.nachos_block]
+source = "CDj/block/BlockRegistry.java:NACHOS_BLOCK (NachosBlock, ofLegacyCopy(CAKE): strength 0.5, sound WOOL, pushReaction DESTROY, mapColor NONE); CDj/block/NachosBlock.java:PLATE_SHAPE,NACHOS_SHAPE"
+# A feast as the base's (template stonecutter for `facing`, servings 0-4 placed full); serving is the base's
+# api::feast (CD-11). The item stacks to 64 (CD's BlockItem, unlike FD's feasts).
+template = "minecraft:stonecutter"
+properties = { hardness = 0.5, explosion_resistance = 0.5, requires_tool = false, sounds = "minecraft:white_wool", map_color = 0, push_reaction = "POPPED" }
+state_properties = { servings = { type = "enum", values = ["0", "1", "2", "3", "4"] } }
+default_state = { facing = "north", servings = "4" }
+servings_shapes_px = { "0" = [[1, 0, 1, 15, 2, 15]], "default" = [[1, 0, 1, 15, 2, 15], [2, 2, 2, 14, 5, 14]] }
+
+[blocks.popcorn_box]
+source = "CDj/block/PopcornBoxBlock.java (FeastBlock(ofLegacyCopy(YELLOW_WOOL), CARAMEL_POPCORN, true): strength 0.8, sound WOOL, mapColor COLOR_YELLOW); getShape not overridden (BOX_SHAPE unused) → FD 26.3 FeastBlock.SHAPES"
+template = "minecraft:stonecutter"
+properties = { hardness = 0.8, explosion_resistance = 0.8, requires_tool = false, sounds = "minecraft:yellow_wool", map_color = 18, push_reaction = "PUSH_PULL" }
+state_properties = { servings = { type = "enum", values = ["0", "1", "2", "3", "4"] } }
+default_state = { facing = "north", servings = "4" }
+servings_shapes_px = { "0" = [[2, 0, 2, 14, 2, 14]], "1" = [[2, 0, 2, 14, 2, 14]], "2" = [[2, 0, 2, 14, 4, 14]], "3" = [[2, 0, 2, 14, 6, 14]], "4" = [[2, 0, 2, 14, 8, 14]] }
+
+# ------------------------------------------------------------------ items (ItemRegistry order)
+# Foods: MMLib FoodInfo.amountAndCalories(nutrition, saturation modifier) → FoodProperties (saturation =
+# nutrition × modifier × 2 in float), eat time 32 ticks (the vanilla default), effects with probability 1 and
+# MobEffectInstance defaults (particles and icon shown). `remainder` = craftRemainder + stacksTo(16), handed back on
+# eating (ItemFoodBase#finishUsingItem). FD FoodValues durations: BRIEF 600, SHORT 1200, MEDIUM 3600, LONG 6000.
+
+[items.wild_corn]
+source = "CDj/item/ItemRegistry.java:WILD_CORN (BlockItem)"
+kind = "block"
+[items.corn_crate]
+source = "CDj/item/ItemRegistry.java:CORN_CRATE (BlockItem)"
+kind = "block"
+[items.corn_kernel_bag]
+source = "CDj/item/ItemRegistry.java:CORN_KERNAL_BAG (BlockItem)"
+kind = "block"
+[items.nachos_block]
+source = "CDj/item/ItemRegistry.java:NACHOS_BLOCK (BlockItem)"
+kind = "block"
+[items.popcorn_box]
+source = "CDj/item/ItemRegistry.java:POPCORN_BOX (BlockItem)"
+kind = "block"
+
+[items.corn]
+source = "CDj/item/ItemRegistry.java:CORN (2, 0.2); CDj/CornDelight.java addFoodToVillage(CORN, 1); CDg compostables 0.65"
+food = [2, 0.2]
+villager_food = 1
+compost = 0.65
+
+[items.corncob]
+source = "CDj/item/ItemRegistry.java:CORNCOB (Item); CDg compostables 0.25, furnace_fuels 100"
+compost = 0.25
+fuel = 100
+
+[items.corn_seeds]
+source = "CDj/item/ItemRegistry.java:CORN_SEEDS (ItemFoodSeeds(CORN_CROP), 1, 0.2); CDg compostables 0.35"
+# Places corn_crop on use against a block, eats otherwise (as the base's FD onion).
+food = [1, 0.2]
+block = "corn_crop"
+compost = 0.35
+
+[items.grilled_corn]
+source = "CDj/item/ItemRegistry.java:GRILLED_CORN (6, 0.2); CDg compostables 0.65"
+food = [6, 0.2]
+compost = 0.65
+
+[items.boiled_corn]
+source = "CDj/item/ItemRegistry.java:BOILED_CORN (6, 0.2); CDg compostables 0.65"
+food = [6, 0.2]
+compost = 0.65
+
+[items.popcorn]
+source = "CDj/item/ItemRegistry.java:POPCORN (3, 0.5); CDg compostables 0.5"
+food = [3, 0.5]
+compost = 0.5
+
+[items.caramel_popcorn]
+source = "CDj/item/ItemRegistry.java:CARAMEL_POPCORN (5, 0.6)"
+food = [5, 0.6]
+
+[items.creamed_corn]
+source = "CDj/item/ItemRegistry.java:CREAMED_CORN (7, 0.5, COMFORT MEDIUM, BOWL)"
+food = [7, 0.5]
+effects = [["farmersdelight:comfort", 3600]]
+remainder = "minecraft:bowl"
+
+[items.corn_soup]
+source = "CDj/item/ItemRegistry.java:CORN_SOUP (10, 0.9, COMFORT MEDIUM, BOWL)"
+food = [10, 0.9]
+effects = [["farmersdelight:comfort", 3600]]
+remainder = "minecraft:bowl"
+
+[items.creamy_corn_drink]
+source = "CDj/item/ItemRegistry.java:CREAMY_CORN_DRINK (drink: MMLib ItemDrinkBase UseAnim.DRINK; 2, 0.6, COMFORT SHORT + REGENERATION SHORT, GLASS_BOTTLE)"
+food = [2, 0.6]
+effects = [["farmersdelight:comfort", 1200], ["minecraft:regeneration", 1200]]
+remainder = "minecraft:glass_bottle"
+drink = true
+
+[items.cornbread_batter]
+source = "CDj/item/ItemRegistry.java:CORNBREAD_BATTER (1, 0.2); CDg compostables 0.85"
+food = [1, 0.2]
+compost = 0.85
+
+[items.cornbread]
+source = "CDj/item/ItemRegistry.java:CORNBREAD (4, 0.5); CDg compostables 0.85"
+food = [4, 0.5]
+compost = 0.85
+
+[items.corn_dog]
+source = "CDj/item/ItemRegistry.java:CORN_DOG (8, 0.9, STICK)"
+food = [8, 0.9]
+remainder = "minecraft:stick"
+
+[items.classic_corn_dog]
+source = "CDj/item/ItemRegistry.java:CLASSIC_CORN_DOG (10, 0.9, STICK)"
+food = [10, 0.9]
+remainder = "minecraft:stick"
+
+[items.tortilla_raw]
+source = "CDj/item/ItemRegistry.java:RAW_TORTILLA (1, 0.2); CDg compostables 0.75"
+food = [1, 0.2]
+compost = 0.75
+
+[items.tortilla]
+source = "CDj/item/ItemRegistry.java:TORTILLA (3, 0.4); CDg compostables 0.75"
+food = [3, 0.4]
+compost = 0.75
+
+[items.taco]
+source = "CDj/item/ItemRegistry.java:TACO (12, 0.8, DAMAGE_BOOST BRIEF); CDg compostables 1.0"
+food = [12, 0.8]
+effects = [["minecraft:strength", 600]]
+compost = 1.0
+
+[items.cornbread_stuffing]
+source = "CDj/item/ItemRegistry.java:CORNBREAD_STUFFING (12, 1.0, NOURISHMENT LONG, BOWL)"
+food = [12, 1.0]
+effects = [["farmersdelight:nourishment", 6000]]
+remainder = "minecraft:bowl"
+
+[items.tortilla_chip]
+source = "CDj/item/ItemRegistry.java:TORTILLA_CHIP (1, 0.1)"
+food = [1, 0.1]
+
+[items.nachos_bowl]
+source = "CDj/item/ItemRegistry.java:NACHOS (12, 1.0, NOURISHMENT LONG, BOWL)"
+food = [12, 1.0]
+effects = [["farmersdelight:nourishment", 6000]]
+remainder = "minecraft:bowl"
+
+[items.cob_pipe]
+source = "CDj/item/CobPipeItem.java (Equipable: HEAD, equip sound GRASS_PLACE; default properties, stack 64)"
+equip = { slot = "head", sound = "minecraft:block.grass.place" }

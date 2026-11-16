@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north,servings=0": {
-      "model": "farmersdelight:block/shepherds_pie_block_leftover"
+      "model": "farmersdelight:block/shepherds_pie_block_leftovers"
     },
     "facing=south,servings=0": {
-      "model": "farmersdelight:block/shepherds_pie_block_leftover",
+      "model": "farmersdelight:block/shepherds_pie_block_leftovers",
       "y": 180
     },
     "facing=west,servings=0": {
-      "model": "farmersdelight:block/shepherds_pie_block_leftover",
+      "model": "farmersdelight:block/shepherds_pie_block_leftovers",
       "y": 270
     },
     "facing=east,servings=0": {
-      "model": "farmersdelight:block/shepherds_pie_block_leftover",
+      "model": "farmersdelight:block/shepherds_pie_block_leftovers",
       "y": 90
     },
     "facing=north,servings=1": {

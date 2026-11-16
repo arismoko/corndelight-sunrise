@@ -1,0 +1,40 @@
+{
+  "template": "minecraft:stick",
+  "components": {
+    "minecraft:compostable": {
+      "layers": {
+        "type": "minecraft:number_dispatcher",
+        "cases": [
+          {
+            "condition": {
+              "type": "minecraft:match_block",
+              "blocks": "minecraft:composter",
+              "state": {
+                "level": "0"
+              }
+            },
+            "value": 1
+          }
+        ],
+        "default": {
+          "type": "minecraft:weighted_list",
+          "distribution": [
+            {
+              "data": 1,
+              "weight": 75
+            },
+            {
+              "data": 0,
+              "weight": 25
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:food": {
+      "nutrition": 1,
+      "saturation": 0.4
+    },
+    "minecraft:consumable": {}
+  }
+}

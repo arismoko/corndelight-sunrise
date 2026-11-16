@@ -1,0 +1,39 @@
+{
+  "template": "minecraft:stick",
+  "components": {
+    "minecraft:compostable": {
+      "layers": {
+        "type": "minecraft:number_dispatcher",
+        "cases": [
+          {
+            "condition": {
+              "type": "minecraft:match_block",
+              "blocks": "minecraft:composter",
+              "state": {
+                "level": "0"
+              }
+            },
+            "value": 1
+          }
+        ],
+        "default": {
+          "type": "minecraft:weighted_list",
+          "distribution": [
+            {
+              "data": 1,
+              "weight": 25
+            },
+            {
+              "data": 0,
+              "weight": 75
+            }
+          ]
+        }
+      }
+    },
+    "minecraft:cooking_fuel": {
+      "burn_time": 100,
+      "speed_multiplier": 1.0
+    }
+  }
+}

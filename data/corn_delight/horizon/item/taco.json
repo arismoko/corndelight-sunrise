@@ -1,0 +1,26 @@
+{
+  "template": "minecraft:stick",
+  "components": {
+    "minecraft:compostable": {
+      "layers": "minecraft:compostable/always_add_one"
+    },
+    "minecraft:food": {
+      "nutrition": 12,
+      "saturation": 19.2
+    },
+    "minecraft:consumable": {
+      "on_consume_effects": [
+        {
+          "type": "minecraft:apply_effects",
+          "effects": [
+            {
+              "id": "minecraft:strength",
+              "duration": 600,
+              "amplifier": 0
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

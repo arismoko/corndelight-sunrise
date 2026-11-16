@@ -30,6 +30,14 @@ prefixes = [
 [asset]
 prefixes = ["assets/corn_delight/blockstates/", "assets/corn_delight/models/"]
 
+# FD asset names upstream FD 1.21.1 had and FD Refabricated 26.3 renamed (CD's nachos models use them). Every model and
+# texture reference must resolve in vanilla 26.3, the base or this output, or the carry fails.
+[asset_rename]
+"farmersdelight:block/shepherds_pie_block_leftover" = "farmersdelight:block/shepherds_pie_block_leftovers"
+"farmersdelight:block/tray_top" = "farmersdelight:block/tray"
+# 26.3 has no generic leftover tray; its leftover tray texture is the shepherd's pie's (CA11).
+"farmersdelight:block/tray_pie_leftover" = "farmersdelight:block/shepherds_pie_leftovers"
+
 # R1–R4: recipes (vanilla and FD types) to 26.3 ingredient forms.
 [recipe]
 prefixes = ["data/corn_delight/recipe/"]
@@ -101,8 +109,9 @@ from = "neoforge:can_item_perform_ability"
 to = "farmersdelight:can_item_perform_ability"
 why = "the base evaluates FD's ability condition (abilities as tags: shears_dig = #c:tools/shear); NeoForge's has the same test"
 
+# The package icon must be square (≤ 512 px); CD's logo is a 135×37 banner, so the corn item texture is used.
 [[copy_as]]
-from = "assets/corn_delight/logo.png"
+from = "assets/corn_delight/textures/item/corn.png"
 to = "icon.png"
 
 # R7: client item definitions (26.3 assets/<ns>/items/<id>.json) for every registered item; the cob pipe uses its

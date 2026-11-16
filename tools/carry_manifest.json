@@ -2,9 +2,9 @@
  "cd_repo": "https://github.com/0999312/Corn-Delight",
  "cd_sha": "ab03743e53319e985f134d15a0473ff1329c5e0a",
  "base_sha": "30ba2a6f8267c8f8e62316b5b9d1b1daf39d82c9",
- "rules_sha256": "413be05b086b2b550dc040a0afb2c204f150c21325f69a25ae889870c612a055",
+ "rules_sha256": "aa9f2a82e49124dead2ceb4931a4a7266aceeffe07e67330a4f23d6dfb2cadbf",
  "overlay_sha256": "2483151afe5e442ec750885c8ef828fb415aeaa489cab6a3cd7b1ca42f4cf0b6",
- "report_sha256": "f2fe31aefbc183e1eb991e7ca6faff85a9e0e81edc418611fcc2f161caf72b48",
+ "report_sha256": "280226a2447d143cc7db2454b585654b7823bcdae1d6c22fafdacf8b3e3da589",
  "items": [
   "wild_corn",
   "corn_crate",
@@ -68,8 +68,8 @@
    "source": "src/main/resources/assets/corn_delight/blockstates/nachos_block.json",
    "dest": "assets/corn_delight/blockstates/nachos_block.json",
    "sha256_source": "52ce543f2440c97cdb8b7a37f7997fa27f8225651301a99ce30148ef51e84a1d",
-   "sha256_dest": "52ce543f2440c97cdb8b7a37f7997fa27f8225651301a99ce30148ef51e84a1d",
-   "rule": "copy"
+   "sha256_dest": "26445ebd9e887a927e5f3874567085783cc3550b805efeb37bfb34d3ea039e2b",
+   "rule": "asset"
   },
   {
    "source": "src/main/resources/assets/corn_delight/blockstates/popcorn_box.json",
@@ -488,29 +488,29 @@
    "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage0.json",
    "dest": "assets/corn_delight/models/block/nachos_block_stage0.json",
    "sha256_source": "85da8441df4c53e980b46af89afbf5be638b2f913bf5be878d6626906c99785b",
-   "sha256_dest": "85da8441df4c53e980b46af89afbf5be638b2f913bf5be878d6626906c99785b",
-   "rule": "copy"
+   "sha256_dest": "627e37c93cf0d368b366f91bc86a62bc6ca231dedd6193bfe1202a3898d5ffd6",
+   "rule": "asset"
   },
   {
    "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage1.json",
    "dest": "assets/corn_delight/models/block/nachos_block_stage1.json",
    "sha256_source": "c83e968bc7dc86d7e9fa1e66e81ecec69d85ac84ebfa638b29a90ecc3320af45",
-   "sha256_dest": "c83e968bc7dc86d7e9fa1e66e81ecec69d85ac84ebfa638b29a90ecc3320af45",
-   "rule": "copy"
+   "sha256_dest": "b76f324adaece7b518dec1b76077c95ed96f054952f8ced70c1a568e7a4abaf3",
+   "rule": "asset"
   },
   {
    "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage2.json",
    "dest": "assets/corn_delight/models/block/nachos_block_stage2.json",
    "sha256_source": "818a15605c7f0bd567aaa1a22f5ba03421ad734419de1b8b2c85e831ec951240",
-   "sha256_dest": "818a15605c7f0bd567aaa1a22f5ba03421ad734419de1b8b2c85e831ec951240",
-   "rule": "copy"
+   "sha256_dest": "26a151fc2a710199cd74e4b439eaa314ba9ebc0c6645c8c9f5192572a880eaae",
+   "rule": "asset"
   },
   {
    "source": "src/main/resources/assets/corn_delight/models/block/nachos_block_stage3.json",
    "dest": "assets/corn_delight/models/block/nachos_block_stage3.json",
    "sha256_source": "b39a5499112bfaf885016c0ade3ae2feec343ad5afa3fa65f396c5e2a6ad22c2",
-   "sha256_dest": "b39a5499112bfaf885016c0ade3ae2feec343ad5afa3fa65f396c5e2a6ad22c2",
-   "rule": "copy"
+   "sha256_dest": "7f5a12efba3d79f393b4f75d8054e8580c182abca0890f686e023ffbfa6641c9",
+   "rule": "asset"
   },
   {
    "source": "src/main/resources/assets/corn_delight/models/block/popcorn_box_leftover.json",
@@ -1899,10 +1899,10 @@
    "rule": "copy"
   },
   {
-   "source": "src/main/resources/assets/corn_delight/logo.png",
+   "source": "src/main/resources/assets/corn_delight/textures/item/corn.png",
    "dest": "icon.png",
-   "sha256_source": "a56cfb12daf53022245f94c4f10515aaf2c89665797c78bd9f0a96ef5de3308d",
-   "sha256_dest": "a56cfb12daf53022245f94c4f10515aaf2c89665797c78bd9f0a96ef5de3308d",
+   "sha256_source": "62d2552b6126f9ef81cf5ce3d649cce6febc27b5df6304528b9ff81eb0ef0559",
+   "sha256_dest": "62d2552b6126f9ef81cf5ce3d649cce6febc27b5df6304528b9ff81eb0ef0559",
    "rule": "copy_as"
   }
  ]

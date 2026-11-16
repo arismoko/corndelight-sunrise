@@ -117,6 +117,14 @@ class Items(unittest.TestCase):
         self.assertEqual(pipe["property"], "minecraft:display_context")
         self.assertEqual(pipe["fallback"]["model"], "corn_delight:item/cob_pipe_model")
 
+    def test_fd_asset_renames_and_refs(self):
+        u = up()
+        model = {"parent": "block/block", "textures": {"tray_top": "farmersdelight:block/tray_top", "x": "#tray_top"}}
+        out = c.upgrade_asset(model, u, {"farmersdelight:block/tray_top": "farmersdelight:block/tray"})
+        self.assertEqual(out["textures"]["tray_top"], "farmersdelight:block/tray")
+        self.assertEqual(c.asset_refs("m.json", out),
+                         {("models", "block/block"), ("textures", "farmersdelight:block/tray")})
+
     def test_typed_variant_fields(self):
         out = c.upgrade_asset({"variants": {"": {"model": "a:b", "y": "90", "uvlock": "true"}}}, up())
         self.assertEqual(out["variants"][""], {"model": "a:b", "y": 90, "uvlock": True})
