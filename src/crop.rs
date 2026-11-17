@@ -223,7 +223,7 @@ impl CornCrop {
     }
 }
 
-#[mod_api::horizon_part]
+#[crate::engine::part]
 impl BlockPart for CornCrop {
     fn random_tick(&self, level: &mut dyn LevelWriteHost, event: &mut RandomTickEvent) -> Flow {
         let pos = [event.pos.x, event.pos.y, event.pos.z];

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Corn Delight's Horizon block, item and creative-tab declarations from tools/decl/cd.toml.in (CD-04).
+"""Generate Corn Delight's engine block, item and creative-tab declarations from tools/decl/cd.toml.in (CD-04).
 
 Rows are Corn Delight's values (cited); this script writes them in the base port's declaration forms:
 - foods: `minecraft:food` {nutrition, saturation = nutrition × modifier × 2 in float}, `minecraft:consumable`
@@ -25,9 +25,12 @@ import sys
 import tomllib
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import target  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
 TABLE = REPO / "tools" / "decl" / "cd.toml.in"
-OUT = REPO / "data" / "corn_delight" / "horizon"
+OUT = REPO / "data" / "corn_delight" / target.DECL_DIR
 NS = "corn_delight"
 
 BLOCK_KEYS = {"template", "properties", "state_properties", "default_state"}
@@ -191,7 +194,10 @@ def extra() -> dict[Path, bytes]:
     with TABLE.open("rb") as f:
         t = tomllib.load(f)
     foods = [f"{NS}:{n}" for n, row in t["items"].items() if "villager_food" in row]
-    return {PICKS_UP: dump({"values": foods})} if foods else {}
+    out = {PICKS_UP: dump({"values": foods})} if foods else {}
+    # The engine's macro names (RETARGET_PLAN D13), from tools/target.toml.in.
+    out[REPO / "src" / "engine.rs"] = target.engine_rs()
+    return out
 
 
 def main(argv=None) -> int:
@@ -208,7 +214,7 @@ def main(argv=None) -> int:
     if args.check:
         bad = [r for r, b in files.items() if not (OUT / r).exists() or (OUT / r).read_bytes() != b]
         for r in bad + stale:
-            print(f"out of date: data/{NS}/horizon/{r}", file=sys.stderr)
+            print(f"out of date: data/{NS}/{target.DECL_DIR}/{r}", file=sys.stderr)
         bad_extra = [p for p, b in extra().items() if not p.exists() or p.read_bytes() != b]
         for p in bad_extra:
             print(f"out of date: {p.relative_to(REPO)}", file=sys.stderr)

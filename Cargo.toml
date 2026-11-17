@@ -4,12 +4,12 @@ version = "0.1.0"
 edition = "2024"
 rust-version = "1.95"
 license = "MIT"
-description = "Native Horizon port of Corn Delight"
+description = "Native Sunrise port of Corn Delight"
 
 # The base mod (ported_farmersdelight) is NOT listed here: the launcher adds it as a path dependency from
-# horizon-mod.toml [dependencies]. Local builds and tests use tools/cargo_dev.py, which adds it in a scratch copy.
+# sunrise-mod.toml [dependencies]. Local builds and tests use tools/cargo_dev.py, which adds it in a scratch copy.
 [dependencies]
-horizon-mod-api = { git = "https://github.com/arismoko/horizon", rev = "afe471cf15df56439f23cd991d0d4b85563a14fc" }
+sunrise-mod-api = { path = ".sunrise/sdk/api/crates/sunrise-mod-api" }
 
 [dev-dependencies]
-horizon-mod-api = { git = "https://github.com/arismoko/horizon", rev = "afe471cf15df56439f23cd991d0d4b85563a14fc", features = ["testing"] }
+sunrise-mod-api = { path = ".sunrise/sdk/api/crates/sunrise-mod-api", features = ["testing"] }

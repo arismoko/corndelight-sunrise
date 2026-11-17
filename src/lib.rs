@@ -1,8 +1,9 @@
-//! Corn Delight — native Horizon port, an add-on of the Farmer's Delight port (`ported_farmersdelight`).
+//! Corn Delight — native Sunrise port, an add-on of the Farmer's Delight port (`ported_farmersdelight`).
 //! `Hooks` only dispatches; logic lives in modules.
 
 mod config;
 mod crop;
+mod engine;
 mod feasts;
 mod ids;
 mod loot;
@@ -12,7 +13,7 @@ use mod_api::*;
 #[derive(Default)]
 struct CornDelight;
 
-#[mod_api::horizon_mod]
+#[crate::engine::entry]
 impl Hooks for CornDelight {
     fn register_load_conditions(
         &self,

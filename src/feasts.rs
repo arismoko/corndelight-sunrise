@@ -117,7 +117,7 @@ fn popcorn_use(
     let servings = feast::servings(&*host, state, spec);
     match decide(servings, empty(click.stack)) {
         Popcorn::BreakEmpty => {
-            level.play_sound(host, SOUND_EMPTY, at, SoundSource::Players, 0.8, 0.8);
+            level.play_sound(host, SOUND_EMPTY, at, SoundSource::Players, 0.8, 0.8, None);
             let _ = level.destroy_block(host, pos, true, None, false);
             InteractionResult::Success
         }
@@ -133,7 +133,7 @@ fn popcorn_use(
                 give(host, player, PAPER);
                 let _ = level.remove_block(host, pos, false);
             }
-            level.play_sound(host, SOUND_SERVE, at, SoundSource::Blocks, 1.0, 1.0);
+            level.play_sound(host, SOUND_SERVE, at, SoundSource::Blocks, 1.0, 1.0, None);
             InteractionResult::Success
         }
         Popcorn::BareHand => {

@@ -12,7 +12,7 @@
         ]
       },
       {
-        "type": "horizon:climate",
+        "type": "sunrise:climate",
         "temperature": {
           "min": 0.4,
           "max": 0.9

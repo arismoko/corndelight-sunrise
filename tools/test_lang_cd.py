@@ -2,7 +2,7 @@
 """CD-17: lang key audit for Corn Delight.
 
 Core keys: `item.corn_delight.<id>` / `block.corn_delight.<id>` for every declared item and block, the tab title and
-the popcorn box's bare-hand message, (`data/corn_delight/horizon/item/*.json`) and every
+the popcorn box's bare-hand message, (`data/corn_delight/sunrise/item/*.json`) and every
 translate key in the carried advancements (title and description). en_us.json must have them all (exit 1
 otherwise); every locale file must be valid JSON. Prints, per locale, the core keys it lacks (the game then shows
 en_us's text, as on Fabric), and `--strict` also fails on those.
@@ -27,8 +27,8 @@ def translate_keys(node, out: set) -> None:
 
 
 def core_keys() -> set:
-    keys = {f"item.corn_delight.{p.stem}" for p in (ROOT / "data/corn_delight/horizon/item").glob("*.json")}
-    keys |= {f"block.corn_delight.{p.stem}" for p in (ROOT / "data/corn_delight/horizon/block").glob("*.json")}
+    keys = {f"item.corn_delight.{p.stem}" for p in (ROOT / "data/corn_delight/sunrise/item").glob("*.json")}
+    keys |= {f"block.corn_delight.{p.stem}" for p in (ROOT / "data/corn_delight/sunrise/block").glob("*.json")}
     keys |= {"itemGroup.corn_delight", "corn_delight.block.popcorn.bearhand"}
     for p in (ROOT / "data/corn_delight/advancement").rglob("*.json"):
         display = json.loads(p.read_text("utf-8")).get("display")

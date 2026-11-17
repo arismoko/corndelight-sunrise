@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Village corn farms (CD-14, CA3): CD's VillageStructures adds four pieces to vanilla's house pools at
 server start (MMLib StructuresUtils.addBuildingToPool: a single pool element with processor list
-`minecraft:empty`, rigid projection, at the given weight). Here they are `horizon:add_to` pool files.
+`minecraft:empty`, rigid projection, at the given weight). Here they are `<engine>:add_to` pool files (tools/target.toml.in).
 
 Usage: gen_villages.py [--check]
 """
@@ -10,6 +10,9 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import target  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data/corn_delight/worldgen/template_pool/village"
@@ -25,7 +28,7 @@ POOLS = [
 
 def render(biome: str, pieces) -> str:
     doc = {
-        "horizon:add_to": f"minecraft:village/{biome}/houses",
+        target.key("add_to"): f"minecraft:village/{biome}/houses",
         "elements": [
             {"weight": w, "element": {"element_type": "minecraft:single_pool_element", "location": loc,
                                       "processors": "minecraft:empty", "projection": "rigid"}}

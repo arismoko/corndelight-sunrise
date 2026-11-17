@@ -2,7 +2,7 @@
 """Run cargo on this mod with the base mod as a dependency, as the launcher builds it.
 
 The launcher adds `ported_farmersdelight = { path = …, package = "farmersdelight-horizon" }` to the mod's
-Cargo.toml from horizon-mod.toml [dependencies], and refuses a Cargo.toml that already names it. For local
+Cargo.toml from sunrise-mod.toml [dependencies], and refuses a Cargo.toml that already names it. For local
 builds this script mirrors the mod into target/dev-crate/ (Cargo.toml + src/, symlinked sources), adds that
 dependency pointing at a base checkout (default ../farmersdelight-horizon) and runs cargo there:
 
@@ -33,7 +33,9 @@ def main() -> int:
         if src.exists():
             raise SystemExit(f"{src} exists and is not a symlink")
         src.symlink_to(REPO / "src")
-    manifest = (REPO / "Cargo.toml").read_text()
+    # The SDK path in Cargo.toml (`.sunrise/sdk/api/…`) is pointed at the base's SDK folder, the same crates the
+    # base builds against: the add-on is pinned to the base's build (`cargo sunrise-mod check` in the base fetches it).
+    manifest = (REPO / "Cargo.toml").read_text().replace('path = ".sunrise/', f'path = "{base}/.sunrise/')
     manifest = manifest.replace(
         "[dependencies]\n",
         f'[dependencies]\nported_farmersdelight = {{ path = "{base}", package = "{package}" }}\n',

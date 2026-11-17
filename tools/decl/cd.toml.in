@@ -1,7 +1,7 @@
-# (Named *.toml.in: the Horizon packager refuses .toml files outside src/.)
+# (Named *.toml.in: the packager refuses .toml files outside src/.)
 # Corn Delight's blocks and items as tools/gen_cd_decls.py reads them (CD-04). Paths: CDj = Corn Delight
 # src/main/java/cn/mcmod/corn_delight, CDg = src/generated/resources (ab03743e), FD = the FD Refabricated 26.3 source.
-# Every value is cited; the generator turns these rows into data/corn_delight/horizon/{block,item,creative_tab}.
+# Every value is cited; the generator turns these rows into data/corn_delight/<decl_dir>/{block,item,creative_tab}.
 
 [tab]
 source = "CDj/CornDelightCreativeGroup.java (title itemGroup.corn_delight, icon CORN, ITEMS in registry order)"
