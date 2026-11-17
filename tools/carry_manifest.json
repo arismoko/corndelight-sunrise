@@ -1,10 +1,10 @@
 {
  "cd_repo": "https://github.com/0999312/Corn-Delight",
  "cd_sha": "ab03743e53319e985f134d15a0473ff1329c5e0a",
- "base_sha": "0b58ed073f24f72d9c4b7cf6de22577d782a198d",
- "rules_sha256": "7d4e29045429d94b9e8dd813a8ef05543a78310b35b03a5c5c2712d9d43a85f8",
+ "base_sha": "e7215ed73acd11fb4720b442021fef3902269587",
+ "rules_sha256": "fe000a22b37f9d29c8768b00e56aa071abc92139c449722f039fe91b5a65200c",
  "overlay_sha256": "2483151afe5e442ec750885c8ef828fb415aeaa489cab6a3cd7b1ca42f4cf0b6",
- "report_sha256": "f6b32dbd1575573528323184c2c6fb585864798f98fe0fd4d0ded5826ea94828",
+ "report_sha256": "5a0b6a58ecc6a1e22e7da8db11653f9505dfbe124eb267f06a28f6eb043b3c10",
  "items": [
   "wild_corn",
   "corn_crate",
@@ -1740,7 +1740,7 @@
   {
    "source": "tools/carry_rules_cd.toml.in",
    "dest": "data/corn_delight/recipe/suspicious_stew_from_wild_corn.json",
-   "sha256_source": "7d4e29045429d94b9e8dd813a8ef05543a78310b35b03a5c5c2712d9d43a85f8",
+   "sha256_source": "fe000a22b37f9d29c8768b00e56aa071abc92139c449722f039fe91b5a65200c",
    "sha256_dest": "4449ccc31146a5156793928e27ae4c0cd906f1c8d810e508c5a5f88c7b4ac528",
    "rule": "stew_recipe"
   },

@@ -338,3 +338,34 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   Difficulty back to Peaceful.
 - deltas: none new.
 - next: CD-11 (nachos and popcorn feasts).
+
+## CD-11 Nachos and popcorn feasts — PASS — 2026-11-17
+- base: farmersdelight-horizon e7215ed (`api::feast::register_custom`, base PROGRESS "CD-11 (base side)") |
+  addon commit: (this commit) | build pin afe471cf
+- code: `src/feasts.rs`. `nachos_block` = `FeastBlock(cake, nachos_bowl, leftovers)` through
+  `api::feast::register` (FD 26.3's take-serving, survival, comparator, particles: CA6). `popcorn_box` through
+  `register_custom`: its own use (PopcornBoxBlock#takeServing, restated in the module doc) as a pure `decide`
+  (servings, empty hand) → break / serve (last: + paper, block removed without drops) / bare-hand message, and a
+  client prediction (serve → Success, bare hand → Pass). Unit test `popcorn_decision_table` (16 crate tests),
+  clippy -D warnings clean. Carry re-pinned to base e7215ed (unchanged output, 267 files).
+- in game (fd-port, `CD8s1`, pad around 20004..20010,67,19992, survival; `../run/shots/cd-11/`; driver `feast.py`
+  in the session):
+  - nachos: empty hand → action bar "You need a Bowl to eat this.", servings 4; with bowls 4× → +1 nachos bowl and
+    −1 bowl each, 4 → 0 (plate shape); the next use breaks it: wood-break sound, loot → 1 bowl.
+  - popcorn box: empty main hand (bowl in the off hand) → +1 caramel popcorn, no message, "Gear equips" subtitle
+    (armour equip sound) (`feasts.png`); bowls in both hands → "Use your bare hand to grab popcorn.", nothing
+    taken; the last serving → +1 caramel popcorn +1 paper, block gone, nothing on the ground; a box set to
+    0 servings → breaks on use with no drops.
+  - inherited FeastBlock parts: comparator next to a box with 2 servings → redstone 2; removing the floor under a
+    box removes it.
+  - save & quit + restart: nachos 4 and 0, popcorn 2 and 2 identical.
+  - guest (dedicated server, rig re-exported with base e7215ed + CD; LAN environment-blocked as before): Bob took a
+    nachos bowl with a bowl (bowl −1) and a caramel popcorn (`bob-feasts.png`, `server.log`).
+- quirks (reference behaviour, kept): **CQ8** — holding an item in the main hand with an empty off hand still takes
+  popcorn: the main hand gets the bare-hand message and passes, then vanilla tries the off hand, whose empty stack
+  serves (seen in game: message + serving). **CQ9** — CD ships no loot table for the popcorn box, so breaking it
+  (mined or used at 0 servings) drops nothing.
+- incident (test player Bob on the dedicated server): teleported to z 60002, one block off the CD-09 pad, he fell
+  ~96 blocks and died; his items were collected back (12 bone meal from CD-09 given back by command).
+- deltas: none new (CA6 as planned).
+- next: CD-12 (CDM3 demo).

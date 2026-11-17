@@ -3,6 +3,7 @@
 
 mod config;
 mod crop;
+mod feasts;
 mod ids;
 
 use mod_api::*;
@@ -35,6 +36,7 @@ impl Hooks for CornDelight {
     fn register(&self, registrar: &mut dyn Registrar, _: &RegistrationContext) {
         eprintln!("{}: base api {}", ids::MOD_NAMESPACE, base_api());
         crop::register(registrar);
+        feasts::register(registrar);
         // Wild corn is FD's WildCropBlock(SATURATION, 8) (BlockRegistry.WILD_CORN): the base's wild-crop behaviour.
         ported_farmersdelight::api::wild_crop::register(
             registrar,
