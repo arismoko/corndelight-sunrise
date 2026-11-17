@@ -509,3 +509,25 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   sharing between villagers uses the engine's vanilla rule; not tested with corn.
 - deltas: CA15 new.
 - next: CD-17 (advancements, lang, creative tab audit).
+
+## CD-17 Advancements, lang, creative tab audit — PASS — 2026-11-17
+- base: farmersdelight-horizon e7215ed | addon commit: (this commit) | build pin afe471cf
+- advancements (fd-port, `CD14`; `../run/shots/cd-17/adv.py`): the 36 carried advancements (13 CD + 23 recipe
+  unlocks; every criterion is `inventory_changed` or `recipe_unlocked`) revoked for the test player → saved file
+  shows **0/36**; then the 22 items they name obtained with `/give` into an emptied inventory → **36/36 done**,
+  including `corn_knowleage` (11 foods) and `stuffing_chef` (cornbread stuffing + FD stuffed pumpkin block). (A first
+  pass read 17/36: the inventory was full, so gives fell on the ground, and `save-all` is not a command here — the
+  file was read before it was written; `horizon-ctl save` fixed the readout.) `macarthur` was also earned by
+  equipping the pipe in CD-16.
+- lang: `tools/test_lang_cd.py` (new; MD-11's audit for CD's ids: every item/block declaration, tab title, popcorn
+  message, advancement titles/descriptions = 55 core keys). en_us and zh_cn have all 55; ja_jp, ru_ru, uk_ua lack 5
+  (pipe, corncob, macarthur, tab); ca_es, it_it, it_ch, zh_hk, zh_tw lack 29 and ko_kr 30 (all advancements, pipe,
+  corncob, tab); **de_de lacks all 55: upstream's file names every key under the old namespace `corndelight`**
+  (`item.corndelight.corn`, …). Missing keys fall back to en_us, as on NeoForge. Kept as carried: quirk **CQ11**
+  (incomplete upstream locales, de_de under the wrong namespace). The plan's "12 locales without missing keys"
+  cannot hold without writing translations, which the port does not do.
+- in game: language zh_cn → held corn reads "玉米", ja_jp → "トウモロコシ" (`name-zh_cn.png`, `name-ja_jp.png`;
+  popcorn box "爆米花桶" / "ポップコーンバケット" in the files); back to en_us.
+- creative tab: unchanged since CD-04 (`itemGroup.corn_delight`, 26 items in registry order); no item added since.
+- deltas: none new (CQ11 recorded).
+- next: CD-18 (CDM4 demo, validation matrix, release).
