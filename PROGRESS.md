@@ -477,3 +477,35 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   built, not on `/reload` (recipes did change on `/reload` in CD-02). Key restored to true.
 - deltas: CA4 (fixed give counts, E-41). Engine gap E-41 new.
 - next: CD-16 (cob pipe and item behaviours).
+
+## CD-16 Cob pipe and item behaviours — PASS — 2026-11-17
+- base: farmersdelight-horizon e7215ed | addon commit: (this commit) | build pin afe471cf
+- code/data: `tools/gen_cd_decls.py` also writes `data/minecraft/tags/item/villager_picks_up.json` (items with
+  `villager_food`: corn), checked by `--check` (decl check ok: 28 files; test_cd_decls OK; carry check ok).
+- reference read (MMLib, read only): CD calls `VillagerUtils.addFoodToVillage(CORN, 1)`; MMLib's map starts as a
+  copy of vanilla's villager food points, and its Villager mixin **replaces** `wantsToPickUp` with "item is in that
+  map and fits", replaces the food-point count with the map's, eats map foods first, and makes farmers throw map
+  foods to hungry villagers. In 26.3, what villagers pick up is `#minecraft:villager_picks_up`; corn's food points
+  are the item's `minecraft:villager_food` (CD-04).
+- in game (fd-port, `CD14`, pad at 100000,200,100000; `../run/shots/cd-16/`):
+  - cob pipe: right-click in survival → head slot (armour slot 500), hand empty; the "General of the Maize"
+    challenge (`corn_delight:macarthur`) was granted on equip (`pipe-third-person.png` shows the toast; the F5 key
+    did not switch the camera through horizon-ctl). Armour stand with the pipe on its head shows the 3D pipe; the
+    dropped item shows the 2D icon (`pipe-armor-stand.png`, `pipe-armor-stand-close.png`).
+  - enchanting the held pipe: Curse of Vanishing and Curse of Binding apply (`enchantable/vanishing`,
+    `enchantable/equippable`); protection, unbreaking, mending refused ("cannot support that enchantment").
+  - animals (`animals.py`, adult NoAI mobs, one right-click each, 16 in hand): corn → InLove ≈ 580 for cow, pig,
+    sheep, goat, chicken and horse, one item used each; parrot eats it (item used; a taming roll, no love mode).
+    Corncob and corn seeds the same on cow, chicken and parrot.
+  - villager: before the tag a farmer picked up dropped corn seeds (vanilla `villager_plantable_seeds`, carried CD
+    tag) but left corn; after it, a farmer picked up 3 dropped corn (Inventory: 3 corn).
+  - composter (`compost.py`, levels 1–6, stack refilled): corn seeds 70/200 = 35.0 % (0.35; an earlier 60-try run
+    gave 29), corn 38/60 = 63.3 % (0.65 ± 6 %), cornbread 50/60 = 83.3 % (0.85 ± 5 %); corncob 0.25 in CD-05.
+    (A 200-try seeds run with only 64 seeds in hand read 13 % — the empty clicks; discarded.) Corncob fuel: CD-05.
+- delta **CA15**: MMLib's replacement of `wantsToPickUp` is not reproduced. Here villagers pick up corn *and*
+  keep vanilla's wanted items (wheat, seeds, bone meal for farmers); in the reference, any mod using MMLib makes
+  villagers pick up only the food map's items (bread, potato, carrot, beetroot, corn). Reproducing it needs
+  replacing vanilla villager behaviour for every villager (no hook, and it would break vanilla farming). Food
+  sharing between villagers uses the engine's vanilla rule; not tested with corn.
+- deltas: CA15 new.
+- next: CD-17 (advancements, lang, creative tab audit).

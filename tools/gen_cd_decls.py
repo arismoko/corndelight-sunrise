@@ -182,6 +182,18 @@ def render() -> dict[str, bytes]:
     return out
 
 
+PICKS_UP = REPO / "data" / "minecraft" / "tags" / "item" / "villager_picks_up.json"
+
+
+def extra() -> dict[Path, bytes]:
+    """Items with villager food: CD gives them to MMLib's villager food map (VillagerUtils.addFoodToVillage), whose
+    `wantsToPickUp` makes villagers pick them up. 26.3 says which items villagers pick up with this tag (CA15)."""
+    with TABLE.open("rb") as f:
+        t = tomllib.load(f)
+    foods = [f"{NS}:{n}" for n, row in t["items"].items() if "villager_food" in row]
+    return {PICKS_UP: dump({"values": foods})} if foods else {}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--check", action="store_true")
@@ -197,7 +209,10 @@ def main(argv=None) -> int:
         bad = [r for r, b in files.items() if not (OUT / r).exists() or (OUT / r).read_bytes() != b]
         for r in bad + stale:
             print(f"out of date: data/{NS}/horizon/{r}", file=sys.stderr)
-        if bad or stale:
+        bad_extra = [p for p, b in extra().items() if not p.exists() or p.read_bytes() != b]
+        for p in bad_extra:
+            print(f"out of date: {p.relative_to(REPO)}", file=sys.stderr)
+        if bad or stale or bad_extra:
             return 1
         print(f"decl check ok: {len(files)} files")
         return 0
@@ -208,6 +223,10 @@ def main(argv=None) -> int:
             p.write_bytes(body)
     for rel in stale:
         (OUT / rel).unlink()
+    for p, body in extra().items():
+        p.parent.mkdir(parents=True, exist_ok=True)
+        if not p.exists() or p.read_bytes() != body:
+            p.write_bytes(body)
     print(f"wrote {len(files)} declaration(s), removed {len(stale)} stale")
     return 0
 
