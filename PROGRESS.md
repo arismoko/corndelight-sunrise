@@ -256,7 +256,7 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   | 3 | 1892 | 1320 (915) | 572 | 9 | 0 | 9 |
   | total | 6471 | 4691 (3513) | 1675 | 34 | 0 | 28 |
 
-  - patches found in forest (19), plains (6), flower forest (3), birch / old-growth birch forest (2), sunflower
+  - patches found in forest (19), plains (5), flower forest (3), birch / old-growth birch forest (2), sunflower
     plains, swamp, meadow, beach, river (1 each); 2–13 wild corn each, with coarse dirt and short grass around
     (`seed1-plains-patch.png`). Excluded biomes scanned: desert, snowy plains/taiga/beach/slopes, ice spikes, taiga
     and old-growth taigas, savanna (+plateau, windswept), jungle/sparse jungle, badlands, windswept hills, grove,
