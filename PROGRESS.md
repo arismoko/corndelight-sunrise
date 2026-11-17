@@ -226,3 +226,54 @@ base (`ported_farmersdelight`) commit and version it was validated with.
     count.) The command parser does not know mod tags ("Unknown block tag"), so membership was checked by behaviour.
 - deltas: CA13 (generated stew recipe, as above).
 - next: CD-08 (wild corn world generation).
+
+## CD-08 Wild corn world generation — PASS — 2026-11-17
+- base: farmersdelight-horizon 0b58ed0 (no base change) | addon commit: (this commit) | build pin afe471cf
+- found: the carried patch (CD-03, R8) asked for `#minecraft:dirt` below the corn, the floor and the grass. 26.3 split
+  that tag: `#dirt` now holds only dirt, coarse dirt and rooted dirt; grass blocks, podzol, mycelium, moss and mud
+  moved to `#grass_blocks`/`#moss_blocks`/`#mud`, and vanilla's (and FD 26.3's) features use
+  `#minecraft:substrate_overworld` (= the old union, plus pale moss block, which 1.21.1 lacks). Result before the fix:
+  wild corn almost never generated (world `CDGen1`, seed 1: 0 patches in 121 plains chunks; `/place feature` 0/20 on
+  a flat grass pad, FD's `wild_carrots` 5/10 on the same pad). Not a delta: a 1.21.1 → 26.3 data uplift.
+- code: carry rule **R10** (`[[block_tag_rename]]` in `tools/carry_rules_cd.toml.in`, `rename_block_tags` in
+  `tools/carry_cd.py`): `matching_block_tag` predicates in carried worldgen get `minecraft:substrate_overworld`;
+  `patch_wild_corn.json` regenerated (3 predicates), manifest/uplift report updated, unit test
+  `test_r10_block_tag_rename_only_in_block_predicates` (14 carry tests OK), `carry.sh --check` ok (267 files).
+- data (unchanged from CD-03): `worldgen/feature/patch_wild_corn.json` = `minecraft:overlay` of coarse-dirt floor,
+  wild corn (±4/±3) and short grass (±6/±3) (FD 26.3 shape, BX-09); placed feature `rarity_filter 70`, `in_square`,
+  `count 64`, heightmap, `biome` (biome_tag dropped); NeoForge `add_features` on `#is_overworld` minus lush caves and
+  mushroom fields, base temperature 0.4–0.9 (`horizon:climate`).
+- in game (fd-port, new creative worlds `CD8s1`/`CD8s2`/`CD8s3`, seeds 1/2/3; `../run/shots/cd-08/`): survey
+  script `survey.py` (in the evidence folder) locates a biome, scans 11×11 chunks (y 50/58…130/185) with
+  `horizon-ctl blocks`, classifies every chunk by `execute if biome` at its centre's surface, and clusters wild corn
+  into patches (FD wild carrots + onions counted the same way as a control: same biomes and shape, rarity 1/120
+  each ≈ 1/60 together).
+
+  | seed | chunks | eligible (land) | excluded biomes | corn patches | corn in excluded | FD control patches |
+  |---|---|---|---|---|---|---|
+  | 1 (two passes) | 2621 | 2157 (1558) | 462 | 14 | 0 | 6 (second pass only) |
+  | 2 | 1958 | 1214 (1040) | 641 | 11 | 0 | 13 |
+  | 3 | 1892 | 1320 (915) | 572 | 9 | 0 | 9 |
+  | total | 6471 | 4691 (3513) | 1675 | 34 | 0 | 28 |
+
+  - patches found in forest (19), plains (6), flower forest (3), birch / old-growth birch forest (2), sunflower
+    plains, swamp, meadow, beach, river (1 each); 2–13 wild corn each, with coarse dirt and short grass around
+    (`seed1-plains-patch.png`). Excluded biomes scanned: desert, snowy plains/taiga/beach/slopes, ice spikes, taiga
+    and old-growth taigas, savanna (+plateau, windswept), jungle/sparse jungle, badlands, windswept hills, grove,
+    stony shore/peaks, frozen ocean/river, **mushroom fields (60 chunks)**: 0 patches. Lush caves: underground only,
+    and the heightmap placement puts every try at the surface, so they cannot get any.
+  - density: in the chunks where the control ran (3363 eligible), corn 30 patches vs FD 28 (expected ratio
+    (1/70)/(1/60) = 0.86, seen 1.07). Both fall short of the nominal rate per eligible chunk (corn 34 in 4691 =
+    1/138; on land 1/103) for the same reasons in both: ocean/river chunks place nothing, forest canopies put the
+    heightmap origin on the leaves, slopes miss the ±3 y spread. No FD reference run exists (FD is never run here),
+    so the comparison is against FD's port in the same chunks.
+  - `/place feature corn_delight:patch_wild_corn`: one call is **one try** (in FD 26.3's shape the 64 tries live in
+    the placed feature's `count`; FD's own `wild_carrots` behaves the same), 4/10 calls placed something on a flat
+    grass pad; 64 calls at one origin → 10 wild corn, 24 short grass, 6 coarse dirt (`place-feature-64.png`).
+    Recorded under CA1 (the 1.21.1 command placed the whole patch in one call).
+- not covered: chunk-for-chunk equality with CD 1.21.1 (different generator/version; AD1); the unknown-biome chunks
+  of seed 2 (103, biomes outside the script's list: pale garden/dappled forest centres) had no corn.
+- worlds: `CDGen` (made 2026-11-16 21:25 by an earlier session, not logged) and `CDGen1` (generated with the old tag)
+  are leftovers and can be deleted; `CD8s1..3` hold the survey.
+- deltas: none new (CA1 noted: `/place feature` = one try).
+- next: CD-09 (CDM2 demo).

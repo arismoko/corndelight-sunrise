@@ -12,7 +12,7 @@ Rules (tools/carry_rules_cd.toml.in): byte copies; asset upgrade; R1–R4 recipe
 as `#tag`); R5 prune of undefined tag alternatives; R6 advancements (`recipe_unlocked.recipe` → `recipes`, display
 background as an asset id) and loot tables (port-pack's 26.3 shape: `condition`/`modifier`/`type`;
 `block_state_property` → `match_block`); R7 client item definitions; R8 worldgen through the base's
-`worldgen_rewrite.py` (BX-09); R9 overlay entries and drops. Every tag a carried file references must be defined by
+`worldgen_rewrite.py` (BX-09); R9 overlay entries and drops; R10 26.3 block tag renames in worldgen predicates. Every tag a carried file references must be defined by
 vanilla 26.3, the base or this output. The overlay goes to tools/overlay/corn_delight.json for the base carry
 (BX-02); the uplift report (every rewritten file and its rules) to tools/uplift_report.md.
 The base's carry_lib.py / worldgen_rewrite.py are imported from the --base checkout at the pinned commit.
@@ -216,6 +216,19 @@ def upgrade_condition(c, up: Uplift, renames: dict):
             up.note("R6 match_tool → named tool condition")
             return named
     return c
+
+
+def rename_block_tags(v, renames: dict, up: Uplift):
+    """R10: `matching_block_tag` predicates naming a block tag 26.3 split get the 26.3 tag."""
+    if isinstance(v, list):
+        return [rename_block_tags(x, renames, up) for x in v]
+    if not isinstance(v, dict):
+        return v
+    out = {k: rename_block_tags(x, renames, up) for k, x in v.items()}
+    if out.get("type") == "minecraft:matching_block_tag" and out.get("tag") in renames:
+        up.note(f"R10 block tag {out['tag']} → {renames[out['tag']]}")
+        out["tag"] = renames[out["tag"]]
+    return out
 
 
 def one_or_list(lst):
@@ -434,6 +447,7 @@ def carry(cd: Path, out: Path, rules: dict, base: Path, vanilla: Path):
             else:
                 new = wg.biome_filter_to_neoforge(obj)
                 up.note("R8 add_features_by_filter → neoforge:add_features")
+            new = rename_block_tags(new, {r["from"]: r["to"] for r in rules.get("block_tag_rename", [])}, up)
             emit_json(w["to"], new, src, data, "worldgen", up, None)
         elif kind == "overlay":
             r = next(r for r in rules["overlay_tag"] if r["path"] == rel)

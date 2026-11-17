@@ -105,6 +105,21 @@ class Loot(unittest.TestCase):
         self.assertEqual(out["pools"][0]["entries"][0]["modifier"]["count"]["type"], "minecraft:uniform")
 
 
+class Worldgen(unittest.TestCase):
+    def test_r10_block_tag_rename_only_in_block_predicates(self):
+        v = {"placement": [{"type": "minecraft:block_predicate_filter", "predicate": {"type": "minecraft:all_of",
+             "predicates": [{"type": "minecraft:matching_block_tag", "tag": "minecraft:dirt", "offset": [0, -1, 0]},
+                            {"type": "minecraft:matching_blocks", "blocks": "minecraft:dirt"},
+                            {"type": "minecraft:matching_block_tag", "tag": "minecraft:sand"}]}}]}
+        up = c.Uplift(set())
+        out = c.rename_block_tags(v, {"minecraft:dirt": "minecraft:substrate_overworld"}, up)
+        preds = out["placement"][0]["predicate"]["predicates"]
+        self.assertEqual(preds[0], {"type": "minecraft:matching_block_tag", "tag": "minecraft:substrate_overworld",
+                                    "offset": [0, -1, 0]})
+        self.assertEqual(preds[1:], v["placement"][0]["predicate"]["predicates"][1:])
+        self.assertEqual(up.notes, ["R10 block tag minecraft:dirt → minecraft:substrate_overworld"])
+
+
 class Items(unittest.TestCase):
     RULES = {"item_definitions": {"flat_contexts": ["gui", "fixed", "ground"], "special": {"cob_pipe": "cob_pipe_model"}}}
 

@@ -66,6 +66,14 @@ from = "data/corn_delight/neoforge/biome_modifier/wild_corn.json"
 to = "data/corn_delight/neoforge/biome_modifier/wild_corn.json"
 kind = "biome_modifier"
 
+# R10: block tags 26.3 split. 1.21.1's `#minecraft:dirt` held grass blocks, podzol, mycelium, moss and mud; 26.3 keeps
+# only dirt/coarse dirt/rooted dirt there and vanilla's own features moved to `#minecraft:substrate_overworld` (#dirt +
+# #mud + #moss_blocks + #grass_blocks; FD 26.3's wild crops use it too). Applied to worldgen block predicates
+# (`matching_block_tag`); 26.3 adds pale moss block, a block 1.21.1 did not have.
+[[block_tag_rename]]
+from = "minecraft:dirt"
+to = "minecraft:substrate_overworld"
+
 # R9: CD's FD-namespace tags become overlay entries for the base carry (BX-02).
 [[overlay_tag]]
 path = "data/farmersdelight/tags/block/wild_crops.json"

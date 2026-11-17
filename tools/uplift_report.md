@@ -81,7 +81,7 @@ Source `https://github.com/0999312/Corn-Delight` @ `ab03743e53319e985f134d15a047
 - `data/corn_delight/recipe/tortilla_from_campfire_cooking.json`: R1 ingredient objects
 - `data/corn_delight/recipe/tortilla_from_smoking.json`: R1 ingredient objects
 - `data/corn_delight/recipe/tortilla_raw.json`: R1 ingredient objects
-- `data/corn_delight/worldgen/feature/patch_wild_corn.json`: R8 farmersdelight:wild_crop → minecraft:overlay (FD 26.3 shape)
+- `data/corn_delight/worldgen/feature/patch_wild_corn.json`: R8 farmersdelight:wild_crop → minecraft:overlay (FD 26.3 shape); R10 block tag minecraft:dirt → minecraft:substrate_overworld
 - `data/corn_delight/worldgen/placed_feature/patch_wild_corn.json`: R8 biome_tag dropped, count 64 after in_square
 
 ## Not carried as files
