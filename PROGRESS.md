@@ -632,3 +632,23 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   dedicated server stopped; the user's FDTest world was not opened.
 - deltas: none new. Engine observation E-42 new. Quirks: CQ7 seen again (no new id).
 - **Corn Delight complete (CD-01…CD-18).** next: none in the current scope (report to the user).
+
+## RT-03 Retarget to Sunrise 2d81263 — PASS (smoke; full re-validation NOT RUN) — 2026-11-17
+- build pin: sunrise@2d8126336e579777eabf9b2fd8b3d476236a04f2 | base commit: f267df5 (3.6.30-sunrise.1) | mod commits:
+  5842e6d + this | version 1.1.8-sunrise.1 (not tagged/released yet). `main` converted in place (user's choice).
+- did: `sunrise-mod.toml` (dependency `=3.6.30-sunrise.1`), API from the SDK path; `tools/target.toml.in` +
+  `tools/target.py` (copy of the base's; `gen_cd_decls.py` writes `data/corn_delight/sunrise/` and `src/engine.rs`,
+  `gen_villages.py` writes `sunrise:add_to`); `play_sound` gets `except = None`; `tools/cargo_dev.py` points the
+  SDK path at the base's `.sunrise/` (one copy of the API crates in the lockfile); carry re-pinned to the base
+  commit (wild corn biome modifier now `sunrise:climate`). README for Sunrise.
+- in game (with the base, `SRTest`; base PROGRESS RT-03): 3 mods loaded, 0 errors; corn grew to lower age 7 at
+  random tick speed 200; bone meal on a lone lower 7 placed an upper half (age 3); a hand-placed upper half
+  survives neighbour updates; `recipe give corn_delight:corn_crate` works.
+- observation (no delta): Sunrise gives a mod block random ticks as its template does (`random_tick` doc), so a
+  lower corn at max age no longer ticks: an upper half is placed only by the rolls at ages 4–6, else by bone meal.
+  This is upstream's behaviour (CornCrop/HighCropBlock keep CropBlock's `isRandomlyTicking = !isMaxAge`); at
+  Horizon the max-age lower still ticked. Seen as a lone lower 7 after a fast time-lapse.
+- not run: CDM4 tour, villages/loot/trades, popcorn box/nachos, restart, dedicated server, V3/V4/V12 matrix rows.
+- checks: cargo_dev test 18 passed, clippy -D warnings, fmt; carry 267, decl 28, villages --check; 3 tools tests.
+- deltas: none new.
+- next: re-validation on Sunrise, then release 1.1.8-sunrise.1 with the base.

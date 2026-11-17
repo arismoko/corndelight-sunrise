@@ -1,22 +1,23 @@
-# Corn Delight — Horizon port
+# Corn Delight — Sunrise port
 
-A native [Horizon](https://github.com/arismoko/horizon) mod porting Corn Delight 1.1.8 (an add-on for Farmer's
+A native [Sunrise](https://github.com/sunrise-org/sunrise) mod porting Corn Delight 1.1.8 (an add-on for Farmer's
 Delight) to Minecraft 26.3: two-tall corn, wild corn in temperate biomes, corn kitchen (pot recipes, nachos and the
 popcorn box feasts), the cob pipe, village corn farms, chest loot and villager/wandering-trader trades.
 
-Version `1.1.8-horizon.1`, for the Farmer's Delight Horizon port `3.6.30-horizon.3` exactly, built for Horizon
-`afe471cf15df56439f23cd991d0d4b85563a14fc`.
+Version `1.1.8-sunrise.1`, for the Farmer's Delight Sunrise port `3.6.30-sunrise.1` exactly, built for Sunrise
+`2d8126336e579777eabf9b2fd8b3d476236a04f2`. (`1.1.8-horizon.1`, tag `v1.1.8-horizon.1`, was the Horizon `afe471cf`
+build.)
 
 ## Install
 
-Put `ported_corn_delight-1.1.8-horizon.1.hmod` next to `ported_farmersdelight-3.6.30-horizon.3.hmod` in the
-instance's `horizon-native-mods/` folder; the launcher builds both together (Corn Delight's code calls the base's
+Put this mod's folder next to the Farmer's Delight port's folder (`3.6.30-sunrise.1`) and build both with
+`sunrise-launcher native-build <mods folder> --instance <instance> --trust-native-code`; the launcher builds both together (Corn Delight's code calls the base's
 public `api` module: crops, feasts, wild crops, config). It refuses to build Corn Delight without the base, or with
 another base version. A dedicated server needs both in its native build too.
 
-**Multiplayer:** every player needs the Horizon client with the same Farmer's Delight port and this mod.
+**Multiplayer:** every player needs the Sunrise client with the same Farmer's Delight port and this mod.
 
-**Removing the mod from a world:** Horizon logs a warning ("mod ported_corn_delight was … now missing") and opens
+**Removing the mod from a world** (observed on Horizon; not yet re-checked on Sunrise): the game logs a warning ("mod ported_corn_delight was … now missing") and opens
 the world. Corn Delight items read as empty stacks while the mod is off and come back when it is turned on again.
 Placed Corn Delight blocks (corn, nachos, popcorn boxes) show as air; they come back only in chunks the game did not
 save again in the meantime. A chunk that is saved while the mod is off (for example one with a lit stove or anything
