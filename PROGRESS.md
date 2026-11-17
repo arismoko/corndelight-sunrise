@@ -415,7 +415,7 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   | shipwreck_supply | 30/30 | 6.00 (2.80) | 2–12 | 5.6 (1–4 rolls × seeds 2–4 / corn 1–2) |
   | village_butcher (control) | 0/30 | 0 | — | 0 |
 
-  Seeds and corn come out about evenly in the houses (531 seeds / 548 corn); vanilla and FD items are still in the
+  Seeds and corn come out about evenly in the houses (567 seeds / 548 corn); vanilla and FD items are still in the
   same chests (e.g. plains: gold nugget, potatoes, bread, sapling, emeralds, FD onion + 5 seeds + 5 corn).
 - not covered: naturally generated village chests (same table code path as `/loot`).
 - deltas: CA2 as planned (no behaviour difference).
