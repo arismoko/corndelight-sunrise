@@ -420,3 +420,29 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - not covered: naturally generated village chests (same table code path as `/loot`).
 - deltas: CA2 as planned (no behaviour difference).
 - next: CD-14 (village corn farms).
+
+## CD-14 Village corn farms — PASS (config gate: CA14) — 2026-11-17
+- base: farmersdelight-horizon e7215ed | addon commit: (this commit) | build pin afe471cf
+- data: `tools/gen_villages.py` (`--check`) renders CD's VillageStructures (MMLib StructuresUtils.addBuildingToPool,
+  read only: `single_pool_element`, processors `minecraft:empty`, rigid, weight) as `horizon:add_to` files
+  `data/corn_delight/worldgen/template_pool/village/{plains,taiga}_houses.json`: small ×3 + large ×1 each (CA3). The four
+  carried pieces are 1.21.1 NBT (DataVersion 3955): same 13×6×9 / 7×6×9 size and building-entrance jigsaw as
+  vanilla's farms; corn states carry only `age`, so they load as lower halves; the taiga pieces' jigsaw names the
+  plains streets pool (CQ5, kept).
+- in game (fd-port, new world `CD14`, seed 14; scripts/logs in `../run/shots/cd-14/`):
+  - natural villages (located from a 3000-block grid, 9×9 chunks scanned): **plains 20 villages, 11 with corn farms
+    (17 farms); taiga 23 villages, 15 with corn farms (22 farms)**.
+  - pool sampling (`/place jigsaw minecraft:village/plains/houses … 1` at 81 isolated sky spots): 10 empty (vanilla's
+    empty elements are 10/96), 67 other houses, 4 corn farms (3 large, 1 small) = 5.6 % of placed pieces (expected
+    4/96 = 4.2 %).
+  - `/place structure` villages (18 plains, 12 taiga), corn farms vs vanilla's crop farms in the same villages: plains
+    corn 19 small + 1 large, vanilla 28 small + 2 large; taiga corn 8 small, vanilla 16 small. Large pieces rarely fit
+    for vanilla's farms too, so the few large corn farms come from the village layout, not CD (in natural villages all
+    39 corn farms were small).
+  - corn in a placed village farm grows: random_tick_speed 100 for 20 s → 81 lower halves from ages 0–2 to 0–6, one
+    upper half (back to 3 afterwards). Screenshot `plains-village-corn-farm.png`.
+  - `genCornFarm = false` + `/reload`: 6 new plains villages still had 162 corn (config restored after).
+- engine gap (known): template-pool additions take no load conditions (base E-26), so `genCornFarm` cannot switch the
+  farms off. Delta **CA14**: `genCornFarm` is inert; villages always get the corn farms (CD's default).
+- deltas: CA3 as planned, CA14 new.
+- next: CD-15 (trades).

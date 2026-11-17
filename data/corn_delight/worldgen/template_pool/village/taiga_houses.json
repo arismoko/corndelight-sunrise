@@ -1,0 +1,23 @@
+{
+  "horizon:add_to": "minecraft:village/taiga/houses",
+  "elements": [
+    {
+      "weight": 3,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "corn_delight:village/houses/taiga_small_corn_farm",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "corn_delight:village/houses/taiga_large_corn_farm",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

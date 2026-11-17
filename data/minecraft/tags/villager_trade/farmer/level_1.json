@@ -1,0 +1,11 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "ported_corn_delight:villagers_trade_corn"
+    }
+  ],
+  "values": [
+    "corn_delight:farmer/1/corn_emerald",
+    "corn_delight:farmer/1/corn_emerald_2"
+  ]
+}
