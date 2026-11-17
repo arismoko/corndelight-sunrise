@@ -277,3 +277,29 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   are leftovers and can be deleted; `CD8s1..3` hold the survey.
 - deltas: none new (CA1 noted: `/place feature` = one try).
 - next: CD-09 (CDM2 demo).
+
+## CD-09 CDM2 demo — PASS — CDM2 closed — 2026-11-17
+- base: farmersdelight-horizon 0b58ed0 | addon commit: f73012d (no code change in this task) | build pin afe471cf
+- recorded tour (fd-port, world `CD8s1` = CD-08's new seed-1 world, survival, Peaceful; recordings
+  `../run/horizon-home/instances/fd-port/recordings/2026-11-17_14-29-44-cd-09-demo` (before the restart) and
+  `…/2026-11-17_14-34-23-cd-09-demo-2` (after); shots `../run/shots/cd-09/`):
+  - found: the generated wild corn patch at −2853,79,3085 (plains, 12 wild corn; CD-08).
+  - bare hand on wild corn → 1 corn seeds; shears → 1 wild corn; wild corn on a placed FD cutting board + flint knife
+    → +1 corn seeds + 1 FD straw; the other 10 wild corn broken by hand → 11 seeds (one dropped 2).
+  - field (pad filled flat at −2849..−2841,79,3069..3076, water source at −2845,79,3072): 7 grass tilled with an
+    iron hoe → farmland; 7 FD rich soil placed by the player and tilled → `rich_soil_farmland`; 10 seeds planted.
+  - mid-growth (random_tick_speed 60 for 20 s, then 0): plain farmland lowers 0/4/0/0/3 (+1 upper), rich soil
+    farmland lowers 6/6/7/7/7 (+4 uppers) (`1-mid-growth.png`). Save & quit, full restart: all **15 corn states
+    identical**.
+  - 40 s more at 60: the rich-soil row mature (5 × lower 7 + upper 7), plain row 2–7. Survival harvest of a mature
+    plant: upper half → 1 corn + 3 seeds (the lower stayed, age 7); lower → 1 corn + 4 seeds; reseeded on the same
+    rich soil farmland (age 0) (`2-harvest-replant.png`).
+- guest: LAN stays environment-blocked (offline developer session, as MD-08/CD-05), so the dedicated server: rig
+  re-exported with the current base + CD code (`native-build ../run/native-mods --server-output
+  run/server-export-new` → `run/server-engine`, client copy from `native-afe471c-e5f703404e44`); server "content from
+  3 mod(s)". Bob (survival) bone-mealed one corn on farmland (pad 60006..60012,155..158,59995..60001 in FDServer):
+  age 1 → 4 → lower 7 + upper 0 (overflow) → upper 5 → upper 7; the fifth use on the mature plant was refused
+  (bone meal 16 → 12) (`3-bob-bonemeal.png`, `server.log`).
+- left as found: random_tick_speed 3 in `CD8s1`; server stopped; Bob's inventory kept (+12 bone meal).
+- deltas: none new.
+- next: CD-10 (kitchen recipes complete).
