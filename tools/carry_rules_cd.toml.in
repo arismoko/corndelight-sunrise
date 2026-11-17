@@ -12,7 +12,7 @@ item_registry = "src/main/java/cn/mcmod/corn_delight/item/ItemRegistry.java"
 
 # The base checkout the carry imports carry_lib.py / worldgen_rewrite.py from and checks tags against.
 [base]
-sha = "e7215ed73acd11fb4720b442021fef3902269587"
+sha = "c2ac486e07ef555e72d6c884fde4b637a03ee0f2"
 
 # R0: byte copies (assets, structures, tags; tag files have the same format in 26.3).
 [copy]

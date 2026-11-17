@@ -576,3 +576,59 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   (nachos 2, popcorn 2, board with 1 corn at 60009,159,60000, a NoAI farmer may exist near 60011,159,59997); the
   fd-port game was quit earlier? — no: the single-player game on `CDV8` is still open. random_tick_speed in CDV8 is 3.
 - next: CD-18 (continue from "still to do").
+
+## CD-18 CDM4 demo, validation matrix, release — PASS (LAN: ENVIRONMENT-BLOCKED) — CDM4 closed — 2026-11-17
+- base: farmersdelight-horizon c2ac486 (`3.6.30-horizon.3`, tag `v3.6.30-horizon.3`) | addon commit: (this commit),
+  tag `v1.1.8-horizon.1` | build pin afe471cf
+- release: `../dist/ported_corn_delight-1.1.8-horizon.1.hmod` (158772 bytes, SHA-256 daf778b0…b796; rebuilt today:
+  only README.md differs from the WIP package, which gained the removal paragraph below; `cargo horizon-mod check`
+  clean; every packaged file byte-identical to this commit's tree). Base `.3` package 40a687b8…cab97 and MD `.2`
+  5ae75940…786e unchanged and identical to their trees. Carry re-pinned to the base release commit c2ac486
+  (`tools/carry_rules_cd.toml.in`): 267 carried files byte-identical, only the manifest's pin/hashes changed.
+- checks: base cargo test 98 + 1 ignored, carry 2872, decl 237, tooltips/worldgen/fixtures --check, 9 tools/test_*.py;
+  CD cargo test 18, carry 267, decl 28, villages 2, trades 9, 3 tools/test_*.py; MD carry 225, decl 34, lang --strict
+  0 gaps, 4 tests; `recipe_overlap.py --addon moredelight --addon corndelight`: 1749 recipes (79 add-on), 0 skipped,
+  0 add-on conflicts (`../run/shots/cd-18/recipe-overlap.txt`).
+- ADDONS_VALIDATION §4, Corn Delight rows (evidence `../run/shots/cd-18/`; world `CDV8`, seed 8, release build
+  `native-afe471c-34d86ab9d16b` of the three packages):
+
+  | Row | Result | Evidence |
+  |---|---|---|
+  | V3 base + CD | PASS | §3.2 = CD-05; §3.3 = CD-08 (wild corn, 3 seeds), CD-13 (chest loot), CD-14 (village farms), CD-15 (trades); §3.4 = CD-11/CD-12; CD-06…CD-17 acceptance all PASS (entries above) |
+  | V4 base + MD + CD | PASS (dedicated server) / LAN ENVIRONMENT-BLOCKED | creative page 2 shows the CD (26 items), FD and MD tabs (`creative-p2.png`); recipe report above; MD stone knife cut CD corn on an FD board in single player (+2 seeds +1 corncob, 131 → 130, twice) and on the dedicated server (Bob); server + Alice + Bob all with base `.3`, MD `.2`, CD `.1`. LAN: the offline developer session refuses `lan open` (as MD-08/MD-12) |
+  | V5 base absent | PASS | instance `cd-nobase` with only the CD package: `native-build` refuses "ported_corn_delight requires missing mod ported_farmersdelight" (`v5-nobase-build.log`); starting the instance anyway runs the plain game without CD (1658 items). MD `.2` alone: startup refused, same message (`v5-md2-nobase.log`) |
+  | V6 wrong base version | PASS | CD package repacked in the scratchpad with `=3.6.30-horizon.2` + base `.3`: `native-build` refuses "ported_corn_delight requires ported_farmersdelight =3.6.30-horizon.2, but installed version is 3.6.30-horizon.3" (`v6-cd-wrongpin-build.log`); old MD `.1` with base `.3`: startup refused with the same wording (`v6-md1-base3.log`); instance deleted (launcher Trash) |
+  | V7 CD removed from a world | PASS (recorded) | see below; WARN "mod ported_corn_delight was 1.1.8-horizon.1 when the world was saved, now missing" (`v7-cd-off.log`) |
+  | V8 CD added to a base-only world | PASS | WIP part above (`CDV8` base-only, then MD+CD: "content from 3 mod(s)") |
+  | V9 save/reload/restart | PASS | WIP part above (corn states, nachos/popcorn servings, mid-cook corn soup) |
+  | V10 multiplayer | PASS (dedicated server) / LAN ENVIRONMENT-BLOCKED | WIP part above (cob pipe seen on Bob's head, nachos/popcorn servings on both clients, cutting) + today: a summoned farmer (first try) offered `corn_delight:corn` 1 → emerald 1 (16 uses, xp 2) next to wheat; Alice put 1 corn in the merchant slot, took the emerald (`v10-server-corn-trade.png`); server `Offers.Recipes[0].uses` = 1 |
+  | V11 config | PASS (recorded) | `genCornFarm`: inert (CA14, CD-14); `villagersTradeCorn = false`: 0/15 L1 and 0/15 L2 farmers after a restart (CD-15); FD `farmersBuyFDCrops`: no such key in FD 26.3, always true (CA9, BX-06); FD `enableFoodEffectTooltip = false` removes MD's tooltip lines (BX-03/MD-10; base tooltip code unchanged in `.3`: `git diff v3.6.30-horizon.2 c2ac486` touches only an added `Values::bool_named`); Corn Delight has no effect tooltips upstream (no `addFoodEffectTooltip` in CD) |
+  | V12 performance | PASS | below |
+
+- V7 detail: snapshot with random ticks off (`v7-before.txt`): corn lowers at -1/1/2,117,-10 (age 3 alone; 7+2; 7+5),
+  nachos 2, popcorn box 3, inventory with corn/seeds/corncob/popcorn. CD turned off (`horizon-mods.txt`, native
+  rebuild): all CD blocks read as air, CD stacks read as `minecraft:air` keeping their counts (`v7-off.txt`). CD back
+  on: everything returned **except the corn at -1,117,-10** (`v7-on.txt`). Control: the same corn survives a plain
+  restart with CD on. Second run with one popcorn box in each chunk: the box in chunk 0 (3,117,-6) returned, the box
+  in chunk −1 (-2,117,-7) did not (`v7b-*.txt`). Chunk −1 holds the lit stove and cooking pot; blocks there are lost,
+  consistent with that chunk being saved again while CD is off (unknown blocks written as air). Recorded as engine
+  observation **E-42** (unknown mod blocks are kept only in chunks not saved while the mod is missing); README says
+  so and advises a backup. No promise in the plan; no delta.
+- V12 detail (`v12-ticktime*.log`): 1000 crops (40×25 on farmland with 5 water rows), player 30–70 blocks away,
+  `random_tick_speed 3`, day frozen, `/tick query` 100-tick samples. Alternating phases: empty 4.00 / 4.58 ms, wheat
+  4.30 / 4.85, corn 4.68 / 4.90 (background drifted 3.6 → 4.9 ms). Starting at age 3 so corn grows upper halves:
+  corn 4.12 / 4.43 ms, wheat 4.35 / 4.45 (6 samples each). Growth over ~4 min: corn 365 / 1000 advanced, wheat 332.
+  **No measurable cost for corn over wheat** (differences −0.2…+0.4 ms, inside the drift). First attempt on dry
+  farmland: corn's farmland turned to dirt (254/1000 in 3 min, corn popped off) while wheat's did not — the known
+  kept quirk CQ7 (corn not in `#minecraft:maintains_farmland`, as upstream); that run was discarded.
+- MD re-validation on base `.3` (MD PROGRESS entry "CD-18 (MD side)"): §3.1 in `CDV8` — stone knife crafted in the
+  2×2 grid; potato and bread cut with it (diced potatoes, 4 bread slices, durability −1 per cut); a potato left on
+  the board kept across a full restart (render upright like every block item, seen face-on from the south,
+  `v2-md-board-*.png`); bread slice smelted → toast. Log errors: only the 3 known M0 crate-condition lines.
+- CDM4 world tour: village corn farms (CD-14, 26 villages), chest loot (CD-13, 30 chests per table), trades (CD-15 in
+  single player, CD-18 on the dedicated server) — all recorded in game.
+- cleanup: test fields removed, forceload none, `random_tick_speed` 3, `advance_time` true in CDV8; the furnace and
+  marker blocks removed; fd-port's mod list has all three on (release packages, CD package re-copied); clients and
+  dedicated server stopped; the user's FDTest world was not opened.
+- deltas: none new. Engine observation E-42 new. Quirks: CQ7 seen again (no new id).
+- **Corn Delight complete (CD-01…CD-18).** next: none in the current scope (report to the user).

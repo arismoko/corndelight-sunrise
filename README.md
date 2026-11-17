@@ -16,6 +16,12 @@ another base version. A dedicated server needs both in its native build too.
 
 **Multiplayer:** every player needs the Horizon client with the same Farmer's Delight port and this mod.
 
+**Removing the mod from a world:** Horizon logs a warning ("mod ported_corn_delight was … now missing") and opens
+the world. Corn Delight items read as empty stacks while the mod is off and come back when it is turned on again.
+Placed Corn Delight blocks (corn, nachos, popcorn boxes) show as air; they come back only in chunks the game did not
+save again in the meantime. A chunk that is saved while the mod is off (for example one with a lit stove or anything
+else that changes) loses them for good (engine observation E-42). Back up the world first.
+
 ## Reference
 
 There is no Corn Delight for Fabric or for Minecraft 26.x. The port follows Corn Delight 1.21 (NeoForge 1.21.1,
