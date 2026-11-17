@@ -652,3 +652,32 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - checks: cargo_dev test 18 passed, clippy -D warnings, fmt; carry 267, decl 28, villages --check; 3 tools tests.
 - deltas: none new.
 - next: re-validation on Sunrise, then release 1.1.8-sunrise.1 with the base.
+
+## RT-04 Sunrise re-validation and release 1.1.8-sunrise.1 — PASS (LAN: ENVIRONMENT-BLOCKED) — 2026-11-18
+- build pin: sunrise@2d8126336e579777eabf9b2fd8b3d476236a04f2 | base commit: 8911db2 (`3.6.30-sunrise.1`, tag
+  `v3.6.30-sunrise.1`) | mod commit: (this commit), tag `v1.1.8-sunrise.1`. Carry re-pinned to 8911db2: 267
+  carried files byte-identical, only the manifest's pin changed.
+- release packages (`../dist/`, `cargo sunrise-mod build`; every packaged file byte-identical to its tree, plus the
+  generated `uses.json`): base `ported_farmersdelight-3.6.30-sunrise.1.smod` 2998820 B, SHA-256 b4a8e2b6…;
+  CD `ported_corn_delight-1.1.8-sunrise.1.smod` 166430 B, 02ed700e…; MD `ported_moredelight-26.9.16-sunrise.1.smod`
+  139901 B, 8b208f89… (full hashes in the `.sha256` files). Fresh instance `fd-release`: the two native packages
+  unpacked and `native-build` → built; MD enabled in `sunrise-mods.txt`; new world `RelTest`: "content from
+  3 mod(s)", 0 ERROR lines, MD stone knife cut CD corn on an FD board in survival (131 → 130, corncob + seeds).
+- ADDONS_VALIDATION §4 on Sunrise (`../run/shots/RT-04/`; base entry for the FD rows):
+  | Row | Result | Evidence |
+  |---|---|---|
+  | V3 base + CD | PASS | nachos: empty hand → "You need a Bowl to eat this.", 4 bowls → 4 nachos bowls, 0 → next use breaks it, 1 bowl dropped; popcorn box: bare hand ×3 → caramel popcorn, the last + paper, box gone; bowl in the main hand → message + serving (CD-11's off-hand pass); corn soup eaten → Comfort 3:00, bowl back; corn ages kept through restarts |
+  | V4 base + MD + CD | PASS (single player, dedicated server) / LAN ENVIRONMENT-BLOCKED | MD stone knife cuts CD corn (+2 seeds +1 corncob) in single player, on the server (Bob) and from the release packages |
+  | V5 base absent | PASS | CD alone: `native-build` refuses "ported_corn_delight requires missing mod ported_farmersdelight"; MD alone on a plain server: "mod load refused: ported_moredelight requires missing mod ported_farmersdelight" |
+  | V6 wrong base version | PASS | CD pinned `=3.6.30-sunrise.0` with base `.1`: "requires ported_farmersdelight =3.6.30-sunrise.0, but installed version is 3.6.30-sunrise.1" |
+  | V7 / V8 / V11 | carried from CD-18 (no code change since; engine observation E-42 not re-run) | — |
+  | V9 save/reload/restart | PASS | two full restarts: nachos 3, popcorn 2, corn age 2 and 6, board item, mid-cook MD pot (`restart-*.txt`) |
+  | V10 multiplayer | PASS (dedicated server + Alice + Bob) / LAN ENVIRONMENT-BLOCKED (`lan open` refused in the offline developer session) | server engine exported with `native-build --server-output`; handshake ok; cutting (Bob); pot through Bob's menu (corn soup; boiled corn first because the corn sat alone for 100 ticks); nachos and popcorn servings by both players, counts in sync on both clients; cob pipe on Alice's face seen by Bob (`mp-cob-pipe-bob-sees-alice.png`); "General of the Maize" on equip; farmer offering corn 1 → emerald 1 (1 of 3 summoned), Alice traded, `uses` = 1 |
+  | V12 performance | carried from CD-18 (no code change) | — |
+- checks: cargo_dev test 18, clippy -D warnings; carry 267, decl 28, villages 2, trades 9; 3 tools/test_*.py.
+  `cargo sunrise-mod check` cannot compile CD alone: "cannot find module or crate `ported_farmersdelight`" — the
+  check has no way to resolve a dependency mod's crate (Horizon's `check` passed). **E-44 (new)**, workaround: the
+  crate is checked through `tools/cargo_dev.py` and built by the launcher's `native-build` (instance and server
+  export). The base's own `check` passes (rustup `wasm32-unknown-unknown` target added for it).
+- deltas: none new. Engine gap E-44 new.
+- next: none in the retarget scope.
