@@ -390,3 +390,33 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   shows 308 empty, no duplicate). Left as is; noted for the base.
 - deltas: none new.
 - next: CD-13 (chest loot injection).
+
+## CD-13 Chest loot injection — PASS — 2026-11-17
+- base: farmersdelight-horizon e7215ed | addon commit: (this commit) | build pin afe471cf
+- code: `src/loot.rs` + `loot_table_load` in `lib.rs`. CD's two MMLib `add_loot_table` modifiers (behaviour read in
+  MMLib's AddLootTableModifier, nothing copied: after the chest's own pools the extra table is rolled with the same
+  context and its items appended) become one appended pool per chest table, holding the extra table as its only
+  entry (`{"rolls": 1, "entries": [{"type": "minecraft:loot_table", "value": …}]}`): a one-entry, one-roll pool draws
+  nothing itself, so the draws and their order are the reference's; the base (dispatched first) has already
+  appended FD's chest pools, as FD's pools precede CD's modifier. Targets: the 5 village house chests →
+  `corn_delight:village_house`, `minecraft:chests/shipwreck_supply` → `corn_delight:shipwreck_supply` (CA2).
+- unit: `pools_appended_for_exactly_the_six_tables` (6 targets; butcher, shipwreck map/treasure, dungeon and FD's
+  nested table untouched), `pool_after_existing_pools_and_on_a_table_without_pools`; 18 crate tests, clippy clean.
+- in game (fd-port, `CD8s1`; `/loot insert` into a fresh chest per roll, 30 chests per table; script and log in
+  `../run/shots/cd-13/`):
+
+  | table | chests with corn items | mean corn items (sd) | range | expected mean |
+  |---|---|---|---|---|
+  | village_plains_house | 30/30 | 7.13 (2.16) | 3–13 | 7.0 (2–5 rolls × 1–3) |
+  | village_desert_house | 30/30 | 7.53 (2.36) | 2–12 | 7.0 |
+  | village_savanna_house | 30/30 | 7.93 (2.98) | 2–12 | 7.0 |
+  | village_snowy_house | 30/30 | 7.40 (2.85) | 2–12 | 7.0 |
+  | village_taiga_house | 30/30 | 7.17 (2.49) | 3–12 | 7.0 |
+  | shipwreck_supply | 30/30 | 6.00 (2.80) | 2–12 | 5.6 (1–4 rolls × seeds 2–4 / corn 1–2) |
+  | village_butcher (control) | 0/30 | 0 | — | 0 |
+
+  Seeds and corn come out about evenly in the houses (531 seeds / 548 corn); vanilla and FD items are still in the
+  same chests (e.g. plains: gold nugget, potatoes, bread, sapling, emeralds, FD onion + 5 seeds + 5 corn).
+- not covered: naturally generated village chests (same table code path as `/loot`).
+- deltas: CA2 as planned (no behaviour difference).
+- next: CD-14 (village corn farms).

@@ -5,6 +5,7 @@ mod config;
 mod crop;
 mod feasts;
 mod ids;
+mod loot;
 
 use mod_api::*;
 
@@ -31,6 +32,10 @@ impl Hooks for CornDelight {
 
     fn config_reloading(&self, host: HostSide<'_>, event: &mut ConfigReloadingEvent<'_>) {
         config::on_file(host, ids::MOD_ID, event.config);
+    }
+
+    fn loot_table_load(&self, _: &dyn DataLoadContext, event: &mut LootTableLoadEvent<'_>) {
+        loot::on_table_load(event.id, event.table);
     }
 
     fn register(&self, registrar: &mut dyn Registrar, _: &RegistrationContext) {
