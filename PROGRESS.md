@@ -531,3 +531,48 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - creative tab: unchanged since CD-04 (`itemGroup.corn_delight`, 26 items in registry order); no item added since.
 - deltas: none new (CQ11 recorded).
 - next: CD-18 (CDM4 demo, validation matrix, release).
+
+## CD-18 CDM4 demo, validation matrix, release — IN PROGRESS — 2026-11-17 (paused on user request)
+- base: farmersdelight-horizon c2ac486 (`3.6.30-horizon.3`, release commit; **not tagged yet**) | addon commit:
+  (this WIP commit) | build pin afe471cf
+- written: `horizon-mod.toml` pins `ported_farmersdelight = "=3.6.30-horizon.3"` (version `1.1.8-horizon.1`); README
+  rewritten for the release (install, reference statement AD1, CA1–CA15 as player-visible differences, kept quirks
+  CQ1–CQ9 and CQ11, credits incl. MMLib as behaviour reference only).
+- packages (in `../dist/` with `.sha256`): `ported_farmersdelight-3.6.30-horizon.3.hmod` (2947831 bytes, SHA-256
+  40a687b8…cab97), `ported_corn_delight-1.1.8-horizon.1.hmod` (158519 bytes, d67d20da…d5bd1),
+  `ported_moredelight-26.9.16-horizon.2.hmod` (139903 bytes, 5ae75940…786e); all three pass `cargo horizon-mod check`.
+  Rebuild them if any source changes before tagging.
+- checks done: base fmt/clippy/test (98 + 1 ignored), carry 2872, decl/tooltip/worldgen --check, tools/test_*.py;
+  CD fmt/clippy/test (18), carry 267, decl 28, villages 2, trades 9, test_carry/decls/lang; MD carry re-pinned to
+  base c2ac486 with identical carried files (225), MD tests, decl 34, lang --strict 0 gaps.
+- recipe ambiguity over all three (MD `tools/recipe_overlap.py`, now with repeatable `--addon` and
+  `neoforge:compound`): 1749 recipes, 79 from the add-ons, 0 skipped, **0 add-on conflicts**.
+- release install in fd-port: the two native packages in `horizon-home/instances/fd-port/horizon-native-mods/`
+  (`ported_farmersdelight.hmod`, `ported_corn_delight.hmod`), `horizon-mods.txt` turns on all three, MD `.2` in
+  `horizon-mods/`; launcher `native-build --instance fd-port` → `native-afe471c-34d86ab9d16b` (release build).
+  NOTE: `run/rebuild.sh` builds from the source trees instead and would replace it.
+- matrix rows done (world `CDV8`, seed 8; `../run/shots/cd-18/`):
+  - V8 PASS: `CDV8` created base-only ("content from 1 mod(s)", `corn_delight:corn` unknown), reopened with MD+CD:
+    "content from 3 mod(s)", `corn_delight: base api 1`, no ERROR lines, CD/MD items obtainable; no wild corn near
+    spawn (old chunks).
+  - V4 (part): creative page 2 shows Corn Delight (26 items), Farmer's Delight and More Delight tabs
+    (`creative-p2.png`); MD stone knife cut CD corn on an FD board (+2 seeds, +1 corncob, 131 → 130); recipe report
+    above.
+  - V9 PASS: corn (lower 3, 3, 7 + upper 2), nachos 2, popcorn 3 identical after a full restart; a pot cooking corn
+    soup (CookTime 82 at quit, 98 after) finished → corn soup.
+  - V10 (part, dedicated server): server re-exported from the two release packages (unpacked to
+    `run/native-release-src/`) → `run/server-engine`, client copy from `native-afe471c-34d86ab9d16b`, MD `.2` on server
+    and both clients (sha checked); "content from 3 mod(s)". Bob equipped the cob pipe → Alice sees it on Bob's head
+    (`v10-alice-sees-bob-pipe.png`; Bob got "General of the Maize"); Alice took a nachos bowl with a bowl, Bob a
+    caramel popcorn bare-handed; both clients show nachos 2 / popcorn 2; Bob cut corn with the MD stone knife on a
+    board (+2 seeds +1 corncob). NOT DONE: a completed corn trade on the server (stopped while summoning farmers).
+- still to do: V10 trade; V3 summary (base + CD: CD-06…CD-17 entries); V5 (CD without base: instance with only the CD
+  package → refusal), V6 (CD built with `=3.6.30-horizon.2` against base `.3` → refusal; also the old MD `.1` package
+  against base `.3`), V7 (CD removed from a world: record), V11 (genCornFarm CA14, villagersTradeCorn CD-15,
+  farmersBuyFDCrops CA9, FD foodEffectTooltip), V12 (1000 corn vs 1000 wheat tick time, FD VALIDATION_PLAN §3.5);
+  MD re-validation rows against base `.3` (V2/V5/V6/V10 at least) and MD PROGRESS entry; then tag base
+  `v3.6.30-horizon.3`, CD `v1.1.8-horizon.1`, MD `v26.9.16-horizon.2`, push tags; CHECKPOINT.
+- left running/changed at pause: dedicated server (`run/fd-server`) with Alice and Bob online on the CD-09 pad
+  (nachos 2, popcorn 2, board with 1 corn at 60009,159,60000, a NoAI farmer may exist near 60011,159,59997); the
+  fd-port game was quit earlier? — no: the single-player game on `CDV8` is still open. random_tick_speed in CDV8 is 3.
+- next: CD-18 (continue from "still to do").

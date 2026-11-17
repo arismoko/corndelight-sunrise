@@ -11,7 +11,7 @@ capabilities = ["registries"]
 namespaces = ["corn_delight"]
 
 [dependencies]
-ported_farmersdelight = "=3.6.30-horizon.2"
+ported_farmersdelight = "=3.6.30-horizon.3"
 
 [native]
 game = "26.3"
