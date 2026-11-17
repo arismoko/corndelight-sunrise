@@ -369,3 +369,24 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   ~96 blocks and died; his items were collected back (12 bone meal from CD-09 given back by command).
 - deltas: none new (CA6 as planned).
 - next: CD-12 (CDM3 demo).
+
+## CD-12 CDM3 demo — PASS — CDM3 closed — 2026-11-17
+- base: farmersdelight-horizon e7215ed | addon commit: d87cd66 (no code change in this task) | build pin afe471cf
+- recorded kitchen tour (fd-port, `CD8s1`, survival; recordings `../run/horizon-home/instances/fd-port/recordings/
+  2026-11-17_15-01-53-cd-12-demo` and `…/2026-11-17_15-04-07-cd-12-demo-2`; shots `../run/shots/cd-12/`):
+  - corn soup through the pot's menu (corn, cabbage, raw chicken, milk bucket into 300–303, bowl into 307) on a lit
+    stove → corn soup taken from 308.
+  - nachos block cooked in the pot (2 tortilla chips, cooked beef, milk bottle, tomato sauce + bowl) → placed by the
+    player (facing south, toward the player) → 2 servings with bowls (`1-kitchen.png`, popcorn box placed beside it
+    and one bare-hand serving).
+  - **save & quit + restart mid-feast**: nachos 2 servings and popcorn box 3 servings identical.
+  - popcorn party after the restart: bare hand 3× → caramel popcorn each, the last + paper, box gone
+    (`2-popcorn-last.png`); nachos 2 more servings → plate (`3-nachos-plate.png`) → next use breaks it, bowl dropped.
+- guest (dedicated server; LAN environment-blocked): Bob filled a pot on a lit stove through its menu (corn,
+  cabbage, raw beef, milk bottle + bowl) → corn soup taken, milk bottle → glass bottle (`4-bob-pot.png`,
+  `server.log`); his nachos and popcorn servings are CD-11's.
+- observation (base, not CD): after a meal is taken from the pot's output through the menu, `data get block` still
+  lists it in the pot's `Inventory` tag — the client-mirror update tag, not the slots (`Items` empty, the menu
+  shows 308 empty, no duplicate). Left as is; noted for the base.
+- deltas: none new.
+- next: CD-13 (chest loot injection).
