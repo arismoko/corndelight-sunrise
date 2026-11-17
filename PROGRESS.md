@@ -446,3 +446,34 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   farms off. Delta **CA14**: `genCornFarm` is inert; villages always get the corn farms (CD's default).
 - deltas: CA3 as planned, CA14 new.
 - next: CD-15 (trades).
+
+## CD-15 Villager and wandering-trader trades — PASS (give counts: CA4) — 2026-11-17
+- base: farmersdelight-horizon e7215ed | addon commit: 35a794b (data and `tools/gen_trades.py`, committed with CD-14 by
+  mistake) + (this commit: log) | build pin afe471cf
+- data: `tools/gen_trades.py` (`--check`, 9 files) from VillagerTradeHandler and its two listing classes (read only,
+  restated in the generator's docstring): `corn_delight:villager_trade/farmer/1/corn_emerald{,_2}` (1 corn → 1 emerald,
+  16 uses, xp 2, discount 0.05; the listing's random count is discarded: CQ3), `farmer/2/emerald_{cornbread,tortilla}`
+  (wants emerald uniform 6–20, gives 6–16), `wandering_trader/emerald_corn_seeds` (6–20 → 2–8, xp 2) and
+  `emerald_popcorn_box` (7–21 → 1–2, xp 15); tag entries in `minecraft:villager_trade/farmer/level_1|level_2` with
+  `neoforge:conditions` `ported_corn_delight:villagers_trade_corn` (FD's farmersBuyFDCrops is always true here,
+  CA9), and in `wandering_trader/common` ungated (CQ4: both wandering trades in the common pool).
+- probe: the random give count is written as vanilla 26.3 reads it (`given_item_modifier` `minecraft:set_count`
+  uniform). The engine's trade modifiers (`merchant.rs` `apply_modifier`) have no `set_count` arm and read
+  `gives.count` as a fixed number → **E-41** (trade `set_count` ignored); `gives.count` holds the midpoint
+  (cornbread/tortilla 11, seeds 5, popcorn box 2) → delta **CA4**. EX-01 (ADDONS_PLAN §11) is the engine change.
+- in game (fd-port, `CD14`, NoAI merchants summoned on a pad, each trade screen opened once, `Offers` read; script
+  and logs in `../run/shots/cd-15/`):
+
+  | merchants | with a CD offer | expected | CD offers seen |
+  |---|---|---|---|
+  | farmer L1 × 30 | 15 | 41.7 % (2 of 5 + 2 FD + 2 CD) | 16 × corn 1 → emerald 1, 16 uses, xp 2 (one farmer drew both) |
+  | farmer L2 × 30 | 16 | 52.4 % (2 of 3 + 2 + 2) | cornbread 8, tortilla 10: 7–19 emeralds → 11, 16 uses, xp 5 |
+  | wandering trader × 60 | 8 | 11.6 % (5 of 78 + 4 FD + 2 CD) | seeds 3 (7–11 emeralds → 5), popcorn box 5 (11–20 → 2), 16 uses |
+
+  Prices fall inside the ranges; FD and vanilla offers appear next to them (carrot, potato, FD onion/tomato,
+  cabbage, rice…).
+- config: `villagersTradeCorn = false` + `/reload` → new farmers still offered corn (9/15 at each level); after a
+  full restart with the key off → **0/15 L1, 0/15 L2**. Tag conditions are evaluated when the world's content is
+  built, not on `/reload` (recipes did change on `/reload` in CD-02). Key restored to true.
+- deltas: CA4 (fixed give counts, E-41). Engine gap E-41 new.
+- next: CD-16 (cob pipe and item behaviours).
