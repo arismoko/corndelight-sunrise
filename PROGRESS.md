@@ -303,3 +303,38 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - left as found: random_tick_speed 3 in `CD8s1`; server stopped; Bob's inventory kept (+12 bone meal).
 - deltas: none new.
 - next: CD-10 (kitchen recipes complete).
+
+## CD-10 Kitchen recipes complete — PASS — 2026-11-17
+- base: farmersdelight-horizon 0b58ed0 | addon commit: 22c6766 (no code change in this task) | build pin afe471cf
+- AD14 second pass: not needed — CD-04 already generated the five foods' effects with the base's ids
+  (`farmersdelight:comfort`/`nourishment` were declared by then); decl `--check` unchanged.
+- in game (fd-port, `CD8s1`, pad 19984..20022,66..68,19984..19996; `../run/shots/cd-10/`):
+  - **10 pot recipes**, each cooked once on a lit FD stove (ingredients put in with `item replace block … container.N`):
+    boiled corn (100 t), caramel popcorn, classic corn dog, corn dog (100 t), corn soup, creamed corn, creamy corn
+    drink, cornbread stuffing (200 t), nachos block (bowl container → output), stuffed pumpkin from cornbread
+    (400 t, pumpkin container → `farmersdelight:stuffed_pumpkin_block`). The meal-slot containers are the items'
+    remainders: stick (corn dogs), bowl (soup, creamed corn, stuffing), glass bottle (drink).
+  - `corn_soup` with each compound alternative: raw chicken + milk bucket, raw porkchop + milk bottle, raw beef +
+    milk bottle, brown mushroom + milk bucket → corn soup (4/4).
+  - **crafting** (crafting table, survival, driver `craft.py`, log `craft.log`): 16/16 PASS — taco (cooked chicken and
+    cooked mutton: the `neoforge:compound` alternatives), cornbread batter ×3 from milk bucket and from milk bottle
+    (compound around `#c:drinks/milk`; bucket and glass bottle left over), organic compost from corncobs, paper from
+    corncobs, raw tortilla ×3 (shaped, bucket left), caramel popcorn, classic corn dog from crafting, cob pipe, corn
+    crate ↔ 9 corn, kernel bag ↔ 9 seeds, seeds from corn, popcorn box.
+  - **cutting** (board + flint knife): corncob → 1 straw each (FD 26.3's board takes the stack, one cut per item),
+    tortilla → 4 tortilla chips (corn and wild corn: CD-05/CD-07).
+  - furnace and smoker: cornbread batter → cornbread, raw tortilla → tortilla; campfire (600 t): both.
+  - **eating** (Easy, food drained with short Hunger bursts; `eat.py`, `eat.log`): corn soup → Comfort 3:00 + bowl;
+    creamed corn → Comfort 3:00 + bowl; creamy corn drink → Comfort 1:00 + Regeneration 1:00 + glass bottle, drink
+    pose and the "Sipping" drink sound (`drinking.png`); corn dog / classic corn dog → stick; taco → Strength 0:30;
+    cornbread stuffing → Nourishment 5:00 + bowl (nachos bowl: CD-11). Food/saturation as declared (corn soup
+    10 → 20, 0 → 18.0).
+- ambiguity report (ADDONS_VALIDATION §2.3, MD's `recipe_overlap.py --addon ../corndelight-horizon`): 1709 recipes,
+  39 CD, **0 add-on conflicts**; 2 CD recipes skipped by the tool (taco and cornbread batter use
+  `neoforge:compound`, which the tool does not read; both crafted in game above).
+- incidents (test world only): the test player walked onto a lit campfire placed for the campfire test (`goto`
+  stopped on it) and burned to death; the drops were collected back after respawning. Later, on Easy at night, an
+  explosion (most likely a creeper) took 10 HP and cratered the pad; 66 hostile mobs killed, pad refilled.
+  Difficulty back to Peaceful.
+- deltas: none new.
+- next: CD-11 (nachos and popcorn feasts).
