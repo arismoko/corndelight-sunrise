@@ -1,4 +1,4 @@
-Corn Delight (Horizon port)
+Corn Delight (Sunrise port)
 ===========================
 
 This port's own files (Rust code, tools, declarations, documentation) are MIT licensed (see LICENSE).
@@ -18,7 +18,7 @@ re-implemented here from observed behaviour; none of its code or assets is copie
 
 Farmer's Delight
 ----------------
-This add-on needs the Farmer's Delight Horizon port (ported_farmersdelight), which
+This add-on needs the Farmer's Delight Sunrise port (ported_farmersdelight), which
 carries Farmer's Delight Refabricated under MIT (see that mod's NOTICE), and calls
 its public Rust API.
 
