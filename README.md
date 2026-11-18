@@ -8,13 +8,13 @@ Version `1.1.8-sunrise.1`, for the Farmer's Delight Sunrise port `3.6.30-sunrise
 `2d8126336e579777eabf9b2fd8b3d476236a04f2`. (`1.1.8-horizon.1`, tag `v1.1.8-horizon.1`, was the Horizon `afe471cf`
 build.)
 
-**Download:** [Releases](https://github.com/play-go/corndelight-horizon/releases) (`ported_corn_delight-<version>.smod` with its SHA-256). Needs the
-[Farmer's Delight Sunrise port](https://github.com/play-go/farmersdelight-horizon); works alongside [More Delight](https://github.com/play-go/moredelight-horizon).
+**Download:** [Releases](https://github.com/play-go/corndelight-sunrise/releases) (`ported_corn_delight-<version>.smod` with its SHA-256). Needs the
+[Farmer's Delight Sunrise port](https://github.com/play-go/farmersdelight-sunrise); works alongside [More Delight](https://github.com/play-go/moredelight-sunrise).
 
 ## Install
 
 Unpack `ported_corn_delight-<version>.smod` (or put this repository's source) next to the
-[Farmer's Delight port](https://github.com/play-go/farmersdelight-horizon) (`3.6.30-sunrise.1`) in the same mods folder and build both with
+[Farmer's Delight port](https://github.com/play-go/farmersdelight-sunrise) (`3.6.30-sunrise.1`) in the same mods folder and build both with
 `sunrise-launcher native-build <mods folder> --instance <instance> --trust-native-code`; the launcher builds both together (Corn Delight's code calls the base's
 public `api` module: crops, feasts, wild crops, config). It refuses to build Corn Delight without the base, or with
 another base version. A dedicated server needs both in its native build too.
@@ -66,7 +66,7 @@ several locales are incomplete, and de_de names every key under an old namespace
 ## Building from source
 
 The base mod is not in `Cargo.toml` (the launcher adds it). Local checks use a checkout of the
-[base](https://github.com/play-go/farmersdelight-horizon) beside this repository:
+[base](https://github.com/play-go/farmersdelight-sunrise) beside this repository:
 
 ```sh
 python3 tools/cargo_dev.py test
