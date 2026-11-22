@@ -681,3 +681,13 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   export). The base's own `check` passes (rustup `wasm32-unknown-unknown` target added for it).
 - deltas: none new. Engine gap E-44 new.
 - next: none in the retarget scope.
+
+## RT-09 (part) CD on Sunrise Nightly 9425651: compile — IN PROGRESS — 2026-11-22
+- build pin: sunrise@94256510f74e6843754e0a93fd9e4da7e45b1056 | branch `nightly` | base: `farmersdelight-horizon`
+  branch `nightly` 7826798 (RT-05).
+- code: `can_survive` takes `LevelSide` (`src/crop.rs`), the only compile error (`fits` listed 5 items; the other 4 are
+  types CD only passes through).
+- checks: `tools/cargo_dev.py` clippy `-D warnings` clean, test 18 passed.
+- not done: carry re-pin to the base's new HEAD (`carry_rules_cd.toml.in [base] sha`), dependency bump to
+  `=3.6.30-sunrise.2` (RT-11), in-game rows, package (blocked by E-45, see REG-02).
+- next: RT-07 rig, then CD in-game rows with RT-08.

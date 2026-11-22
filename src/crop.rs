@@ -264,7 +264,8 @@ impl BlockPart for CornCrop {
     }
 
     /// Upper halves need the lower corn half; lower halves keep the template's crop rule.
-    fn can_survive(&self, level: &dyn LevelHost, event: &mut CanSurviveEvent) -> Option<bool> {
+    fn can_survive(&self, level: LevelSide<'_>, event: &mut CanSurviveEvent) -> Option<bool> {
+        let (LevelSide::Server(level) | LevelSide::Client(level)) = level;
         let pos = [event.pos.x, event.pos.y, event.pos.z];
         let below = half_at(level, up(pos, -1))?;
         Some(upper_survives(
