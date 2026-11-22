@@ -691,3 +691,25 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - not done: carry re-pin to the base's new HEAD (`carry_rules_cd.toml.in [base] sha`), dependency bump to
   `=3.6.30-sunrise.2` (RT-11), in-game rows, package (blocked by E-45, see REG-02).
 - next: RT-07 rig, then CD in-game rows with RT-08.
+
+## RT-09 CD on Sunrise Nightly 9425651 — PASS (LAN: NOT RUN) — 2026-11-22
+- build pin: sunrise@94256510f74e6843754e0a93fd9e4da7e45b1056 | branch `nightly` | base commit: 995877f (`nightly`,
+  RT-08) | mod commit: (this commit). Compile part: RT-09 (part) above.
+- carry re-pinned to the base's 995877f: 267 carried files byte-identical, only the manifest's pin changed;
+  `carry --check` 267, decl 28, 3 tools/test_*.py, cargo_dev test 18.
+- in game (Nightly rig, `SRTest`, `../run/shots/RT-09/`):
+  - corn (`can_survive` now takes `LevelSide`): corn seeds by the player only on farmland (refused on dirt and
+    stone); at random_tick_speed 300 → age 6 with the upper half (set back to 3); removing the lower half takes the
+    upper; farmland turned to stone drops both halves.
+  - V3: nachos with an empty hand → "You need a Bowl to eat this." (servings 3 kept); with a bowl → nachos bowl,
+    servings 3 → 2; popcorn box by hand → caramel popcorn, servings 2 → 1 (= RT-04).
+  - V4 / V10 (RT-08's dedicated server, Alice + Bob): handshake with the 3 mods; Bob's FD pot cooks CD corn soup
+    (milk bucket's bucket ejected); MD stone knife cuts CD corn → 2 seeds + 1 corncob. LAN not run (offline session).
+  - V5: launcher 1.1.4 `native-build` of CD alone → "ported_corn_delight requires missing mod ported_farmersdelight".
+    V6: CD pinned `=3.6.30-sunrise.0` with the base → "requires ported_farmersdelight =3.6.30-sunrise.0, but installed
+    version is 3.6.30-sunrise.1"; the profile's build unchanged.
+  - V9: restart: nachos 2, popcorn 1, corn age 2 and the new rows, inventory identical (`restart-*.txt`); 0 ERROR.
+  - V7/V8/V11/V12 carried (no CD content change since CD-18).
+- not done here: dependency bump and package (RT-11; the package is blocked by E-45, sunrise-org/sunrise#4323).
+- deltas: none new.
+- next: RT-10 E-gap audit (base PROGRESS), then RT-11.
