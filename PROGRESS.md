@@ -681,3 +681,18 @@ base (`ported_farmersdelight`) commit and version it was validated with.
   export). The base's own `check` passes (rustup `wasm32-unknown-unknown` target added for it).
 - deltas: none new. Engine gap E-44 new.
 - next: none in the retarget scope.
+
+## REG-02 Registry PR #5 updated after the base listing — PASS (repack: ENVIRONMENT-BLOCKED) — 2026-11-22
+- base: `ported_farmersdelight 3.6.30-sunrise.1` listed on sunrise-mods `main` (PR #4 merged 2026-11-22, repacked
+  file `1c5c0d01…`) | CD commit 3ecabda (unchanged; package `02ed700e…` unchanged).
+- registry: branch `add-ported-corn-delight` updated from upstream `main` (aea7e12, pushed); local
+  `registry check` with the Nightly tool reports nothing for this entry (the 77 errors are other mods' files not
+  downloaded locally). MD's #6 updated the same way (77229bb). Comments on #5/#6.
+- repack (the maintainers' 2026-11-20 request): **ENVIRONMENT-BLOCKED, E-45 (new)**. `cargo sunrise-mod build` of
+  Nightly 9425651 refuses an add-on: "code link requirements refused: ported_corn_delight requires missing mod
+  ported_farmersdelight". Its build plan's mod folder is the project alone (`cargo-sunrise-mod/src/dev.rs`, `mods:
+  project`; `sunrise-native-build` `scan_bundles`), so a dependency mod cannot be supplied. The `2d81263` tool built
+  CD in RT-04. Not fixed on Sunrise main (last `dev.rs` change 2026-11-21), no upstream issue. Workaround: none for the
+  package. The `.1` file keeps its schema-1 uses list. **This also blocks CD's Nightly release (RT-11)** until fixed;
+  filing it upstream needs the user's OK.
+- next: back to RT-09 on branch `nightly` (stash "RT-09 wip").
