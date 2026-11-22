@@ -713,3 +713,11 @@ base (`ported_farmersdelight`) commit and version it was validated with.
 - not done here: dependency bump and package (RT-11; the package is blocked by E-45, sunrise-org/sunrise#4323).
 - deltas: none new.
 - next: RT-10 E-gap audit (base PROGRESS), then RT-11.
+
+## RT-11 (prep) CD 1.1.8-sunrise.2 for FD 3.6.30-sunrise.2 — IN PROGRESS (package ENVIRONMENT-BLOCKED: E-45) — 2026-11-22
+- base: tag `v3.6.30-sunrise.2` (c1a1e58) | branch `nightly` | mod commit: (this commit). Not released.
+- done: version `1.1.8-sunrise.2`, exact dependency `=3.6.30-sunrise.2`; carry re-pinned to c1a1e58 (267 files
+  byte-identical); cargo_dev test 18. In-game rows: RT-09 (same code and content).
+- blocked: `cargo sunrise-mod build` cannot pack an add-on (E-45, sunrise-org/sunrise#4323).
+- left for the release: README version lines, package, tag `v1.1.8-sunrise.2`, GitHub release, registry (#5).
+- next: when #4323 is fixed (or a tool from main has the fix): finish the above.
